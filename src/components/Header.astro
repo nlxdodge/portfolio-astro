@@ -1,0 +1,109 @@
+---
+import { Icon } from "astro-icon";
+import "../styles/globals.scss";
+---
+
+<header>
+  <nav>
+    <a class="icon" href="/" aria-label="Home">
+      <Icon name="ph:code-bold" aria-hidden="true" aria-label="code-icon" />
+    </a>
+    <a href="/works">works</a>
+    <a href="/posts">posts</a>
+    <div id="toggle-colors" class="icon toggle-colors">
+      <Icon
+        id="toggle-icon-dark"
+        name="eva:moon-fill"
+        aria-hidden="true"
+        aria-label="light-dark-switch"
+      />
+      <Icon
+        id="toggle-icon-light"
+        name="eva:sun-fill"
+        aria-hidden="true"
+        aria-label="light-dark-switch"
+      />
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  setTheme(localStorage.getItem("theme"));
+
+  const button = document.getElementById("toggle-colors");
+  button.addEventListener("click", () => {
+    toggle();
+  });
+
+  function toggle() {
+    if (localStorage.getItem("theme") === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }
+
+  function setTheme(theme) {
+    if (theme == "light") {
+      localStorage.setItem("theme", "light");
+      document.body.classList.add("light");
+      document.getElementById("toggle-icon-light").style.display = "block";
+      document.getElementById("toggle-icon-dark").style.display = "none";
+    } else {
+      localStorage.setItem("theme", "dark");
+      document.body.classList.remove("light");
+      document.getElementById("toggle-icon-light").style.display = "none";
+      document.getElementById("toggle-icon-dark").style.display = "block";
+    }
+  }
+</script>
+
+<style lang="scss">
+  @import "../styles/globals.scss";
+  header {
+    nav {
+      margin: 0 auto 25px auto;
+      max-width: 720px;
+      display: flex;
+      justify-content: space-evenly;
+
+      @include media(">tablet") {
+        margin-bottom: 75px;
+      }
+
+      [astro-icon] {
+        width: 50px;
+        vertical-align: bottom;
+      }
+
+      a,
+      div {
+        color: $template-color-opposing;
+        padding: 6px 9px;
+        font-size: 2rem;
+        font-family: $template-header-font;
+        text-decoration: none;
+        border-bottom: 5px solid transparent;
+        transition: all 0.2s ease-in-out;
+
+        @include media(">=tablet") {
+          padding: 6px 12px;
+          font-size: 2.5rem;
+        }
+
+        &.selected {
+          border-bottom: 5px solid $template-color-opposing;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: $template-color-accent;
+        }
+
+        &:hover {
+          border-bottom: 5px solid $template-color-accent;
+        }
+      }
+    }
+  }
+</style>

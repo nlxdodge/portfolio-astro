@@ -1,0 +1,51 @@
+---
+title: Advent of Code 2020
+author: Gerben Veenhof
+description: Each year there is the Advent of Code In which you can compete to be the fastest programmer of the north pole 🎅🎄🛷.
+keywords: [ AOC, advent, Python ]
+date: 2021-01-08
+---
+
+Each year there is the [Advent of Code](https://adventofcode.com/). In which you can compete to be the fastest programmer of the north pole 🎅🎄🛷.
+
+The goal I have set for myself is to choose a language each year, depending on my current experiences. And to make everything in that chosen language. In 2019 I choose Ruby, as I used that on my first internship. But this year In 2020 I choose Python, as that was the primary language I was using for the minor that I was doing with my current study. In conjunction of AWS Lambda usage.
+
+But I also have to complete last years challenges, after I have done the current year. As for the current year, I already got 2 stars for the first six days. Al while using python and learning some things on the way that I didn't know yet. Purely because I haven't used them before.
+
+As for classes I thought that making a variable above the constructor, that it would be a variable per instance.
+
+```python
+class Wheel:
+    spokes = 6
+```
+
+But it's actually a public variable now for all instances. So to make it per instance, like I was used to, you would have to use the following.
+
+```python
+class Wheel:
+    def __init__(self):
+        self.spokes = 6
+
+    def __str__(self):
+        print(f"This wheel has {self.spokes} spokes")
+```
+
+But the learning doesn't stop there. While I used python for the first time as an intern. I never wrote any tests for the code that I made.
+
+And we had to test our code so that [SonarQube](https://www.sonarqube.org/) could scan our tests results and see what the code coverage was.
+So we quickly picked up PyTest to write some tests. But it wasn't to easy. We had to Mock all the services that we were going to use with our code.
+
+So being used in conjunction with AWS, we used DynamoDB to save the data we received through the API which we also had to test.
+
+Another teammate in our group found out about Moto3 (The testing framework that amazon wrote for doing this specific task). And we saw that it used decorators. Wait decorators in Python? I never new that was thing until that day.
+
+For our last assignment of our minor we always had to have a test coverage of more than 80 percent.
+So I'm still not done with learning the small details of Python. Or for that fact any language. But we will get there eventually.
+
+Next on our target list is Java for my last project for school.
+
+::content-flex-center
+    ::content-button{href="https://github.com/nlxdodge/Advent-Of-Code" icon="fab fa-github"}
+    Advent of Code Repository
+    ::
+::

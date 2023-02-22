@@ -1,0 +1,12 @@
+@mixin bow-shadow($param) {
+    -webkit-box-shadow: $param;
+    -moz-box-shadow: $param;
+    box-shadow: $param;
+}
+
+@mixin transition($param: 'all 0.3s ease-in-out') {
+    -webkit-transition: $param;
+    -moz-transition: $param;
+    -o-transition: $param;
+    transition: $param;
+}

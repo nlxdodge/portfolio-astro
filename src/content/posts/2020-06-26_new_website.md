@@ -1,0 +1,17 @@
+---
+title: New website
+author: Gerben Veenhof
+description: This website was way quicker to build then expected, I used Jigsaw to quickly template up a website and do some more styling to make a nice looking piece.
+keywords: [ Jigsaw, portfolio ]
+date: 2020-06-26
+---
+This website was way quicker to build then expected, I used [Jigsaw](https://jigsaw.tighten.co/) to quickly template up a website and do some more styling to make a nice looking piece. And it doesn't use a database, but rather markdown files for the contents of the works and posts.
+
+Which is great for my use case, and I wish that I had done this way sooner. I always got some sort of mental breakdown as I started to work more on my old CMS. Just because I decided to implement everything myself and reworking the whole wheel again. Which was all cool and good at the beginning when I had too much time to spend. But even when writing this now I feel like I used too much time on this website too.
+
+I also had to learn composer which is based on PHP. As I first though that well. Might as well try out something different then Vue JS. And the documentation is good enough for everyone to start working on a small static website.
+
+The problem I ran in to however, was that I coundn't make a form to contact me. Nor do I want to post my official e-mail address for everyone to spam to.
+So for the time being you can contact me through [Twitter](https://twitter.com/gerbenveenhof) or [Reddit](https://reddit.com/user/nlxdodge).
+
+But looking back at the overal style and all, for a back-end developer, it looks quite nice.

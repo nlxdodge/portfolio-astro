@@ -1,0 +1,141 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: $template-color;
+  color: $template-color-opposing;
+  font: normal 1.2rem $template-default-font;
+}
+
+a {
+  color: $template-color-accent;
+
+  &:hover {
+    filter: brightness(0.85);
+  }
+}
+
+noscript {
+  text-align: center;
+  display: block;
+  margin-bottom: 25px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $template-header-font;
+
+  a {
+    text-decoration: none;
+    color: $template-color-opposing;
+
+    &::before {
+      font-family: "Font Awesome 6 Free";
+      font-size: 1rem;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    &:hover::before {
+      text-decoration: none;
+      content: '\f0c1';
+    }
+  }
+}
+
+main {
+  padding: 0 24px;
+  max-width: 1024px;
+  min-height: calc(100vh - 380px);
+  margin: 0 auto;
+
+  @include media(">desktop") {
+    padding: 0;
+  }
+}
+
+.center-text {
+  text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+}
+
+.pagination {
+  text-align: center;
+  font-size: 1.5em;
+  font-family: $template-header-font;
+
+  a {
+    margin: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+
+    &:hover {
+      transform: scale(1.3, 1.3);
+    }
+  }
+}
+
+.notification-strip {
+  background-color: $template-color-accent;
+  color: $template-color;
+  padding: 15px;
+  text-align: center;
+  border-radius: 0.3em;
+}
+
+pre {
+  background-color: $template-color-code-block;
+  padding: 20px;
+  border-radius: 5px;
+  overflow-x: scroll;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: column;
+
+  @include media(">tablet") {
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+  }
+}
+
+.accent {
+  color: $template-color-accent;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include media(">tablet") {
+    flex-direction: row;
+  }
+}

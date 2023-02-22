@@ -1,0 +1,26 @@
+---
+title: An actual usefull Docker Alternative
+author: Gerben Veenhof
+description: Using something else then Docker, is there even something else just as good? I get the question a lot on my work.
+keywords: [ Docker, Podman, Buildah ]
+date: 2022-09-07
+draft: true
+---
+
+Using something else then Docker, is there even something else just as good? I get the question a lot on my work. Because lots of developers are acustomed to having the Docker GUI instead of using the CLI interface.
+When you don't use the GUI and you need to upgrade to a version prior to version `3.6.0`? That means you have to pay for a fee if your company is to big. Most of the time that should not be an issue, and the company will pay.
+
+But what if you only used the GUI for some simple turning on/off and creating some basic images and checking their logs/state? Then Docker GUI has a lot of functionality that you aren't even using. So I started looking for some alternatives some time ago, but never bothered to try it out.
+
+So on that topic, have you ever heard of Podman and Buildah? Well I did not before I started searching. So for now I started to look into how it all works under the hood and while looking for GUI tools I found a new project that just started a couple months ago. [Podman Desktop](https://podman-desktop.io/) is a GUI for podman that does a lot of things for you, just need to run simple containers? Podman Desktop has you covered.
+
+But it is missing some things that I use all the time, even at work. That feature is composing containers (normally with docker-compose, but that is according to a spec [Compose Specification](https://github.com/compose-spec/compose-spec/blob/master/spec.md)).
+
+For now people wrote a Python library called [Podman Compose](https://github.com/containers/podman-compose) to do this, but the official implementation is still in the backlog for Podman Desktop. So don't expect it anytime soon.
+
+For now I run the build every time again with:
+
+```bash
+podman build -t "name" .
+podman run -p 3000:3000 name
+```

@@ -10,6 +10,18 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.0.14"
+		"@astrojs/image": "^0.15.0",
+		"@astrojs/mdx": "^0.17.0",
+		"@astrojs/prism": "^2.0.0",
+		"@astrojs/sitemap": "^1.0.1",
+		"@glidejs/glide": "^3.6.0",
+		"astro": "^2.0.14",
+		"astro-compress": "^1.1.33",
+		"astro-icon": "^0.8.0",
+		"astro-robots-txt": "^0.4.0",
+		"include-media": "^2.0.0"
+	},
+	"devDependencies": {
+		"sass": "^1.58.3"
 	}
 }

@@ -1,0 +1,137 @@
+---
+const currentYear = new Date().getFullYear();
+
+import { Icon } from "astro-icon";
+import "../styles/globals.scss";
+---
+
+<footer>
+  <div class="center-text">
+    <p class="header">You can find me on these platforms:</p>
+    <div class="social-media">
+      <a href="https://github.com/nlxdodge" target="_blank" aria-label="Github">
+        <Icon
+          name="ant-design:github-filled"
+          aria-hidden="true"
+          aria-label="github"
+        />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/gerbenveenhof/"
+        target="_blank"
+        aria-label="Linkedin"
+      >
+        <Icon
+          name="simple-icons:linkedin"
+          aria-hidden="true"
+          aria-label="linkedin"
+        />
+      </a>
+      <a
+        href="https://twitter.com/gerbenveenhof"
+        target="_blank"
+        aria-label="Twitter"
+      >
+        <Icon name="mdi:twitter" aria-hidden="true" aria-label="twitter" />
+      </a>
+    </div>
+    <div class="flex-box">
+      <div>
+        <Icon
+          name="ri:copyright-fill"
+          aria-hidden="true"
+          aria-label="copyright"
+        />
+        Gerben Veenhof
+      </div>
+      <div>
+        <Icon
+          name="mdi:slash-forward"
+          aria-hidden="true"
+          aria-label="slash-forward"
+        />
+        <span class="split-span">{currentYear}</span>
+        <Icon
+          pack="mdi"
+          name="slash-forward"
+          aria-hidden="true"
+          aria-label="slash-forward"
+        />
+      </div>
+      <div>
+        Made with <Icon pack="mdi" name="heart" /> in
+        <a class="astro-link" href="https://astro.build/" target="_blank"
+          >Astro</a
+        >
+      </div>
+    </div>
+    <div id="wcb" class="carbonbadge wcb-d"></div>
+  </div>
+</footer>
+<style lang="scss">
+  @import "../styles/globals.scss";
+  footer {
+    margin-top: 50px;
+
+    .header {
+      font-size: 20px;
+    }
+
+    .astro-link {
+      font-family: $template-header-font;
+      svg {
+        font-size: 1.5rem;
+        vertical-align: middle;
+      }
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+
+      a {
+        [astro-icon] {
+          width: 50px;
+          color: $template-color-accent;
+          fill: $template-color-accent;
+        }
+
+        margin: 0 20px;
+        transition: all 0.2s ease-in-out;
+
+        @include media(">tablet") {
+          padding: 20px;
+        }
+
+        &:hover {
+          transform: scale(1.15, 1.15);
+          filter: brightness(0.85);
+        }
+      }
+    }
+
+    .flex-box {
+      margin-top: 15px;
+
+      .split-span {
+        margin: 0 25px;
+      }
+
+      div {
+        padding: 5px 0;
+      }
+
+      [astro-icon] {
+        width: 25px;
+        vertical-align: bottom;
+        color: $template-color-accent;
+        fill: $template-color-accent;
+      }
+    }
+
+    .carbonbadge {
+      margin-bottom: 25px;
+    }
+  }
+</style>

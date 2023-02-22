@@ -1,0 +1,21 @@
+---
+title: Working at a big company
+author: Gerben Veenhof
+description: This year I am going to complete my study by finishing it with my thesis. Which I am very thrilled about, because I could choose the subject myself this time.
+keywords: [ thesis, company, graduation ]
+date: 2021-02-15
+---
+
+This year I am going to complete my study by finishing it with my thesis. Which I am very thrilled about, because I could choose the subject myself this time.
+But another big step for me was the ability to work for a big company this time. That company has a parent company, which is all over the world and the company itself in the Netherlands has more then 2000 employees.
+
+I took the time in the first month while I was doing my minor in Cloud Engineering in AWS and started looking early for a place to finish my study.
+As amazed as I was, the first company that I contacted took me in (The year before I had to go to a lot of different companies because 3th year students most of the time don't come back).
+
+So this started a new learning experiences for me. Specifically how big corporations actually manage their employees and how it feels to work in one.
+For example, we did receive a laptop to use at our first internship. But it was very slow, had a regular HDD on it with only 4GB of ram. And O boy that took some time to get started on. They used Ubuntu there which made it more bearable, because Windows 10 wasn’t going to work on that machine for sure. So after that I quickly switched to my own laptop (Which by the way was already 5 years old at the time, but still way faster).
+
+So the first improvements already started here, the laptop was better and we even got more accessories with it (a mouse, a keyboard and even a laptop stand).
+But even in times of Corona I could fully understand that working at home should be a treat too as most companies frowned upon working at home before. But now even my old company that I worked at is hiring more people to working from home, because the demand for websites and APIs is in an all time high.
+
+And of course because Corona is still going around. I am still sitting at home for this last semester of school. And yes even my last internship with thesis will mostly be written from home. This is going to be the ultimate challenge for me.

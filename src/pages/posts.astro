@@ -1,0 +1,75 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import "../styles/globals.scss";
+
+const posts = await getCollection("posts");
+---
+
+<Layout title="Posts | Gerben Veenhof">
+  <div class="posts">
+    {
+      posts.map((post) => (
+        <hr />
+        <a class="post" href={`/posts/${post.slug}`}>
+            <h2>{ post.data.title }</h2>
+        </a>
+        <p>{ post.data.description }</p>
+      ))
+    }
+  </div>
+</Layout>
+
+<style lang="scss">
+  @import "../styles/globals.scss";
+  .works {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    .work {
+      text-decoration: none;
+      flex: 1 1 calc(100% - 60px);
+      margin: 30px 15px;
+      transition: all 0.2s ease-in-out;
+
+      @include media(">tablet") {
+        flex: 0 0 calc(50% - 60px);
+      }
+
+      img {
+        border-radius: 10px;
+        width: 100%;
+        height: 245px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover > picture > img {
+        border: 2px solid $template-color-accent;
+      }
+
+      &:hover > .work-title {
+        color: $template-color-accent;
+        text-decoration: underline;
+      }
+
+      .work-title {
+        text-align: center;
+        font-size: 1.75rem;
+        font-family: $template-header-font;
+        color: $template-color-opposing;
+
+        .sub {
+          font-size: 1rem;
+          font-family: $template-default-font;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05, 1.05);
+      }
+    }
+  }
+</style>

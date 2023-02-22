@@ -1,35 +1,48 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+import "../styles/globals.scss";
+
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+  <script is:inline>
+    function randomFromArray(inputArray) {
+      return inputArray[Math.floor(Math.random() * inputArray.length)];
+    }
+
+    function getRandomColor() {
+      return randomFromArray([
+        "var(--color-orange)",
+        "var(--color-purple)",
+        "var(--color-cyan)",
+      ]);
+    }
+
+    function setRootStyleVariable(variable, contents) {
+      const rootDocument = document.querySelector(":root");
+      rootDocument.style.setProperty(variable, contents);
+    }
+
+    setRootStyleVariable("--template-color-accent", getRandomColor());
+    setRootStyleVariable("--template-color-accent-opposing", getRandomColor());
+  </script>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

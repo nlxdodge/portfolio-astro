@@ -1,0 +1,28 @@
+html {
+    --template-color: #202020;
+    --template-color-opposing: #ffffff;
+    --template-color-accent: #f79f1f;
+    --template-color-code-block: #333333;
+
+    --color-orange: #E98D0C;
+    --color-purple: #981f82;
+    --color-cyan: #009d9c;
+
+    .light {
+        --template-color: #f5f5f5;
+        --template-color-opposing: #202020;
+        --template-color-code-block: #e6e6e6;
+    }
+}
+
+
+
+$template-color: var(--template-color);
+$template-color-opposing: var(--template-color-opposing);
+$template-color-accent: var(--template-color-accent);
+$template-color-accent-rgb: var(--template-color-accent-rgb);
+$template-color-accent-opposing: var(--template-color-accent-opposing);
+$template-color-code-block: var(--template-color-code-block);
+
+$template-default-font: 'GeneralSans-Regular', Verdana, Arial, sans-serif;
+$template-header-font: 'GeneralSans-Bold', Arial, Helvetica, sans-serif;
