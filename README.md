@@ -1,42 +1,15 @@
-# Astro Starter Kit: Basics
+# 🚀 Astro Portfolio
 
-```
-npm create astro@latest -- --template basics
-```
+Because Nuxt 3 is still not feature complete with, for example, the markdown, image plugin and static hosting. I decided to re-do my portfolio. But this time in the new Astro framework to dive deep and to see how quickly I can get up to speed. And needless to say, in a couple hours I am almost completly done.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+## ☄ Todo
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Fix Posts slug page
+- Fix Works slug page
+- Fix all javascript
+- Fix build pipeline
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## 👨🏻‍💻 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -51,4 +24,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Check out [our documentation](https://docs.astro.build) or join the [Discord server](https://astro.build/chat).
