@@ -4,7 +4,6 @@ author: Gerben Veenhof
 description: Using something else then Docker, is there even something else just as good? I get the question a lot on my work.
 keywords: [ Docker, Podman, Buildah ]
 date: 2022-09-07
-draft: true
 ---
 
 Using something else then Docker, is there even something else just as good? I get the question a lot on my work. Because lots of developers are acustomed to having the Docker GUI instead of using the CLI interface.

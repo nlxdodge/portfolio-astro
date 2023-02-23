@@ -3,13 +3,16 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import "../styles/globals.scss";
 
-const posts = await getCollection("posts");
+const posts = await getCollection("posts", ({ data }) => {
+  return data.draft !== true;
+});
+const sortedPosts = posts.sort((o) => Number.MIN_SAFE_INTEGER + o.data.date.getDate())
 ---
 
 <Layout title="Posts | Gerben Veenhof">
   <div class="posts">
     {
-      posts.map((post) => (
+      sortedPosts.map((post) => (
         <hr />
         <a class="post" href={`/posts/${post.slug}`}>
             <h2>{ post.data.title }</h2>

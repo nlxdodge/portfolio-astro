@@ -1,4 +1,5 @@
 ---
+order: 4
 title: C.A.T.E Discord Bot
 author: Gerben Veenhof
 date: 2020-11-26

@@ -1,10 +1,9 @@
 ---
-title: Nuxt 3 incomming 🚀
+title: Astro to the rescue 🆘
 author: Gerben Veenhof
 description: As you might have seen, I have some Vue.js experience, and I am also good on the way on learning the composition API in Vue version 3.0.
-keywords: [ Vue, Vue3 Nuxt, Nuxt3, portfolio, composition ]
-date: 2023-01-06
-draft: true
+keywords: [ Astro, JavaScript, MDX ]
+date: 2023-02-23
 ---
 
 As you might have seen, I have some Vue.js experience, and I am also good on the way on learning the composition API in Vue version 3.0. Now, one of my friends mentioned what Nuxt was. It's a framework to easily write smaller applications in, while also being able to do lots more.
