@@ -1,4 +1,5 @@
 ---
+import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -11,6 +12,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-
-<h1>{entry.data.title}</h1>
-<Content />
+<Layout title='${entry.data.title}'>
+  <h1>{entry.data.title}</h1>
+  <Content />
+</Layout>
