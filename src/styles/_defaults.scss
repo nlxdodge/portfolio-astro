@@ -129,13 +129,3 @@ pre {
 .italic {
   font-style: italic;
 }
-
-.flex-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  @include media(">tablet") {
-    flex-direction: row;
-  }
-}
