@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon";
+import "../styles/globals.scss";
+
+export interface Props {
+  href: string;
+  icon: string;
+  flipIcon: boolean;
+}
+
+const { href = "#", icon = "DEFAULT:ICON", flipIcon = false } = Astro.props;
+---
+
+<a class="button" href={href}>
+  {
+    icon && !flipIcon && (
+      <Icon name={icon} aria-hidden="true" aria-label="copyright" />
+    )
+  }
+  <p>
+    <slot />
+  </p>
+  {
+    icon && flipIcon && (
+      <Icon name={icon} aria-hidden="true" aria-label="icon" />
+    )
+  }
+</a>
+
+<style lang="scss">
+  @import "../styles/globals.scss";
+  .button {
+    display: inline-block;
+    background-color: $template-color-accent;
+    font-family: $template-header-font;
+    color: $template-color;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    border-radius: 7px;
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 10px;
+    text-align: center;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    svg {
+      font-size: 1.2em;
+      vertical-align: text-bottom;
+    }
+
+    p {
+      margin: 0 10px;
+      display: inline;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $template-color;
+      filter: brightness(0.85);
+    }
+
+    @include media(">=tablet") {
+      display: inline-flexbox;
+      padding: 12px 24px;
+      width: auto;
+
+      margin-right: 25px;
+    }
+  }
+</style>
