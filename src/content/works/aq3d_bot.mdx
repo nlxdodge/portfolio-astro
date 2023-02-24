@@ -5,9 +5,11 @@ author: Gerben Veenhof
 date: 2020-11-26
 image: aq3d_bot
 description: A Discord bot once made to get the server status and other information. Superseeded by a new bot of the Discord owner.
-keywords: [ Discord, bot, Java ]
+keywords: [Discord, bot, Java]
 category: Java
 ---
+
+import Button from "../../components/Button.astro";
 
 ![Discord Bot](/assets/images/works/aq3d_bot.webp)
 
@@ -33,8 +35,6 @@ client.getEventDispatcher().on(MessageCreateEvent.class).map(MessageCreateEvent:
 
 For the current state of the project, check out Github with the Link button.
 
-::content-flex-center
-    ::content-button{href="https://github.com/nlxdodge/C.A.T.E" icon="fab fa-github"}
-    C.A.T.E Repository
-    ::
-::
+<Button icon="fab fa-github" href="https://github.com/nlxdodge/C.A.T.E">
+  C.A.T.E Repository
+</Button>
