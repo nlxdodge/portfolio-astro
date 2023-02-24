@@ -49,12 +49,7 @@ h6 {
   }
 }
 
-main {
-  padding: 0;
-  max-width: 1024px;
-  min-height: calc(100vh - 380px);
-  margin: 0 auto;
-}
+
 
 .center-text {
   text-align: center;
@@ -100,12 +95,12 @@ main {
   border-radius: 0.3em;
 }
 
-pre {
-  background-color: $template-color-code-block;
-  padding: 20px;
-  border-radius: 5px;
-  overflow-x: scroll;
-}
+// pre {
+//   background-color: $template-color-code-block;
+//   padding: 20px;
+//   border-radius: 5px;
+//   overflow-x: scroll;
+// }
 
 .flex-box {
   display: flex;
