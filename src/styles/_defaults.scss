@@ -50,14 +50,10 @@ h6 {
 }
 
 main {
-  padding: 0 24px;
+  padding: 0;
   max-width: 1024px;
   min-height: calc(100vh - 380px);
   margin: 0 auto;
-
-  @include media(">desktop") {
-    padding: 0;
-  }
 }
 
 .center-text {
