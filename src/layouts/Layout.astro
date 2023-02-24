@@ -20,9 +20,11 @@ import Header from "../components/Header.astro";
     <title>{title}</title>
   </head>
   <body>
-    <Header />
-    <slot />
-    <Footer />
+    <main>
+      <Header />
+      <slot />
+      <Footer />
+    </main>
   </body>
   <script is:inline>
     function randomFromArray(inputArray) {
