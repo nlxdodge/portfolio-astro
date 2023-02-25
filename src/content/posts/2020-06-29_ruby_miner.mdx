@@ -5,6 +5,9 @@ description: In my current year I was learning Ruby as part of my internship. In
 keywords: [ Ruby, internship ]
 date: 2020-06-29
 ---
+import Button from "../../components/Button.astro"
+import FlexCenter from "../../components/FlexCenter.astro"
+
 
 In my current year I was learning Ruby as part of my internship. In the beginning I stuggled a lot to understand the dynamic language as is.
 
@@ -18,12 +21,7 @@ As a test to see if I could actually use Ruby well, I started the 2019 [Advent o
 
 While I still am not currently done with 2019, in my spare time I try to finish it before the next one comes out.
 
-::content-flex-center
-    ::content-button{href="https://github.com/nlxdodge/Advent-Of-Code" icon="fab fa-github"}
-    Advent of Code Repository
-    ::
-
-    ::content-button{href="https://www.ruby-lang.org/en/" icon="fas fa-gem"}
-    Ruby Documentation
-    ::
-::
+<FlexCenter>
+    <Button href="https://github.com/nlxdodge/Advent-Of-Code" icon="mdi:github">Advent of Code Repository</Button>
+    <Button href="https://www.ruby-lang.org/en/" icon="fontisto:ruby">Ruby Documentation</Button>
+</FlexCenter>

@@ -10,8 +10,9 @@ category: Java
 ---
 
 import Button from "../../components/Button.astro";
+import FlexCenter from "../../components/FlexCenter.astro";
 
-![Discord Bot](/assets/images/works/aq3d_bot.webp)
+<FlexCenter>![Discord Bot](/src/assets/images/works/aq3d_bot.png)</FlexCenter>
 
 [AQ3D](https://aq3d.com/) is the latest game from [Artix Entertainment](https://www.artix.com/).
 I was playing the game and also switching between a lot of different servers for some area's in the game. But not knowing which server had the most people, the Discord bot came in for the rescue.
@@ -35,6 +36,8 @@ client.getEventDispatcher().on(MessageCreateEvent.class).map(MessageCreateEvent:
 
 For the current state of the project, check out Github with the Link button.
 
-<Button icon="fab fa-github" href="https://github.com/nlxdodge/C.A.T.E">
-  C.A.T.E Repository
-</Button>
+<FlexCenter>
+  <Button href="https://github.com/nlxdodge/C.A.T.E" icon="mdi:github">
+    C.A.T.E Repository
+  </Button>
+</FlexCenter>
