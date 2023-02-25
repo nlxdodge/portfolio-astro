@@ -1,4 +1,5 @@
 ---
+import Button from "../components/Button.astro";
 import Layout from "../layouts/Layout.astro";
 
 function randomFromArray(inputArray) {
@@ -28,9 +29,9 @@ var errorText = randomFromArray(quotes);
     <p>But have a quote instead:</p>
     <p class="error-quote italic">{errorText}</p>
     <div class="center-text margin-top-50">
-      <!-- <Button href="/" icon="fas fa-chevron-circle-left">
+      <Button href="/" icon="mdi:arrow-back-circle" preFetch={true}>
         Homepage
-      </Button> -->
+      </Button>
     </div>
   </div>
 </Layout>
