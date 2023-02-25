@@ -5,7 +5,7 @@ import "../styles/globals.scss";
 export interface Props {
   href: string;
   icon: string;
-  flipIcon: boolean;
+  flipIcon?: boolean;
 }
 
 const { href = "#", icon = "DEFAULT:ICON", flipIcon = false } = Astro.props;
@@ -50,7 +50,7 @@ const { href = "#", icon = "DEFAULT:ICON", flipIcon = false } = Astro.props;
     user-select: none;
 
     svg {
-      font-size: 1.2em;
+      width: 38px;
       vertical-align: text-bottom;
     }
 
@@ -69,7 +69,6 @@ const { href = "#", icon = "DEFAULT:ICON", flipIcon = false } = Astro.props;
       display: inline-flexbox;
       padding: 12px 24px;
       width: auto;
-
       margin-right: 25px;
     }
   }
