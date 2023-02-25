@@ -1,10 +1,12 @@
 ---
 export interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
+import { SEO } from "astro-seo";
 import "../styles/globals.scss";
 
 import Footer from "../components/Footer.astro";
@@ -18,6 +20,19 @@ import Header from "../components/Header.astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <SEO
+      title={title}
+      description={description}
+      twitter={{
+        creator: "@gerbenveenhof",
+      }}
+      extend={{
+        meta: [
+          { name: "twitter:title", content: { title } },
+          { name: "twitter:description", content: { description } },
+        ],
+      }}
+    />
   </head>
   <body>
     <main>
@@ -25,35 +40,49 @@ import Header from "../components/Header.astro";
       <slot />
       <Footer />
     </main>
+    <style lang="scss">
+      main {
+        padding: 0;
+        max-width: 1024px;
+        min-height: calc(100vh - 380px);
+        margin: 0 auto;
+      }
+    </style>
+
+    <script is:inline>
+      function randomFromArray(inputArray) {
+        return inputArray[Math.floor(Math.random() * inputArray.length)];
+      }
+
+      function getRandomColor() {
+        return randomFromArray([
+          "var(--color-orange)",
+          "var(--color-purple)",
+          "var(--color-cyan)",
+        ]);
+      }
+
+      function setRootStyleVariable(variable, contents) {
+        const rootDocument = document.querySelector(":root");
+        rootDocument.style.setProperty(variable, contents);
+      }
+
+      const pageAccessedByReload = window.performance
+        .getEntriesByType("navigation")
+        .map((navigation) => navigation.type)
+        .includes("reload");
+      if (pageAccessedByReload) {
+        localStorage.removeItem("color");
+      }
+
+      if (localStorage.getItem("color") == undefined) {
+        const color = getRandomColor();
+        setRootStyleVariable("--template-color-accent", color);
+        setRootStyleVariable("--template-color-accent-opposing", color);
+        localStorage.setItem("color", color);
+      }
+    </script>
+    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
+    ></script>
   </body>
-  <script is:inline>
-    function randomFromArray(inputArray) {
-      return inputArray[Math.floor(Math.random() * inputArray.length)];
-    }
-
-    function getRandomColor() {
-      return randomFromArray([
-        "var(--color-orange)",
-        "var(--color-purple)",
-        "var(--color-cyan)",
-      ]);
-    }
-
-    function setRootStyleVariable(variable, contents) {
-      const rootDocument = document.querySelector(":root");
-      rootDocument.style.setProperty(variable, contents);
-    }
-
-    setRootStyleVariable("--template-color-accent", getRandomColor());
-    setRootStyleVariable("--template-color-accent-opposing", getRandomColor());
-  </script>
 </html>
-
-<style lang="scss">
-  main {
-    padding: 0;
-    max-width: 1024px;
-    min-height: calc(100vh - 380px);
-    margin: 0 auto;
-  }
-</style>
