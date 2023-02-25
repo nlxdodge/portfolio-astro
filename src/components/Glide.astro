@@ -71,6 +71,8 @@ import "../styles/globals.scss";
   @import "../styles/globals.scss";
 
   .glide {
+    margin: 75px 0;
+
     .glide__bullets {
       display: flex;
       justify-content: center;
@@ -114,13 +116,16 @@ import "../styles/globals.scss";
       }
     }
 
+    .glide__track {
+      border-radius: 10px;
+    }
+
     .glide__slides {
       .glide__slide {
         position: relative;
         height: 450px;
 
         img {
-          border-radius: 10px;
           height: 100%;
           position: absolute;
           top: 0;
