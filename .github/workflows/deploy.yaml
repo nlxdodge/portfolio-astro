@@ -1,0 +1,30 @@
+name: Deploy to Web
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+      - name: Install latest LTS Node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Generate production files
+        run: npm run build
+      - name: Deploy files to production environment
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_DOMAIN }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: ./dist
+          remoteDir: ./public_html
