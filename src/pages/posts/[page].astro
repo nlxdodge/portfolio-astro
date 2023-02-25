@@ -1,30 +1,42 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import "../styles/globals.scss";
+import Button from "../../components/Button.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/globals.scss";
 
-const posts = await getCollection("posts", ({ data }) => {
-  return data.draft !== true;
-});
-const sortedPosts = posts.sort((o) => Number.MIN_SAFE_INTEGER + o.data.date.getDate())
+
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection("posts", ({ data }) => {
+    return data.draft !== true;
+  });
+  const sortedPosts = posts.sort((post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate())
+  return paginate(sortedPosts, { pageSize: 3 });
+}
+
+const { page } = Astro.props;
 ---
 
 <Layout title="Posts | Gerben Veenhof">
   <div class="posts">
     {
-      sortedPosts.map((post) => (
+      page.data.map((post) => (
         <hr />
-        <a class="post" href={`/posts/${post.slug}`}>
+        <a class="post" href={`/post/${post.slug}`}>
             <h2>{ post.data.title }</h2>
         </a>
         <p>{ post.data.description }</p>
       ))
     }
   </div>
+  <div class="pagination">
+    {page.url.prev ? <Button href={page.url.prev} icon="mdi:arrow-back-circle">Previous</Button> : null}
+    {page.url.next ? <Button href={page.url.next} icon="mdi:arrow-forward-circle">Next</Button> : null}
+  </div>
 </Layout>
 
 <style lang="scss">
-  @import "../styles/globals.scss";
+  @import "../../styles/globals.scss";
   .works {
     display: flex;
     align-items: stretch;

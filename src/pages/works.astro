@@ -8,10 +8,6 @@ const works = await getCollection("works", ({ data }) => {
   return data.draft !== true;
 });
 const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order)
-
-const paginated = paginate(sortedWorks, { pageSize: 5 });
-
-const { page } = Astro.props;
 ---
 
 <Layout title="Works | Gerben Veenhof">
