@@ -5,26 +5,29 @@ import "../styles/globals.scss";
 export interface Props {
   href: string;
   icon: string;
+  preFetch?: boolean;
   flipIcon?: boolean;
 }
 
-const { href = "#", icon = "DEFAULT:ICON", flipIcon = false } = Astro.props;
+const { href = "#", icon = "DEFAULT:ICON", preFetch = false, flipIcon = false } = Astro.props;
 ---
 
-<a class="button" href={href}>
-  {
-    icon && !flipIcon && (
-      <Icon name={icon} aria-hidden="true" aria-label="copyright" />
-    )
-  }
-  <p>
-    <slot />
-  </p>
-  {
-    icon && flipIcon && (
-      <Icon name={icon} aria-hidden="true" aria-label="icon" />
-    )
-  }
+<a class="button" href={href} rel={preFetch ? "prefetch" : "nofollow"}>
+  <div class="flex">
+    {
+      icon && !flipIcon && (
+        <Icon name={icon} aria-hidden="true" aria-label="copyright" />
+      )
+    }
+    <p>
+      <slot />
+    </p>
+    {
+      icon && flipIcon && (
+        <Icon name={icon} aria-hidden="true" aria-label="icon" />
+      )
+    }
+  </div>
 </a>
 
 <style lang="scss">
@@ -33,43 +36,41 @@ const { href = "#", icon = "DEFAULT:ICON", flipIcon = false } = Astro.props;
     display: inline-block;
     background-color: $template-color-accent;
     font-family: $template-header-font;
+    font-size: 1.3rem;
     color: $template-color;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    border-radius: 7px;
-    width: 100%;
+    border-radius: 10px;
+    width: 90%;
     padding: 12px 0;
-    margin-bottom: 10px;
-    text-align: center;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    margin: 10px;
     user-select: none;
 
-    svg {
-      width: 38px;
-      vertical-align: text-bottom;
+    .flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      p {
+        margin: 3px 10px 0 10px;
+      }
     }
 
-    p {
-      margin: 0 10px;
-      display: inline;
+    svg {
+      height: 35px;
     }
 
     &:hover {
       cursor: pointer;
-      color: $template-color;
       filter: brightness(0.85);
+      color: $template-color;
     }
 
     @include media(">=tablet") {
+      margin: 25px;
       display: inline-flexbox;
       padding: 12px 24px;
       width: auto;
-      margin-right: 25px;
     }
   }
 </style>
