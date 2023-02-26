@@ -64,7 +64,7 @@ import "../styles/globals.scss";
         >
       </div>
     </div>
-    <div id="wcb" class="carbonbadge wcb-d" />
+    <div id="wcb" class="carbonbadge wcb-d"></div>
   </div>
 </footer>
 <style lang="scss">
@@ -108,13 +108,11 @@ import "../styles/globals.scss";
 
     .flex-box {
       margin-top: 15px;
+      display: flex;
+      flex-direction: column;
 
       .split-span {
         margin: 0 25px;
-      }
-
-      div {
-        padding: 5px 0;
       }
 
       [astro-icon] {
@@ -122,6 +120,12 @@ import "../styles/globals.scss";
         vertical-align: bottom;
         color: $template-color-accent;
         fill: $template-color-accent;
+      }
+
+      @include media(">tablet") {
+        flex-direction: row;
+        justify-content: center;
+        gap: 25px;
       }
     }
 

@@ -66,10 +66,6 @@ h6 {
   width: 50%;
 }
 
-.italic {
-  font-style: italic;
-}
-
 .margin-top-50 {
   margin-top: 50px;
 }
@@ -104,23 +100,4 @@ pre {
   padding: 20px;
   border-radius: 5px;
   overflow-x: scroll;
-}
-
-.flex-box {
-  display: flex;
-  flex-direction: column;
-
-  @include media(">tablet") {
-    flex-direction: row;
-    justify-content: center;
-    gap: 25px;
-  }
-}
-
-.accent {
-  color: $template-color-accent;
-}
-
-.italic {
-  font-style: italic;
 }
