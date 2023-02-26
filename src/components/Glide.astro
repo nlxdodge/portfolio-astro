@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "../styles/globals.scss";
 ---
@@ -13,9 +13,13 @@ import "../styles/globals.scss";
           href="/work/korfbal_trainer/"
           aria-label="Check the Korfbal Trainer project"
         >
-          <Image
+          <Picture
             src={import("../assets/images/works/korfbal_trainer.png")}
             alt="Korfbal Trainer"
+            widths={[1024, 500]}
+            aspectRatio={16 / 9}
+            sizes="(max-width: 676px), (min-width: 676px)"
+            fit="outside"
           />
           <p>Korfbal Trainer <span>(Javascript)</span></p>
         </a>
@@ -26,9 +30,13 @@ import "../styles/globals.scss";
           href="/work/keydungeon/"
           aria-label="Check the Keydungeon project"
         >
-          <Image
+          <Picture
             src={import("../assets/images/works/keydungeon.png")}
-            alt="Korfbal Trainer"
+            alt="Keydungeon"
+            widths={[1024, 500]}
+            aspectRatio={16 / 9}
+            sizes="(max-width: 676px), (min-width: 676px)"
+            fit="outside"
           />
           <p>Keydungeon <span>(PHP)</span></p>
         </a>
@@ -39,9 +47,13 @@ import "../styles/globals.scss";
           href="/work/aq3d_bot/"
           aria-label="Check the AQ3D Bot project"
         >
-          <Image
+          <Picture
             src={import("../assets/images/works/aq3d_bot.png")}
-            alt="Korfbal Trainer"
+            alt="AQ3D Bot"
+            widths={[1024, 500]}
+            aspectRatio={16 / 9}
+            sizes="(max-width: 676px), (min-width: 676px)"
+            fit="outside"
           />
           <p>AQ3D Bot <span>(Java)</span></p>
         </a>
@@ -52,9 +64,13 @@ import "../styles/globals.scss";
           href="/work/scrapyard/"
           aria-label="Check the Scrapyard Mod project"
         >
-          <Image
+          <Picture
             src={import("../assets/images/works/scrapyard.png")}
-            alt="Korfbal Trainer"
+            alt="Scrapyard Mod"
+            widths={[1024, 500]}
+            aspectRatio={16 / 9}
+            sizes="(max-width: 676px), (min-width: 676px)"
+            fit="outside"
           />
           <p>Scrapyard Mod <span>(Java)</span></p>
         </a>

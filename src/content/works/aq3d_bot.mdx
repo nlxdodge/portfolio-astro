@@ -9,13 +9,20 @@ keywords: [Discord, bot, Java]
 category: Java
 ---
 
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import Button from "../../components/Button.astro";
 import FlexCenter from "../../components/FlexCenter.astro";
 import HeaderImage from "../../assets/images/works/aq3d_bot.png";
 
 <FlexCenter>
-  <Image src={HeaderImage} alt="Discord Bot"></Image>
+  <Picture
+    src={HeaderImage}
+    alt="Discord Bot"
+    widths={[1024, 500]}
+    aspectRatio={16 / 8}
+    sizes="(max-width: 676px), (min-width: 676px)"
+    fit="outside"
+  />
 </FlexCenter>
 
 [AQ3D](https://aq3d.com/) is the latest game from [Artix Entertainment](https://www.artix.com/).

@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import "../styles/globals.scss";
@@ -15,9 +15,12 @@ const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
     {
       sortedWorks.map((work) => (
         <a rel="prefetch" class="work" href={`/works/${work.slug}`}>
-          <Image
+          <Picture
             src={import(`../assets/images/works/${work.data.image}.png`)}
             alt="Korfbal Trainer"
+            widths={[600, 500]}
+            sizes="(max-width: 600px), (min-width: 600px)"
+            fit="outside"
           />
           <div class="work-title">
             {work.data.title}
