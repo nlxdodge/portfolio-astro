@@ -16,12 +16,9 @@ import compress from "astro-compress";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
-import prefetch from "@astrojs/prefetch";
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://gerbenveenhof.nl/',
-  integrations: [sitemap(), robotsTxt(), image(), compress(), mdx(), prefetch()],
+  integrations: [sitemap(), robotsTxt(), image(), compress(), mdx()],
   vite: {
     ssr: {
       noExternal: ['include-media']

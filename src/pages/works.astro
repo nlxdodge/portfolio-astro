@@ -14,7 +14,7 @@ const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
   <div class="works">
     {
       sortedWorks.map((work) => (
-        <a rel="prefetch" class="work" href={`/works/${work.slug}`}>
+        <a class="work" href={`/works/${work.slug}`}>
           <Picture
             src={import(`../assets/images/works/${work.data.image}.png`)}
             alt="Korfbal Trainer"
