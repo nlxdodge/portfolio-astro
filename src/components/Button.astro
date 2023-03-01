@@ -5,14 +5,14 @@ import "../styles/globals.scss";
 export interface Props {
   href: string;
   icon: string;
-  preFetch?: boolean;
+  nofollow?: boolean;
   flipIcon?: boolean;
 }
 
-const { href = "#", icon = "DEFAULT:ICON", preFetch = false, flipIcon = false } = Astro.props;
+const { href = "#", icon = "DEFAULT:ICON", nofollow = true, flipIcon = false } = Astro.props;
 ---
 
-<a class="button" href={href} rel={preFetch ? "prefetch" : "nofollow"}>
+<a class="button" href={href} rel={nofollow ? "nofollow" : ""}>
   <div class="flex">
     {
       icon && !flipIcon && (

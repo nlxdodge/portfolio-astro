@@ -37,14 +37,14 @@ const { page } = Astro.props;
   <div class="pagination">
     {
       page.url.prev ? (
-        <Button href={page.url.prev} icon="mdi:arrow-back-circle">
+        <Button href={page.url.prev} icon="mdi:arrow-back-circle" nofollow={false}>
           Previous
         </Button>
       ) : null
     }
     {
       page.url.next ? (
-        <Button href={page.url.next} icon="mdi:arrow-forward-circle">
+        <Button href={page.url.next} icon="mdi:arrow-forward-circle" nofollow={false}>
           Next
         </Button>
       ) : null
