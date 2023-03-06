@@ -1,0 +1,29 @@
+---
+import Label from "./Label.astro";
+import "../styles/globals.scss";
+
+export interface Props {
+  name?: string;
+  labels: string[];
+}
+
+const { name, labels } = Astro.props;
+---
+
+<div class="label-collection">
+  {name && <p>{name}</p>}
+  {labels.map((label) => <Label>{label}</Label>)}
+</div>
+
+<style lang="scss">
+  @import "../styles/globals.scss";
+  .label-collection {
+    margin: 5px 0;
+    p {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 15px 0 0;
+    }
+  }
+</style>
