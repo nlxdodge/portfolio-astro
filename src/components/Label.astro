@@ -1,0 +1,20 @@
+---
+import "../styles/globals.scss";
+---
+
+<div class="label">
+  <slot />
+</div>
+
+<style lang="scss">
+  @import "../styles/globals.scss";
+  .label {
+    margin-right: 10px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    display: inline-flex;
+    background-color: $template-color-accent;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+</style>
