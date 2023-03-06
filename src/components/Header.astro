@@ -44,16 +44,23 @@ import "../styles/globals.scss";
   }
 
   function setTheme(theme) {
+    var wsb = document.getElementById("wcb");
     if (theme == "light") {
       localStorage.setItem("theme", "light");
       document.body.classList.add("light");
       document.getElementById("toggle-icon-light").style.display = "block";
       document.getElementById("toggle-icon-dark").style.display = "none";
+      if(wsb != undefined) {
+        wsb.classList.remove("wcb-d");
+      }
     } else {
       localStorage.setItem("theme", "dark");
       document.body.classList.remove("light");
       document.getElementById("toggle-icon-light").style.display = "none";
       document.getElementById("toggle-icon-dark").style.display = "block";
+      if(wsb != undefined) {
+        wsb.classList.add("wcb-d");
+      }
     }
   }
 </script>
