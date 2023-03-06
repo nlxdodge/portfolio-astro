@@ -6,6 +6,7 @@ keywords: Gerben Veenhof, portfolio, works, posts, backend
 
 import Layout from "../layouts/Layout.astro";
 import Glide from "../components/Glide.astro";
+import LabelCollection from "../components/LabelCollection.astro";
 
 <Layout title="Home | Gerben Veenhof">
 
@@ -15,26 +16,38 @@ Welcome to my humble site, you can find all sorts of informational posts and my 
 
 ## How it al started
 
-I Started of my career with interests in computer science at a very young age. And took that to school where I choose to be an aspiring game developer. 
-But soon found out that making games was almost the same as writing code for websites or other applications. 
-Hence, I started to learn a new and higher degree for application development. 
-After graduation and having done 4 internships at different work environments I am currently employed at [Sogeti](https://www.sogeti.nl/) and though them I am employed and working at 
+I Started of my career with interests in computer science at a very young age. And took that to school where I choose to be an aspiring game developer.
+But soon found out that making games was almost the same as writing code for websites or other applications.
+Hence, I started to learn a new and higher degree for application development.
+After graduation and having done 4 internships at different work environments I am currently employed at [Sogeti](https://www.sogeti.nl/) and though them I am employed and working at
 [ING](https://ing.nl/)
 
 ## Experience
 
-With a short list of some of my experiences in:
+While I am learning lots of new things, here is a short list of things I am currenly working with and have experiences with:
 
-- **Backend**: Java, Kotlin, Ruby, Pyton, PHP, C# (Unity)
-- **Databases**: Cassandra, PostgreSQL, MySQL
-- **Frontend**: Astro, NPM, Yarn, Nuxt, Vue
-- **Cloud**: OpenShift, AWS
+- <LabelCollection
+    name="Backend: "
+    labels={["Java", "Kotlin", "Ruby", "Python", "PHP", "C# (Unity)"]}
+  />
+- <LabelCollection
+    name="Databases: "
+    labels={["Cassandra", "PostgreSQL", "MySQL"]}
+  />
+- <LabelCollection
+    name="Cloud: "
+    labels={["OpenShift", "AWS", "Azure (Limited)"]}
+  />  
+- <LabelCollection
+    name="Frontend: "
+    labels={["Astro", "Vue", "NPM", "Yarn", "Nuxt"]}
+  />
 
-*(From recetly used to last used)*
+_From recetly used to last used_
 
 ## Future
 
-Things I want to look at in the future that peak my intrests include things like C/C++ and Rust. I really want to learn more lower level languages as well. 
+Things I want to look at in the future that peak my intrests include things like C/C++ and Rust. I really want to learn more lower level languages as well.
 So for 2023's Advent of Code I might try out one of these languages.
 
 <Glide />
