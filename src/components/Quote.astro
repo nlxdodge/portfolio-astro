@@ -18,7 +18,11 @@ function randomFromArray(inputArray) {
   return inputArray[Math.floor(Math.random() * inputArray.length)];
 }
 
-const quote = randomFromArray(quotes);
+export interface Props {
+  quote: string;
+}
+
+const { quote = randomFromArray(quotes) } = Astro.props;
 ---
 
 <div class="quote">
