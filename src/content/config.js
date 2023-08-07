@@ -9,7 +9,7 @@ const worksCollection = defineCollection({
     date: z.date(),
     image: z.string(),
     description: z.string(),
-    keywords: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
     category: z.string()
   })
 });
@@ -20,7 +20,7 @@ const postsCollection = defineCollection({
     author: z.string(),
     date: z.date(),
     description: z.string(),
-    keywords: z.array(z.string()),
+    tags: z.array(z.string()),
   })
 });
 
