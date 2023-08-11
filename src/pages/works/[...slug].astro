@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Label from "../../components/Label.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -15,5 +16,6 @@ const { Content } = await entry.render();
 
 <Layout title={entry.data.title + " | Gerben Veenhof"}>
   <h1>{entry.data.title}</h1>
+  {entry.data.tags.map((tag) => <Label>{tag}</Label>)}
   <Content />
 </Layout>
