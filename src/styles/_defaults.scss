@@ -66,10 +66,6 @@ h6 {
   width: 50%;
 }
 
-.margin-top-50 {
-  margin-top: 50px;
-}
-
 .pagination {
   text-align: center;
   font-size: 1.5em;
@@ -85,14 +81,6 @@ h6 {
       transform: scale(1.1, 1.1);
     }
   }
-}
-
-.notification-strip {
-  background-color: $template-color-accent;
-  color: $template-color;
-  padding: 15px;
-  text-align: center;
-  border-radius: 0.3em;
 }
 
 pre {
