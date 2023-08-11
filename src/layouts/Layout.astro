@@ -28,7 +28,7 @@ import Header from "../components/Header.astro";
       }}
       extend={{
         meta: [
-          { name: "description", content: { description }},
+          { name: "description", content: { description } },
           { name: "twitter:title", content: { title } },
           { name: "twitter:description", content: { description } },
         ],
@@ -68,6 +68,13 @@ import Header from "../components/Header.astro";
         rootDocument.style.setProperty(variable, contents);
       }
 
+      function setRandomColor() {
+        const color = getRandomColor();
+        setRootStyleVariable("--template-color-accent", color);
+        setRootStyleVariable("--template-color-accent-opposing", color);
+        localStorage.setItem("color", color);
+      }
+
       const pageAccessedByReload = window.performance
         .getEntriesByType("navigation")
         .map((navigation) => navigation.type)
@@ -77,11 +84,18 @@ import Header from "../components/Header.astro";
       }
 
       if (localStorage.getItem("color") == undefined) {
-        const color = getRandomColor();
-        setRootStyleVariable("--template-color-accent", color);
-        setRootStyleVariable("--template-color-accent-opposing", color);
-        localStorage.setItem("color", color);
+        setRandomColor();
       }
+
+      var lightObserver = new MutationObserver(function (_) {
+        setRandomColor();
+      });
+      lightObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ["class"],
+        childList: false,
+        characterData: false,
+      });
     </script>
     <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
     ></script>

@@ -1,4 +1,4 @@
-html {
+:root {
     --template-color: #202020;
     --template-color-opposing: #ffffff;
     --template-color-accent: #f79f1f;
@@ -13,13 +13,12 @@ html {
         --template-color-opposing: #202020;
         --template-color-code-block: #e6e6e6;
 
-        --color-orange: #995d08;
-        --color-purple: #501044;
-        --color-cyan: #005959;
+        // TODO this is not being done for some reason, because it's not updating :/
+        --color-orange: #00ff48;
+        --color-purple: #00d933;
+        --color-cyan: #00ff22;
     }
 }
-
-
 
 $template-color: var(--template-color);
 $template-color-opposing: var(--template-color-opposing);
