@@ -9,14 +9,19 @@ export interface Props {
   flipIcon?: boolean;
 }
 
-const { href = "#", icon = "DEFAULT:ICON", nofollow = true, flipIcon = false } = Astro.props;
+const {
+  href = "#",
+  icon = "DEFAULT:ICON",
+  nofollow = true,
+  flipIcon = false,
+} = Astro.props;
 ---
 
 <a class="button" href={href} rel={nofollow ? "nofollow" : ""}>
   <div class="flex">
     {
       icon && !flipIcon && (
-        <Icon name={icon} aria-hidden="true" aria-label="copyright" />
+        <Icon name={icon} aria-hidden="true" aria-label={icon} />
       )
     }
     <p>
@@ -24,7 +29,7 @@ const { href = "#", icon = "DEFAULT:ICON", nofollow = true, flipIcon = false } =
     </p>
     {
       icon && flipIcon && (
-        <Icon name={icon} aria-hidden="true" aria-label="icon" />
+        <Icon name={icon} aria-hidden="true" aria-label={icon} />
       )
     }
   </div>
@@ -47,17 +52,20 @@ const { href = "#", icon = "DEFAULT:ICON", nofollow = true, flipIcon = false } =
     user-select: none;
 
     .flex {
+      margin: 0 10px;
       display: flex;
-      flex-direction: row;
       justify-content: center;
+      align-items: center;
 
       p {
         margin: 3px 10px 0 10px;
+        text-align: center;
       }
-    }
 
-    svg {
-      height: 35px;
+      svg {
+        height: 35px;
+        flex-shrink: 0;
+      }
     }
 
     &:hover {
