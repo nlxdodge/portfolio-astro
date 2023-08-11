@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon";
+import "../styles/globals.scss";
+
+export interface Props {
+  icon?: string;
+  second?: boolean;
+}
+
+const { icon = null, second = false } = Astro.props;
+---
+
+<div class="banner">
+  {icon && <Icon name={icon} aria-hidden="true" aria-label="copyright" />}
+  <slot />
+  {icon && second && <Icon name={icon} aria-hidden="true" aria-label="copyright" />}
+</div>
+
+<style lang="scss">
+  @import "../styles/globals.scss";
+  .banner {
+    display: flex;
+    background-color: $template-color-accent;
+    padding: 10px;
+    margin: 0 10px;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+
+    @include media(">tablet") {
+      margin-bottom: 25px;
+      gap: 25px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    p {
+      margin: 0;
+      flex-grow: 1;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    svg {
+      max-width: 50px;
+    }
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
 import { getCollection } from "astro:content";
+import Banner from "../../components/Banner.astro";
+import Label from "../../components/Label.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -9,10 +11,41 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
+
+var date = new Date();
+date.setFullYear(date.getFullYear() - 2);
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
+
 <Layout title={entry.data.title + " | Gerben Veenhof"}>
   <h1>{entry.data.title}</h1>
+  <p class="date">
+    {entry.data.date.toLocaleDateString()}
+    {entry.data.tags.map((tag) => <Label>{tag}</Label>)}
+  </p>
+  {
+    new Date(entry.data.date) < date ? (
+      <Banner icon="mdi:warning-octagon" second={true}>
+        <p>
+          This post is older than 2 years 
+          <span>({entry.data.date.toLocaleDateString()})</span>, things might have changed!
+          Please check for yourself if something has been updated/depricated!
+        </p>
+      </Banner>
+    ) : null
+  }
   <Content />
 </Layout>
+
+<style lang="scss">
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .date {
+    font-style: italic;
+    margin-top: 0;
+  }
+</style>
