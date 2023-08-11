@@ -13,7 +13,11 @@ const { icon = null, second = false } = Astro.props;
 <div class="banner">
   {icon && <Icon name={icon} aria-hidden="true" aria-label="copyright" />}
   <slot />
-  {icon && second && <Icon name={icon} aria-hidden="true" aria-label="copyright" />}
+  {
+    icon && second && (
+      <Icon name={icon} aria-hidden="true" aria-label="copyright" />
+    )
+  }
 </div>
 
 <style lang="scss">
