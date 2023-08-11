@@ -16,9 +16,10 @@ const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
       sortedWorks.map((work) => (
         <a class="work" href={`/works/${work.slug}`}>
           <Picture
-            src={import(`../assets/images/works/${work.data.image}.png`)}
+            src={`../assets/images/works/${work.data.image}.png`}
             alt="Korfbal Trainer"
             widths={[600, 500]}
+            aspectRatio={"16:9"}
             sizes="(max-width: 600px), (min-width: 600px)"
             fit="outside"
           />
