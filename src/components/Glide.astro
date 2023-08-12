@@ -1,7 +1,12 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from 'astro:assets';
 import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "../styles/globals.scss";
+
+import KorfbalTrainerImage from "../assets/images/works/korfbal_trainer.png";
+import KeyDungeonImage from "../assets/images/works/keydungeon.png";
+import AQ3DImage from "../assets/images/works/aq3d_bot.png";
+import ScrapyardImage from "../assets/images/works/scrapyard.png";
 ---
 
 <div class="glide">
@@ -12,13 +17,9 @@ import "../styles/globals.scss";
           href="/work/korfbal_trainer/"
           aria-label="Check the Korfbal Trainer project"
         >
-          <Picture
-            src="../assets/images/works/korfbal_trainer.png"
+          <Image
+            src={KorfbalTrainerImage}
             alt="Korfbal Trainer"
-            widths={[1024, 500]}
-            aspectRatio={16 / 9}
-            sizes="(max-width: 676px), (min-width: 676px)"
-            fit="outside"
           />
           <p>Korfbal Trainer <span>(Javascript)</span></p>
         </a>
@@ -29,13 +30,9 @@ import "../styles/globals.scss";
           href="/work/keydungeon/"
           aria-label="Check the Keydungeon project"
         >
-          <Picture
-            src="../assets/images/works/keydungeon.png"
+          <Image
+            src={KeyDungeonImage}
             alt="Keydungeon"
-            widths={[1024, 500]}
-            aspectRatio={16 / 9}
-            sizes="(max-width: 676px), (min-width: 676px)"
-            fit="outside"
           />
           <p>Keydungeon <span>(PHP)</span></p>
         </a>
@@ -46,13 +43,9 @@ import "../styles/globals.scss";
           href="/work/aq3d_bot/"
           aria-label="Check the AQ3D Bot project"
         >
-          <Picture
-            src="../assets/images/works/aq3d_bot.png"
+          <Image
+            src={AQ3DImage}
             alt="AQ3D Bot"
-            widths={[1024, 500]}
-            aspectRatio={16 / 9}
-            sizes="(max-width: 676px), (min-width: 676px)"
-            fit="outside"
           />
           <p>AQ3D Bot <span>(Java)</span></p>
         </a>
@@ -63,13 +56,9 @@ import "../styles/globals.scss";
           href="/work/scrapyard/"
           aria-label="Check the Scrapyard Mod project"
         >
-          <Picture
-            src="../assets/images/works/scrapyard.png"
+          <Image
+            src={ScrapyardImage}
             alt="Scrapyard Mod"
-            widths={[1024, 500]}
-            aspectRatio={16 / 9}
-            sizes="(max-width: 676px), (min-width: 676px)"
-            fit="outside"
           />
           <p>Scrapyard Mod <span>(Java)</span></p>
         </a>

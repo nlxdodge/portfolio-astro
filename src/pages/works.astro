@@ -1,5 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
+import { Image } from 'astro:assets';
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import "../styles/globals.scss";
@@ -15,13 +15,11 @@ const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
     {
       sortedWorks.map((work) => (
         <a class="work" href={`/works/${work.slug}`}>
-          <Picture
-            src={`../assets/images/works/${work.data.image}.png`}
-            alt="Korfbal Trainer"
-            widths={[600, 500]}
-            aspectRatio={"16:9"}
-            sizes="(max-width: 600px), (min-width: 600px)"
-            fit="outside"
+          <Image
+            src={`../src/assets/images/works/${work.data.image}.png`}
+            width="505"
+            height="258"
+            alt={work.data.image}
           />
           <div class="work-title">
             {work.data.title}
