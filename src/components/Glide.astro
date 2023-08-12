@@ -2,11 +2,6 @@
 import { Image } from 'astro:assets';
 import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "../styles/globals.scss";
-
-import KorfbalTrainerImage from "../assets/images/works/korfbal_trainer.png";
-import KeyDungeonImage from "../assets/images/works/keydungeon.png";
-import AQ3DImage from "../assets/images/works/aq3d_bot.png";
-import ScrapyardImage from "../assets/images/works/scrapyard.png";
 ---
 
 <div class="glide">
@@ -17,10 +12,9 @@ import ScrapyardImage from "../assets/images/works/scrapyard.png";
           href="/work/korfbal_trainer/"
           aria-label="Check the Korfbal Trainer project"
         >
-          <Image
-            src={KorfbalTrainerImage}
+          <img
+            src="../assets/images/works/korfbal_trainer.png"
             alt="Korfbal Trainer"
-            format="avif"
           />
           <p>Korfbal Trainer <span>(Javascript)</span></p>
         </a>
@@ -31,10 +25,9 @@ import ScrapyardImage from "../assets/images/works/scrapyard.png";
           href="/work/keydungeon/"
           aria-label="Check the Keydungeon project"
         >
-          <Image
-            src={KeyDungeonImage}
+          <img
+            src="../assets/images/works/keydungeon.png"
             alt="Keydungeon"
-            format="avif"
           />
           <p>Keydungeon <span>(PHP)</span></p>
         </a>
@@ -45,10 +38,9 @@ import ScrapyardImage from "../assets/images/works/scrapyard.png";
           href="/work/aq3d_bot/"
           aria-label="Check the AQ3D Bot project"
         >
-          <Image
-            src={AQ3DImage}
+          <img
+            src="../assets/images/works/aq3d_bot.png"
             alt="AQ3D Bot"
-            format="avif"
           />
           <p>AQ3D Bot <span>(Java)</span></p>
         </a>
@@ -59,10 +51,9 @@ import ScrapyardImage from "../assets/images/works/scrapyard.png";
           href="/work/scrapyard/"
           aria-label="Check the Scrapyard Mod project"
         >
-          <Image
-            src={ScrapyardImage}
+          <img
+            src="../assets/images/works/scrapyard.png"
             alt="Scrapyard Mod"
-            format="avif"
           />
           <p>Scrapyard Mod <span>(Java)</span></p>
         </a>
