@@ -7,8 +7,8 @@ const posts = await getCollection("posts", ({ data }) => {
 
 export function get(context) {
   return rss({
-    title: "Posts | Gerben Veenhof",
-    description: "A humble Astronaut's guide to the stars",
+    title: "Gerben Veenhof",
+    description: "My programming and coding odyssey",
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
