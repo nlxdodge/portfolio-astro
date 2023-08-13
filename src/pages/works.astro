@@ -16,10 +16,10 @@ const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
       sortedWorks.map((work) => (
         <a class="work" href={`/works/${work.slug}`}>
           <Image
-            src={`../src/assets/images/works/${work.data.image}.png`}
+            src={work.data.image}
             width="505"
             height="258"
-            alt={work.data.image}
+            alt={work.data.image_alt}
             format="avif"
           />
           <div class="work-title">
