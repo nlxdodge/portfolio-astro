@@ -41,14 +41,6 @@ import Header from "../components/Header.astro";
       <slot />
       <Footer />
     </main>
-    <style lang="scss">
-      main {
-        padding: 0;
-        max-width: 1024px;
-        min-height: calc(100vh - 380px);
-        margin: 0 auto;
-      }
-    </style>
 
     <script is:inline>
       function randomFromArray(inputArray) {
@@ -56,22 +48,14 @@ import Header from "../components/Header.astro";
       }
 
       function getRandomColor() {
-        return randomFromArray([
-          "var(--color-orange)",
-          "var(--color-purple)",
-          "var(--color-cyan)",
-        ]);
-      }
-
-      function setRootStyleVariable(variable, contents) {
-        const rootDocument = document.querySelector(":root");
-        rootDocument.style.setProperty(variable, contents);
+        return randomFromArray(["orange", "purple", "cyan", "green", "blue"]);
       }
 
       function setRandomColor() {
         const color = getRandomColor();
-        setRootStyleVariable("--template-color-accent", color);
-        setRootStyleVariable("--template-color-accent-opposing", color);
+        const body = document.querySelector("body");
+        body.classList.remove(localStorage.getItem("color"));
+        body.classList.add(color);
         localStorage.setItem("color", color);
       }
 
@@ -82,20 +66,9 @@ import Header from "../components/Header.astro";
       if (pageAccessedByReload) {
         localStorage.removeItem("color");
       }
-
       if (localStorage.getItem("color") == undefined) {
         setRandomColor();
       }
-
-      var lightObserver = new MutationObserver(function (_) {
-        setRandomColor();
-      });
-      lightObserver.observe(document.body, {
-        attributes: true,
-        attributeFilter: ["class"],
-        childList: false,
-        characterData: false,
-      });
     </script>
     <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
     ></script>

@@ -30,9 +30,9 @@ const { Content } = await entry.render();
       <Banner icon="mdi:warning-octagon" second={true}>
         <p>
           This post is older than 2 years
-          <span class="banner">({entry.data.date.toLocaleDateString()})</span>, things might
-          have changed! Please check for yourself if something has been
-          updated/depricated!
+          <span class="banner">({entry.data.date.toLocaleDateString()})</span>,
+          things might have changed! Please check for yourself if something has
+          been updated/depricated!
         </p>
       </Banner>
     ) : null
@@ -49,7 +49,7 @@ const { Content } = await entry.render();
     font-style: italic;
     margin-top: 0;
   }
-  
+
   .banner {
     font-style: italic;
     white-space: nowrap;

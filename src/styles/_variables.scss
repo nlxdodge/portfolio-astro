@@ -1,22 +1,54 @@
 :root {
-    --template-color: #202020;
-    --template-color-opposing: #ffffff;
-    --template-color-accent: #f79f1f;
-    --template-color-code-block: #333333;
+    --template-color: #252627;
+    --template-color-opposing: #FFF9FB;
+    --template-color-accent: #FFC53A;
+    --template-color-code-block: #202020;
 
-    --color-orange: #d4800b;
-    --color-purple: #981f82;
-    --color-cyan: #009d9c;
+
+    .green {
+        --template-color-accent: #53DD6C;
+    }
+
+    .cyan {
+        --template-color-accent: #00CCCA;
+    }
+
+    .orange {
+        --template-color-accent: #FFC53A;
+    }
+
+    .purple {
+        --template-color-accent: #BCA3F7;
+    }
+
+    .blue {
+        --template-color-accent: #63D2FF;
+    }
 
     .light {
-        --template-color: #f5f5f5;
-        --template-color-opposing: #202020;
+        --template-color: #FFF9FB;
+        --template-color-opposing: #000000;
         --template-color-code-block: #e6e6e6;
 
-        // TODO this is not being done for some reason, because it's not updating :/
-        --color-orange: #00ff48;
-        --color-purple: #00d933;
-        --color-cyan: #00ff22;
+        &.green {
+            --template-color-accent: #25603D;
+        }
+    
+        &.cyan {
+            --template-color-accent: #59544B;
+        }
+    
+        &.orange {
+            --template-color-accent: #B26700;
+        }
+    
+        &.purple {
+            --template-color-accent: #5941A9;
+        }
+    
+        &.blue {
+            --template-color-accent: #133C55;
+        }
     }
 }
 
