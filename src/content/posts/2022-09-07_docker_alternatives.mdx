@@ -7,8 +7,11 @@ date: 2022-09-07
 ---
 import Button from "../../components/Button.astro";
 import FlexCenter from "../../components/FlexCenter.astro";
+import { Image } from "astro:assets";
 
-![Podman Desktop](../../assets/images/posts/podman_desktop.png)
+import PodmanDesktop from "../../assets/images/posts/podman_desktop.png"
+
+<Image src={PodmanDesktop} alt="Podman Desktop" format="avif" />
 
 Using something else then Docker, is there even something else just as good? I get the question a lot on my work.
 Lots of developers are acustomed to having the Docker GUI instead of using the CLI interface, including me.
