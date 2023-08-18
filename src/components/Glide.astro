@@ -3,7 +3,10 @@ import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "../styles/globals.scss";
 import { Image } from "astro:assets";
 
-import test from "../assets/images/works/korfbal_trainer.png";
+import KorfbalTrainer from "../assets/images/works/korfbal_trainer.png";
+import Keydungeon from "../assets/images/works/keydungeon.png";
+import AQ3D from "../assets/images/works/aq3d_bot.png";
+import Scrapyard from "../assets/images/works/scrapyard.png";
 ---
 
 <div class="glide">
@@ -15,7 +18,7 @@ import test from "../assets/images/works/korfbal_trainer.png";
           aria-label="Korfbal Trainer (Javascript)"
         >
           <Image
-            src={test}
+            src={KorfbalTrainer}
             alt="Korfbal Trainer"
             format="avif"
           />
@@ -28,9 +31,10 @@ import test from "../assets/images/works/korfbal_trainer.png";
           href="/works/keydungeon/"
           aria-label="Keydungeon (PHP)"
         >
-          <img
-            src="../assets/images/works/keydungeon.png"
+          <Image
+            src={Keydungeon}
             alt="Keydungeon"
+            format="avif"
           />
           <p>Keydungeon <span>(PHP)</span></p>
         </a>
@@ -41,9 +45,10 @@ import test from "../assets/images/works/korfbal_trainer.png";
           href="/works/aq3d_bot/"
           aria-label="AQ3D Bot (Java)"
         >
-          <img
-            src="../assets/images/works/aq3d_bot.png"
+          <Image
+            src={AQ3D}
             alt="AQ3D Bot"
+            format="avif"
           />
           <p>AQ3D Bot <span>(Java)</span></p>
         </a>
@@ -54,9 +59,10 @@ import test from "../assets/images/works/korfbal_trainer.png";
           href="/works/scrapyard/"
           aria-label="Scrapyard Mod (Java)"
         >
-          <img
-            src="../assets/images/works/scrapyard.png"
+          <Image
+            src={Scrapyard}
             alt="Scrapyard Mod"
+            format="avif"
           />
           <p>Scrapyard Mod <span>(Java)</span></p>
         </a>
