@@ -1,6 +1,9 @@
 ---
 import "@glidejs/glide/src/assets/sass/glide.core.scss";
 import "../styles/globals.scss";
+import { Image } from "astro:assets";
+
+import test from "../assets/images/works/korfbal_trainer.png";
 ---
 
 <div class="glide">
@@ -11,9 +14,12 @@ import "../styles/globals.scss";
           href="/works/korfbal_trainer/"
           aria-label="Korfbal Trainer (Javascript)"
         >
-          <img
-            src="../assets/images/works/korfbal_trainer.png"
+          <Image
+            src={test.src}
             alt="Korfbal Trainer"
+            width={test.width}
+            height={test.height}
+            format="avif"
           />
           <p>Korfbal Trainer <span>(Javascript)</span></p>
         </a>
