@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import "../styles/globals.scss";
 
 const works = await getCollection("works", ({ data }) => {
   return data.draft !== true;
@@ -35,7 +34,6 @@ const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
 </Layout>
 
 <style lang="scss">
-  @import "../styles/globals.scss";
   .works {
     display: flex;
     align-items: stretch;

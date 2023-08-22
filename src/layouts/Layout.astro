@@ -7,10 +7,10 @@ export interface Props {
 const { title, description } = Astro.props;
 
 import { SEO } from "astro-seo";
-import "../styles/globals.scss";
 
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+
 ---
 
 <!DOCTYPE html>
@@ -72,3 +72,9 @@ import Header from "../components/Header.astro";
     ></script>
   </body>
 </html>
+
+<style is:global lang="scss">
+  main {
+    // this is a hack so that the globals.scss file is getting loaded in all components
+  }
+</style>

@@ -1,6 +1,5 @@
 ---
 import Label from "./Label.astro";
-import "../styles/globals.scss";
 
 export interface Props {
   name?: string;
@@ -16,7 +15,6 @@ const { name, labels } = Astro.props;
 </div>
 
 <style lang="scss">
-  @import "../styles/globals.scss";
   .label-collection {
     margin: 5px 0;
     p {

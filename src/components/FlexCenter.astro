@@ -1,21 +1,19 @@
 ---
-import "../styles/globals.scss";
 ---
 
 <div class="flex-center">
-    <slot />
+  <slot />
 </div>
 
 <style lang="scss">
-    @import "../styles/globals.scss";
-    .flex-center {
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+  .flex-center {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-        @include media(">tablet") {
-            flex-direction: row;
-        }
+    @include media(">tablet") {
+      flex-direction: row;
     }
+  }
 </style>

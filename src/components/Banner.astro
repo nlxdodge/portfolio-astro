@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon";
-import "../styles/globals.scss";
 
 export interface Props {
   icon?: string;
@@ -21,7 +20,6 @@ const { icon = null, second = false } = Astro.props;
 </div>
 
 <style lang="scss">
-  @import "../styles/globals.scss";
   .banner {
     display: flex;
     background-color: $template-color-accent;
