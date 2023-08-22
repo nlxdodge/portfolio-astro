@@ -12,22 +12,16 @@ const quotes = [
   '"I know we said goodbye, but I didn\'t know. It was forever." - Voilet Evergarden',
   "\"If you always do what you've always done, you'll always get what you've always got.\" - Henry Ford",
   '"Sorry I gotta walk my flowers and water my dog." - Teensie from Rayman',
-  ''
+  '"I am 10 billion percent sure." - Senku Ishigami'
 ];
 
 function randomFromArray(inputArray) {
   return inputArray[Math.floor(Math.random() * inputArray.length)];
 }
-
-export interface Props {
-  quote: string;
-}
-
-const { quote = randomFromArray(quotes) } = Astro.props;
 ---
 
 <div class="quote">
-  <p>{quote}</p>
+  <p>{randomFromArray(quotes)}</p>
 </div>
 
 <style lang="scss">
