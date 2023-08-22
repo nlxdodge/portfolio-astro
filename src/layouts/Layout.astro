@@ -51,8 +51,7 @@ import Header from "../components/Header.astro";
         return randomFromArray(["orange", "purple", "cyan", "green", "blue"]);
       }
 
-      function setRandomColor() {
-        const color = getRandomColor();
+      function setColor(color) {
         const body = document.querySelector("body");
         body.classList.remove(localStorage.getItem("color"));
         body.classList.add(color);
@@ -66,9 +65,8 @@ import Header from "../components/Header.astro";
       if (pageAccessedByReload) {
         localStorage.removeItem("color");
       }
-      if (localStorage.getItem("color") == undefined) {
-        setRandomColor();
-      }
+      
+      setColor(localStorage.getItem("color") != undefined ? localStorage.getItem("color") : getRandomColor());
     </script>
     <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
     ></script>
