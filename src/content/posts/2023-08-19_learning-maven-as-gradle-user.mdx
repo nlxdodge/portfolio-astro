@@ -1,0 +1,71 @@
+---
+title: Learning Maven as a Gradle Beginner 🛠️
+author: Gerben Veenhof
+description: When I started doing Java I had didn't really like the extra bulk and readability of XML, so for that reason only I choose to use Gradle for my first few projects that I created for my studies.
+But low and behold I now get thrown in the working society and found out that all the companies I have worked for so far all use Maven.
+tags: [ Gradle, Maven, Buildtools ]
+date: 2023-08-19
+---
+
+When I started doing Java I had didn't really like the extra bulk and readability of XML, so for that reason only I choose to use Gradle for my first few projects that I created for my studies.
+But low and behold I now get thrown in the working society and found out that all the companies I have worked for so far all use Maven.
+
+"I had to switch..."
+
+So thus begun my quest to learn Maven again (after having used it a couple of times when we had to do projects together).
+For example, the Discord bot that I wrote in Java has some dependencies that it needs, which in Gradle would be like this.
+
+## Gradle configuration
+
+```groovy
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'nl.nlxdodge.cate'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'org.glassfish:javax.json:1.1.4'
+    implementation 'com.discord4j:discord4j-core:3.1.0'
+    implementation 'net.sourceforge.htmlunit:htmlunit:2.43.0'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:1.7.0'
+}
+
+application {
+    mainClassName = 'aq3d.bot.AQ3DBot'
+}
+
+test {
+    useJUnitPlatform()
+}
+```
+
+Now when compairing this to the maven variant you would get something like this.
+(I tried my best to convert it to a maven variant of course).
+
+## Maven configuration
+
+```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+    http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.javatpoint.application1</groupId>
+      <artifactId>my-app</artifactId>
+      <version>1</version>
+
+    </project>
+```
