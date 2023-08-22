@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /404
-Sitemap: https://gerbenveenhof.nl/sitemap.xml
+Sitemap: https://gerbenveenhof.nl/sitemap-index.xml
