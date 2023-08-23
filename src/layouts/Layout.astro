@@ -10,6 +10,7 @@ import { SEO } from "astro-seo";
 
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import { GoogleAnalytics } from "astro-analytics";
 
 ---
 
@@ -41,37 +42,39 @@ import Header from "../components/Header.astro";
       <slot />
       <Footer />
     </main>
-
-    <script is:inline>
-      function randomFromArray(inputArray) {
-        return inputArray[Math.floor(Math.random() * inputArray.length)];
-      }
-
-      function getRandomColor() {
-        return randomFromArray(["orange", "purple", "cyan", "green", "blue"]);
-      }
-
-      function setColor(color) {
-        const body = document.querySelector("body");
-        body.classList.remove(localStorage.getItem("color"));
-        body.classList.add(color);
-        localStorage.setItem("color", color);
-      }
-
-      const pageAccessedByReload = window.performance
-        .getEntriesByType("navigation")
-        .map((navigation) => navigation.type)
-        .includes("reload");
-      if (pageAccessedByReload) {
-        localStorage.removeItem("color");
-      }
-      
-      setColor(localStorage.getItem("color") != undefined ? localStorage.getItem("color") : getRandomColor());
-    </script>
-    <script type="text/partytown" src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
-    ></script>
   </body>
 </html>
+
+<script is:inline>
+  function randomFromArray(inputArray) {
+    return inputArray[Math.floor(Math.random() * inputArray.length)];
+  }
+
+  function getRandomColor() {
+    return randomFromArray(["orange", "purple", "cyan", "green", "blue"]);
+  }
+
+  function setColor(color) {
+    const body = document.querySelector("body");
+    body.classList.remove(localStorage.getItem("color"));
+    body.classList.add(color);
+    localStorage.setItem("color", color);
+  }
+
+  const pageAccessedByReload = window.performance
+    .getEntriesByType("navigation")
+    .map((navigation) => navigation.type)
+    .includes("reload");
+  if (pageAccessedByReload) {
+    localStorage.removeItem("color");
+  }
+  
+  setColor(localStorage.getItem("color") != undefined ? localStorage.getItem("color") : getRandomColor());
+</script>
+<script type="text/partytown" src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer
+></script>
+
+<GoogleAnalytics id="G-01E73RLVK8" />
 
 <style is:global lang="scss">
   main {
