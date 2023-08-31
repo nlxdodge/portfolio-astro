@@ -2,14 +2,15 @@ import { defineConfig, sharpImageService } from 'astro/config';
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
-import purgecss from 'astro-purgecss';
 import robotsTxt from "astro-robots-txt";
 import partytown from "@astrojs/partytown";
+
+import purgecss from "astro-purgecss";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gerbenveenhof.nl/',
-  integrations: [sitemap(), robotsTxt(), compress(), mdx(), purgecss(), partytown()],
+  integrations: [sitemap(), robotsTxt(), compress(), mdx(), partytown(), purgecss()],
   vite: {
     ssr: {
       noExternal: ['include-media']
@@ -22,9 +23,6 @@ export default defineConfig({
         }
       }
     }
-  },
-  experimental: {
-    assets: true
   },
   image: {
     service: sharpImageService()
