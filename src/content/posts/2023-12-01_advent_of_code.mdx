@@ -1,0 +1,130 @@
+---
+title: Advent of Code 2023 (Rust) 🎄
+author: Gerben Veenhof
+description: Rust, a more complex typed and memory managed language. But still alike Java in some sort cases.
+tags: [ AOC, Advent, Rust ]
+date: 2023-12-01
+---
+import Button from "../../components/Button.astro"
+import FlexCenter from "../../components/FlexCenter.astro"
+
+The year 2023, I started of with the Rust programming language. Why did I pick Rust? 
+I wanted to challenge myself again this year but with a somewhat more lower level programming language, but still with some handholding where you can just jump into. 
+Rust was the perfect example for this if I can speak for myself. 
+
+There are a couple of main things you when switching from Java to Rust, for example farbadge collection if a whole different ideolegy now.
+For example, in Java garbadge collection is being done for you, no thinking about it. 
+But in Rust there is a nifty system for allocating memory for you in some sense.
+See bellow example, this is a simple hello world program in Rust. 
+
+```Rust
+fn main() {
+    let mut variable = "123";
+    println!("Hello World: {}", variable);
+}
+```
+
+If you have [Clippy](https://doc.rust-lang.org/stable/clippy/usage.html) installed and run it with `cargo clippy` you will already get a warning saying that variable is never changed and that the `mut` (mutable tag) is not required. 
+But there are more awesome tools to make the development experience a really good one. Want to format your code? The [Rust Code formatter](https://github.com/rust-lang/rustfmt) or in the terminal better known as `cargo fmt` is very usefull for this.
+No need to setup configuration for every project, you get it for free out of the box. This is a breath of fresh air when comming from Java or JavaScript for that matter.
+
+## TIL (Today I learned)
+
+### Day 1
+
+I alreayd got some experience in Advent of Code 2015 by practicing some of the days from that year, but needless to say I still need to learn a lot.
+
+The borrow and owner system is still kind of aliën to me, but I am starting to get the hang of it. You can better read what the compiler says, because most of the time that fixes the issue that I have.
+
+I also followed a video to setup VSCode *Error Lens* which shows what lines gives the error in VSCode for easy debugging. I am also using the Devcontainers extension together with Podman Desktop to run Rust, so you can easily launch the code yourself if you open the `2023 - rust` folder.
+
+Also HashMaps exist! I thought that it didn't but you need to import it with `use std::collections::HashMap;` same as getting a substring with `use substring::Substring;` but for this you need to install a new crate with Cargo called `substring` with `cargo add substring`. It's as easy as that.
+
+And I really 😍 the `println!` macro (*yes it's called a macro*), an example that I use almost every day:
+
+```rust
+println!("Day 1 ⭐1️⃣  result: {}", star1);
+```
+
+Where `star1` can be used within the curly brackets like so: `{star1}` or after the fact, like in the example above.
+
+Together with parsing numbers wich makes it easy as well, with `"32".parse::<i32>().unwrap()` (unless the string is not a number because I am not gracefully handling it at the moment).
+With these numbers I can already do some range parsing as well.
+
+I forgot which language it was, but I think Python uses a bit of the same syntax almost. Where you can type something like `0..your_string.len()` in a for-loop and it will get a number iterator.
+
+### Day 2
+
+First time using a Regex in Rust, by default there is no implementation so going with the `regex` 📦. I also found out it is more limited then the one selected by default on [Regex101](https://regex101.com/) the hard way. So I had to redo some of the code eventually.
+
+### Day 3
+
+Traits, traits and more traits. Comming from Java I wanted an equals (*eq in rust*) function. Seems like the `#[derive(PartialEq)]` does the job for me. So I then can use the contains function in an iterator.
+But also the Debug trait is really handy to have, now I can just `println!("{:?}", struct)` and it will print the struct like magic. No custom `to_string()` method required!
+
+And casting is also super easy just do `iter_y as i32` and most of the time it just works 🪄 like magic.
+
+And lastly the enumarator with `for (index, line) in lines.iter().enumerate() {` to get a free index with your iterator.
+
+### Day 4
+
+`"Hello World!".split_once(" ")` is really nice to use, as you can now do `.unwrap().0` and always get the first result. Instead of doing `"Hello World!".split(" ").nth(0).unwrap()`.
+I also dabbled a bit in using `.is_numeric()` and more accendants.
+
+Also to use HashMaps you need a special import, because it's not enabled by default. To use a HashMap insert `use std::collections::HashMap;` somewhere at the top.
+
+And I wasn't done with the ranges, I found out that using an equals operator before the second number makes it inclusive, like so: `0..=10`;
+
+### Day 5
+
+For day five I did some searching for seeing how I can implement time into the project. With the chrono create it seemed easy enough. So doing `chrono::offset::Local::now()` to get the local datetime so I can print it to the console. I might later write something to compair both and see how long it took to run in seconds etc.
+
+Today was also the day I found out about dereferencing, maybe a bit late but when you have a reference to a i32 variable you can do `*variable` to derefence the variable (from &i32 -> i32), this makes the code a bit cleaner as well but I need to read up on what it's exactly doing. As I am not 100% convined that It will make a copy but just go to the original reference again.
+Also this doesn't work for every struct/object as well. So use it sparingly.
+
+This was also the first day where I had to use i64 because the number kept growing to much that it would overflow the i32.
+
+### Day 6
+
+Ah the famed day six, I have a love hate relationship with this one. Here part two required 2 minutes to run on my laptop and 1 minute on my desktop at home. But in hindsight I had to program it differently still, then what I currently have made.
+
+For example I tried to use multithreading with the Rayon crate using `use rayon::prelude::*;`. So actually use multiple cores. But before that I had to optimize the memory management of the application because it kept flowing over 16GB each time. The current implementation doesn't go over 1.5GB in the container where I run Rust in. Apart from that I learned that the `.iter()` handles data per stream keeping the memory usage low (instead of multiple for-loops which is hard to read anyways).
+
+### Day 7
+
+Day seven part one was a lot of fun to make, especially the different rules seeing regular Poker. On this day I learned how the sorting works in Rust and how to make a custom sorting function.
+
+```rust
+ranked_hands.sort_by(|a, b| match a.rank.cmp(&b.rank) {
+        Ordering::Greater => Ordering::Greater,
+        Ordering::Less => Ordering::Less,
+        Ordering::Equal => {
+            for index in 0..=4 {
+                return match card_strength(a.cards.chars().nth(index).unwrap(), joker)
+                    .cmp(&card_strength(b.cards.chars().nth(index).unwrap(), joker))
+                {
+                    Ordering::Greater => Ordering::Greater,
+                    Ordering::Less => Ordering::Less,
+                    Ordering::Equal => continue,
+                };
+            }
+            Ordering::Equal
+        }
+    });
+```
+
+We where supposed to rankt the cards by their match (5 of a kind is better then 4 of a kind) and if two hands have the same, then we check charachter per character to see what is the highest one.
+
+### Day 8
+
+Day eight on the other hand was a lot easier again, although I did have to look up [LCM (Least Common Multiple)](https://en.wikipedia.org/wiki/Least_common_multiple) and [GCD (greatest common divisor)](https://en.wikipedia.org/wiki/Greatest_common_divisor) because I don't really have a good Math background.
+
+### Day 9
+
+I wanted to use pop on an array to remove the first item, I search and found the `VecDeque` which is basically a `Vec` but with some of the Queue functions.
+Also for part 2 it was really easy I only had to get the first item and actually do the calculation instead of doing a sum.
+
+
+<FlexCenter>
+    <Button href="https://github.com/nlxdodge/Advent-Of-Code" icon="mdi:github">Advent of Code Repository</Button>
+</FlexCenter>
