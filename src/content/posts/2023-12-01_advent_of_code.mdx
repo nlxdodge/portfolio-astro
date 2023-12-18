@@ -17,7 +17,7 @@ For example, in Java garbadge collection is being done for you, no thinking abou
 But in Rust there is a nifty system for allocating memory for you in some sense.
 See bellow example, this is a simple hello world program in Rust. 
 
-```Rust
+```rust
 fn main() {
     let mut variable = "123";
     println!("Hello World: {}", variable);
@@ -128,3 +128,15 @@ Also for part 2 it was really easy I only had to get the first item and actually
 <FlexCenter>
     <Button href="https://github.com/nlxdodge/Advent-Of-Code" icon="mdi:github">Advent of Code Repository</Button>
 </FlexCenter>
+
+### Day 10
+
+Day 10 was kind of weird to do but I had some time issues and never got around it. This is the day where I got stuck because I was overthinking a lot.
+
+Still working on part 2 though.
+
+### Day 11
+
+I am finally taking a deeper dive in the world of modules, right now I have been copy pasting the whole code from the `main.rs` file to the appropriate file, like `aoc10.rs` each time. But this is becomming bothersome now.
+
+I found out that using mod works when running from the main.rs file. So using `use aoc11;` make my life easy so I can just call the run method on each day instead.
