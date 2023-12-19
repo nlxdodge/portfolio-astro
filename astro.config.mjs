@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 import robotsTxt from "astro-robots-txt";
 import partytown from "@astrojs/partytown";
-
+import remarkToc from 'remark-toc';
 import purgecss from "astro-purgecss";
 
 // https://astro.build/config
@@ -26,5 +26,8 @@ export default defineConfig({
   },
   image: {
     service: sharpImageService()
+  },
+  markdown: {
+    remarkPlugins: [remarkToc],
   }
 });
