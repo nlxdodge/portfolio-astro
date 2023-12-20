@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }) {
     (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
   );
   return paginate(sortedPosts, {
-    pageSize: 10,
+    pageSize: 5,
   });
 }
 
@@ -32,11 +32,12 @@ let uniqueTags = sortedTags.filter(
 ---
 
 <Layout title="Posts | Gerben Veenhof">
+  <h1 class="center-text">My Posts Collection 📝</h1>
   <div class="tags">
     {console.log("tags", uniqueTags.slice(0, 10))}
     {
       uniqueTags
-        .slice(0, 10)
+        .slice(0, 5)
         .map((tag) => (
           <Label href={"/posts/" + tag.toLowerCase() + "/1"}>{tag}</Label>
         ))
@@ -80,3 +81,11 @@ let uniqueTags = sortedTags.filter(
     }
   </div>
 </Layout>
+
+<style lang="scss">
+  .tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>
