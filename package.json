@@ -16,7 +16,6 @@
 		"@astrojs/rss": "^4.0.1",
 		"@astrojs/sitemap": "^3.0.3",
 		"@glidejs/glide": "^3.6.0",
-		"@img/sharp-linux-x64": "^0.33.1",
 		"astro": "^4.0.6",
 		"astro-compress": "^2.2.5",
 		"astro-icon": "^0.8.2",
@@ -25,7 +24,7 @@
 		"astro-seo": "^0.8.0",
 		"include-media": "^2.0.0",
 		"remark-toc": "^9.0.0",
-		"sharp": "^0.33.1"
+		"sharp": "^0.32.6"
 	},
 	"devDependencies": {
 		"sass": "^1.58.3",
