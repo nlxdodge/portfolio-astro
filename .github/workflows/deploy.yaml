@@ -18,7 +18,8 @@ jobs:
           node-version: "18.x"
           check-latest: true
       - name: Install dependencies
-        run: npm install --os=linux --cpu=x64
+        run: npm install --os=linux --cpu=x64 sharp
+        run: npm install
       - name: Generate production files
         run: npm run build
       - name: Deploy files to production environment
