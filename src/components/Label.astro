@@ -1,9 +1,25 @@
 ---
+export interface Props {
+  href: string;
+}
+
+const { href = "#" } = Astro.props;
 ---
 
-<div class="label">
-  <slot />
-</div>
+{
+  href != "#" && (
+    <a class="label" href={href}>
+      <slot />
+    </a>
+  )
+}
+{
+  href == "#" && (
+    <div class="label">
+      <slot />
+    </div>
+  )
+}
 
 <style lang="scss">
   .label {
@@ -14,5 +30,6 @@
     background-color: $template-color-accent;
     color: $template-color;
     font-size: 1.1rem;
+    text-decoration: none;
   }
 </style>
