@@ -19,6 +19,7 @@ jobs:
           check-latest: true
       - name: Install dependencies
         run: npm install
+        run: npm install --os=linux --cpu=x64 sharp
       - name: Generate production files
         run: npm run build
       - name: Deploy files to production environment
