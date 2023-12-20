@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: "18.x"
           check-latest: true
-      - name: Install dependencies for Linux x64
-        run: npm install --cpu=x64 --os=linux --libc=musl
+      - name: Install dependencies
+        run: npm install
       - name: Generate production files
-        run: npm run build --cpu=x64 --os=linux --libc=musl
+        run: npm run build
       - name: Deploy files to production environment
         uses: sebastianpopp/ftp-action@releases/v2
         with:
