@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies for Linux x64
         run: npm install --cpu=x64 --os=linux --libc=musl
       - name: Generate production files
-        run: npm run build
+        run: npm run build --cpu=x64 --os=linux --libc=musl
       - name: Deploy files to production environment
         uses: sebastianpopp/ftp-action@releases/v2
         with:
