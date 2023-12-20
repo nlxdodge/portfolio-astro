@@ -17,8 +17,9 @@ jobs:
         with:
           node-version: "18.x"
           check-latest: true
-      - name: Install dependencies
+      - name: Install sharp dependency as x64 Linux based
         run: npm install --os=linux --cpu=x64 sharp
+      - name: Install dependencies
         run: npm install
       - name: Generate production files
         run: npm run build
