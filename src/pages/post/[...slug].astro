@@ -23,7 +23,13 @@ const { Content } = await entry.render();
   <h1>{entry.data.title}</h1>
   <p class="date">
     {entry.data.date.toLocaleDateString()}
-    {entry.data.tags.map((tag) => <Label href={'/posts/' + tag.toLowerCase() + '/1'}>{tag}</Label>)}
+  </p>
+  <p>
+    {
+      entry.data.tags.map((tag) => (
+        <Label href={"/posts/" + tag.toLowerCase() + "/1"}>{tag}</Label>
+      ))
+    }
   </p>
   {
     new Date(entry.data.date) < date ? (
