@@ -1,12 +1,26 @@
 ---
+export interface Props {
+  quote?: string;
+}
+
+const { quote = "" } = Astro.props;
 ---
 
 <div class="quote">
-  <p id="error-quote">Quote</p>
+  {
+    quote == "" && (
+      <p id="quote-contents"></p>
+    )
+  }
+  {
+    quote != "" && (
+      <p id="quote-contents-set">{quote}</p>
+    )
+  }
 </div>
 
 <script>
-  const quotes = [
+  const defaultQuotes = [
     '"You\'ve got to have a sense of humor to keep your sanity." - Lance Bass',
     '"Stand on the shoulders of giants." - Bernard of Chartres',
     '"Dream small or don\'t dream at all" - Lightning McQueen',
@@ -22,11 +36,13 @@
     '"I am 10 billion percent sure." - Senku Ishigami',
   ];
 
-  function randomFromArray(inputArray) {
+  function randomFromArray(inputArray: Array<any>) {
     return inputArray[Math.floor(Math.random() * inputArray.length)];
   }
-  const quote = document.getElementById("error-quote");
-  quote.innerText = randomFromArray(quotes);
+  const quote = document.getElementById("quote-contents");
+  if(quote) {
+    quote.innerText = randomFromArray(defaultQuotes);
+  }
 </script>
 
 <style lang="scss">
