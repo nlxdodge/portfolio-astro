@@ -7,16 +7,8 @@ const { quote = "" } = Astro.props;
 ---
 
 <div class="quote">
-  {
-    quote == "" && (
-      <p id="quote-contents"></p>
-    )
-  }
-  {
-    quote != "" && (
-      <p id="quote-contents-set">{quote}</p>
-    )
-  }
+  {quote == "" && <p id="quote-contents" />}
+  {quote != "" && <p id="quote-contents-set">{quote}</p>}
 </div>
 
 <script>
@@ -34,13 +26,14 @@ const { quote = "" } = Astro.props;
     "\"If you always do what you've always done, you'll always get what you've always got.\" - Henry Ford",
     '"Sorry I gotta walk my flowers and water my dog." - Teensie from Rayman',
     '"I am 10 billion percent sure." - Senku Ishigami',
+    '"I solemnly swear I am up to no good." - Harry Potter',
   ];
 
   function randomFromArray(inputArray: Array<any>) {
     return inputArray[Math.floor(Math.random() * inputArray.length)];
   }
   const quote = document.getElementById("quote-contents");
-  if(quote) {
+  if (quote) {
     quote.innerText = randomFromArray(defaultQuotes);
   }
 </script>
