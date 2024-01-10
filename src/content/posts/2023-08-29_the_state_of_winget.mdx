@@ -1,0 +1,65 @@
+---
+title: The state of Winget as a package manager 📦
+author: Gerben Veenhof
+description: For everyone using Windows, the time in finally now to use Winget 📦!
+tags: [ Packages, Winget, Windows ]
+date: 2023-08-29
+---
+import Button from "../../components/Button.astro"
+import FlexCenter from "../../components/FlexCenter.astro"
+import { Image } from "astro:assets";
+
+import WingetDotRun from "../../assets/images/posts/winget-desktop.png"
+import WingetUI from "../../assets/images/posts/winget-ui.png"
+
+## Contents
+
+Every time when I do a Windows installation (because my current one is broken or I want to have a clean slate again) I need to install a bunch of programs again.
+Normally this would take a really long time and I sometimes forget what software I have used, because some software I almost never use.
+
+Well Winget comes to the rescue. And yes I know Scoop and Chocolatey are also a thing these days, and lately even more package managers that keep emerging. But it gets better down below 😉
+
+## Winget.run
+
+<Image src={WingetDotRun} alt="The website winget.run" format="avif" />
+
+You might have already seen this page before if you are a winget user (hopefully). But if not, let me introduce you to [Winget.run](https://winget.run).
+This website is basically a UI search for Winget. But that is not all there are a plethora of tools available to use for Winget.
+Not everyone is a CLI only fan, including me. So I like Winget.run. But after learning about Chocolatey at work (that's the only tool we can use there). I started to wonder.
+
+__Is there not something else that can combine everything?__
+
+## Winget UI
+
+On of those tools is [Winget UI](https://github.com/marticliment/WingetUI). Not only does it function as a Winget Package manager.
+But also for Chocolatey and Scoop on Windows. So you can search new software, update and manage all in the same tool.
+
+<Image src={WingetUI} alt="The Winget UI softare upgrade tab" format="avif" />
+
+## Installation if wanted via Winget
+
+```bash
+winget install -e --id SomePythonThings.WingetUIStore
+```
+
+## Why write this article about some software management?
+
+For automation of course 👨🏻‍💻!
+I created a small Gist on my Github account to automatically install things like: 
+
+- 🎮 Game Launchers.
+- 👨🏻‍💻 Development tools, like IDE's and UI's for containers.
+- 🎞 Media tools, like VLC, Handbreak etc.
+- 🏴‍☠️ And others tools that shall not be named here.
+
+## What about Linux? They stole our idea!
+
+You are technically correct, but I would like to still use Windows for my machine as I play a lot of games in my spare time.
+I did buy a Steam Deck and I have been using it for a while now, seeing how well that works I am fairly certain we are moving in the right direction. 
+But for most MMO's and big FPS games like Apex or Call of Duty, that still have Anti-Cheat I would rather not have a chance to get banned.
+
+<FlexCenter>
+    <Button href="https://atsro.build/" icon="ph:link-bold">Winget.run</Button>
+    <Button href="https://winget.run/pkg/SomePythonThings/WingetUIStore" icon="ph:link-bold">Winget UI</Button>
+    <Button href="https://gist.github.com/nlxdodge/ff8c3cbfab2c02c338f8c98e3a0cfdfe" icon="mdi:github">Install script Gist</Button>
+</FlexCenter>
