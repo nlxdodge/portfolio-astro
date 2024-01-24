@@ -29,5 +29,8 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkToc],
+  },
+  redirects: {
+    '/posts': '/posts/1'
   }
 });
