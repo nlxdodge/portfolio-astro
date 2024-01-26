@@ -31,6 +31,8 @@ export default defineConfig({
     remarkPlugins: [remarkToc],
   },
   redirects: {
-    '/posts': '/posts/1'
+    '/posts': '/posts/1',
+    '/post': '/posts/1',
+    '/work': '/works'
   }
 });
