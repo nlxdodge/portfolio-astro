@@ -26,20 +26,20 @@
     }
 
     .light {
-        --template-color: #FFF9FB;
+        --template-color: #ffffff;
         --template-color-opposing: #000000;
-        --template-color-code-block: #e6e6e6;
+        --template-color-code-block: #eeeeee;
 
         &.green {
-            --template-color-accent: #25603D;
+            --template-color-accent: #496F5D;
         }
     
         &.cyan {
-            --template-color-accent: #59544B;
+            --template-color-accent: #7C616C;
         }
     
         &.orange {
-            --template-color-accent: #B26700;
+            --template-color-accent: #8B1E3F;
         }
     
         &.purple {
@@ -47,7 +47,7 @@
         }
     
         &.blue {
-            --template-color-accent: #133C55;
+            --template-color-accent: #3B67CE;
         }
     }
 }

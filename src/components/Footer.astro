@@ -1,7 +1,7 @@
 ---
 const currentYear = new Date().getFullYear();
 
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer>
@@ -118,7 +118,7 @@ import { Icon } from "astro-icon";
       padding: 20px 0;
 
       a {
-        [astro-icon] {
+        [data-icon] {
           width: 55px;
           color: $template-color-accent;
           fill: $template-color-accent;
@@ -147,7 +147,7 @@ import { Icon } from "astro-icon";
         margin: 0 25px;
       }
 
-      [astro-icon] {
+      [data-icon] {
         width: 25px;
         vertical-align: bottom;
         color: $template-color-accent;

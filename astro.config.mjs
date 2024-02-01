@@ -6,11 +6,12 @@ import robotsTxt from "astro-robots-txt";
 import partytown from "@astrojs/partytown";
 import remarkToc from 'remark-toc';
 import purgecss from "astro-purgecss";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gerbenveenhof.nl/',
-  integrations: [sitemap(), robotsTxt(), compress(), mdx(), partytown(), purgecss()],
+  integrations: [icon(), sitemap(), robotsTxt(), compress(), mdx(), partytown(), purgecss()],
   vite: {
     ssr: {
       noExternal: ['include-media']
