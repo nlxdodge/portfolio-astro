@@ -1,12 +1,18 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
 const works = await getCollection("works", ({ data }) => {
   return data.draft !== true;
 });
-const sortedWorks = works.sort((o) => Number.MIN_SAFE_INTEGER + o.data.order);
+
+console.log("total size:", works.length);
+console.log("title:", works[0].data.title, "order:", works[0].data.order);
+
+const sortedWorks = works.sort((first, second) =>
+  first.data.order > second.data.order ? 1 : -1
+);
 ---
 
 <Layout title="Works | Gerben Veenhof">
