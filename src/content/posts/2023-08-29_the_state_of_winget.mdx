@@ -1,10 +1,10 @@
 ---
-title: The state of Winget as a package manager 📦
+title: The Wonderful World of Winget 📦
 author: Gerben Veenhof
 description: For everyone using Windows, the time in finally now to use Winget 📦!
 tags: 
     - Packages
-    - Winget 
+    - Winget
     - Windows
 date: 2023-08-29
 ---
@@ -28,41 +28,45 @@ Well Winget comes to the rescue. And yes I know Scoop and Chocolatey are also a 
 
 You might have already seen this page before if you are a winget user (hopefully). But if not, let me introduce you to [Winget.run](https://winget.run).
 This website is basically a UI search for Winget. But that is not all there are a plethora of tools available to use for Winget.
-Not everyone is a CLI only fan, including me. So I like Winget.run. But after learning about Chocolatey at work (that's the only tool we can use there). I started to wonder.
+Not everyone is a CLI only fan, including me, that's why I like Winget.run. But after learning about Chocolatey at work (that's the only tool we can use there). I started to wonder, what else is available for Windows?
 
 __Is there not something else that can combine everything?__
 
 ## Winget UI
 
-On of those tools is [Winget UI](https://github.com/marticliment/WingetUI). Not only does it function as a Winget Package manager.
-But also for Chocolatey and Scoop on Windows. So you can search new software, update and manage all in the same tool.
+One of those tools is [Winget UI](https://github.com/marticliment/WingetUI). Not only does it function as a Winget package manager UI, but also as a UI for Chocolatey and Scoop. So you can search new software, update and manage all in the same tool. Yes you read it correctly, all three tools combined, and even more. They also have integrations for PIP, NPM packages, Powershell and .NET Tool.
 
-<Image src={WingetUI} alt="The Winget UI softare upgrade tab" format="avif" />
+Here is a picture of the tool in action. On the Source column you can see where the package is actually being downloaded from, together with the version and the package ID.
 
-## Installation if wanted via Winget
+<Image src={WingetUI} alt="The Winget UI Sofware Search" format="avif" />
+
+If you want to use Winget UI yourself then you're in luck!
+Installing the Winget UI tool is really simple with Winget itself, by just using:
 
 ```bash
 winget install -e --id SomePythonThings.WingetUIStore
 ```
 
-## Why write this article about some software management?
+And you can already start using it right away. And even comes with dark mode 🌚
 
-For automation of course 👨🏻‍💻!
-I created a small Gist on my Github account to automatically install things like: 
+## Why write this article about some software management tool?
+
+For automation of course.
+I created a small Gist on my personal Github account to automatically install things like: 
 
 - 🎮 Game Launchers.
 - 👨🏻‍💻 Development tools, like IDE's and UI's for containers.
-- 🎞 Media tools, like VLC, Handbreak etc.
+- 🎥 Media tools, like VLC, Handbreak etc.
 - 🏴‍☠️ And others tools that shall not be named here.
 
 ## What about Linux? They stole our idea!
 
-You are technically correct, but I would like to still use Windows for my machine as I play a lot of games in my spare time.
+You are absolutely correct, but I would like to still use Windows for my machine as I play a lot of games in my spare time.
 I did buy a Steam Deck and I have been using it for a while now, seeing how well that works I am fairly certain we are moving in the right direction. 
 But for most MMO's and big FPS games like Apex or Call of Duty, that still have Anti-Cheat I would rather not have a chance to get banned.
 
 <FlexCenter>
     <Button href="https://atsro.build/" icon="ph:link-bold">Winget.run</Button>
-    <Button href="https://winget.run/pkg/SomePythonThings/WingetUIStore" icon="ph:link-bold">Winget UI</Button>
-    <Button href="https://gist.github.com/nlxdodge/ff8c3cbfab2c02c338f8c98e3a0cfdfe" icon="mdi:github">Install script Gist</Button>
+    <Button href="https://github.com/marticliment/WingetUI" icon="ph:link-bold">Winget UI</Button>
+    <Button href="https://gist.github.com/nlxdodge/ff8c3cbfab2c02c338f8c98e3a0cfdfe" icon="mdi:github">Install Script</Button>
 </FlexCenter>

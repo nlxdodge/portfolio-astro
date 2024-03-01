@@ -1,0 +1,2 @@
+Contact me on Linked-In please if you find any security risk.
+Although everything is localhost so it shouldn't be, but it's still hosted on a PHP/Apache/NGINX.

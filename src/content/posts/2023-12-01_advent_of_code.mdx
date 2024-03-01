@@ -34,7 +34,7 @@ No need to setup configuration for every project, you get it for free out of the
 
 ## TIL (Today I learned)
 
-### Day 1
+## Day 1
 
 I alreayd got some experience in Advent of Code 2015 by practicing some of the days from that year, but needless to say I still need to learn a lot.
 
@@ -57,11 +57,11 @@ With these numbers I can already do some range parsing as well.
 
 I forgot which language it was, but I think Python uses a bit of the same syntax almost. Where you can type something like `0..your_string.len()` in a for-loop and it will get a number iterator.
 
-### Day 2
+## Day 2
 
 First time using a Regex in Rust, by default there is no implementation so going with the `regex` 📦. I also found out it is more limited then the one selected by default on [Regex101](https://regex101.com/) the hard way. So I had to redo some of the code eventually.
 
-### Day 3
+## Day 3
 
 Traits, traits and more traits. Comming from Java I wanted an equals (*eq in rust*) function. Seems like the `#[derive(PartialEq)]` does the job for me. So I then can use the contains function in an iterator.
 But also the Debug trait is really handy to have, now I can just `println!("{:?}", struct)` and it will print the struct like magic. No custom `to_string()` method required!
@@ -70,7 +70,7 @@ And casting is also super easy just do `iter_y as i32` and most of the time it j
 
 And lastly the enumarator with `for (index, line) in lines.iter().enumerate() {` to get a free index with your iterator.
 
-### Day 4
+## Day 4
 
 `"Hello World!".split_once(" ")` is really nice to use, as you can now do `.unwrap().0` and always get the first result. Instead of doing `"Hello World!".split(" ").nth(0).unwrap()`.
 I also dabbled a bit in using `.is_numeric()` and more accendants.
@@ -79,7 +79,7 @@ Also to use HashMaps you need a special import, because it's not enabled by defa
 
 And I wasn't done with the ranges, I found out that using an equals operator before the second number makes it inclusive, like so: `0..=10`;
 
-### Day 5
+## Day 5
 
 For day five I did some searching for seeing how I can implement time into the project. With the chrono create it seemed easy enough. So doing `chrono::offset::Local::now()` to get the local datetime so I can print it to the console. I might later write something to compair both and see how long it took to run in seconds etc.
 
@@ -88,13 +88,13 @@ Also this doesn't work for every struct/object as well. So use it sparingly.
 
 This was also the first day where I had to use i64 because the number kept growing to much that it would overflow the i32.
 
-### Day 6
+## Day 6
 
 Ah the famed day six, I have a love hate relationship with this one. Here part two required 2 minutes to run on my laptop and 1 minute on my desktop at home. But in hindsight I had to program it differently still, then what I currently have made.
 
 For example I tried to use multithreading with the Rayon crate using `use rayon::prelude::*;`. So actually use multiple cores. But before that I had to optimize the memory management of the application because it kept flowing over 16GB each time. The current implementation doesn't go over 1.5GB in the container where I run Rust in. Apart from that I learned that the `.iter()` handles data per stream keeping the memory usage low (instead of multiple for-loops which is hard to read anyways).
 
-### Day 7
+## Day 7
 
 Day seven part one was a lot of fun to make, especially the different rules seeing regular Poker. On this day I learned how the sorting works in Rust and how to make a custom sorting function.
 
@@ -119,22 +119,22 @@ ranked_hands.sort_by(|a, b| match a.rank.cmp(&b.rank) {
 
 We where supposed to rankt the cards by their match (5 of a kind is better then 4 of a kind) and if two hands have the same, then we check charachter per character to see what is the highest one.
 
-### Day 8
+## Day 8
 
 Day eight on the other hand was a lot easier again, although I did have to look up [LCM (Least Common Multiple)](https://en.wikipedia.org/wiki/Least_common_multiple) and [GCD (greatest common divisor)](https://en.wikipedia.org/wiki/Greatest_common_divisor) because I don't really have a good Math background.
 
-### Day 9
+## Day 9
 
 I wanted to use pop on an array to remove the first item, I search and found the `VecDeque` which is basically a `Vec` but with some of the Queue functions.
 Also for part 2 it was really easy I only had to get the first item and actually do the calculation instead of doing a sum.
 
-### Day 10
+## Day 10
 
 Day 10 was kind of weird to do but I had some time issues and never got around it. This is the day where I got stuck because I was overthinking a lot.
 
 Still working on part 2 though.
 
-### Day 11
+## Day 11
 
 I am finally taking a deeper dive in the world of modules, right now I have been copy pasting the whole code from the `main.rs` file to the appropriate file, like `aoc10.rs` each time. But this is becomming bothersome now.
 
