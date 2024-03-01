@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 
 export interface Props {
+  id?: string;
   href: string;
   icon: string;
   nofollow?: boolean;
@@ -9,6 +10,7 @@ export interface Props {
 }
 
 const {
+  id,
   href = "#",
   icon = null,
   nofollow = true,
@@ -16,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<a class="button" href={href} rel={nofollow ? "nofollow" : ""}>
+<a id={id} class="button" href={href} rel={nofollow ? "nofollow" : ""}>
   <div class="flex">
     {
       icon && !flipIcon && (
@@ -44,7 +46,7 @@ const {
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     border-radius: 10px;
-    width: 90%;
+    width: calc(100% - 26px);
     padding: 12px 0;
     margin: 10px;
     user-select: none;

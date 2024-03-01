@@ -21,6 +21,7 @@ const { Content } = await entry.render();
 
 <Layout title={entry.data.title + " | Gerben Veenhof"}>
   <h1>{entry.data.title}</h1>
+  <div hidden data-pagefind-meta="description">{entry.data.description}</div>
   <p class="date">
     {entry.data.date.toLocaleDateString()}
   </p>

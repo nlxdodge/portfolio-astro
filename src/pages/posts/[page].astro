@@ -1,15 +1,15 @@
 ---
 import { getCollection } from "astro:content";
 import Button from "../../components/Button.astro";
-import Layout from "../../layouts/Layout.astro";
 import Label from "../../components/Label.astro";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection("posts", ({ data }) => {
     return data.draft !== true;
   });
   const sortedPosts = posts.sort(
-    (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
+    (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate()
   );
   return paginate(sortedPosts, {
     pageSize: 5,
@@ -27,14 +27,13 @@ let tagCounts = allTags.reduce((acc, tag) => {
 }, {});
 let sortedTags = allTags.sort((a, b) => tagCounts[b] - tagCounts[a]);
 let uniqueTags = sortedTags.filter(
-  (tag, index) => sortedTags.indexOf(tag) === index,
+  (tag, index) => sortedTags.indexOf(tag) === index
 );
 ---
 
 <Layout title="Posts | Gerben Veenhof">
   <h1 class="center-text">My Posts Collection 📝</h1>
   <div class="tags">
-    {console.log("tags", uniqueTags.slice(0, 10))}
     {
       uniqueTags
         .slice(0, 5)
@@ -43,10 +42,10 @@ let uniqueTags = sortedTags.filter(
         ))
     }
   </div>
-
-  <div class="posts">
+  <input id="search" type="text" placeholder="Search all my posts" />
+  <div id="posts">
     {
-      page.data.map((post) => (
+      page.data.map((post: any) => (
         <div>
           <a class="post" href={`/post/${post.slug}`}>
             <h2>{post.data.title}</h2>
@@ -60,6 +59,7 @@ let uniqueTags = sortedTags.filter(
     {
       page.url.prev ? (
         <Button
+          id="button-prev"
           href={page.url.prev}
           icon="mdi:arrow-back-circle"
           nofollow={false}
@@ -71,6 +71,7 @@ let uniqueTags = sortedTags.filter(
     {
       page.url.next ? (
         <Button
+          id="button-next"
           href={page.url.next}
           icon="mdi:arrow-forward-circle"
           nofollow={false}
@@ -88,5 +89,64 @@ let uniqueTags = sortedTags.filter(
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+
+  #search {
+    width: calc(100% - 26px);
+    margin: 0;
+    padding: 10px;
+    font-size: 1em;
+    font-family: $template-default-font;
+    border: 3px solid $template-color-accent;
+    border-radius: 10px;
+    background-color: #252627;
+    color: #fff;
   }
 </style>
+
+<script is:inline>
+  document.querySelector("#search").value = "";
+  const original = document.querySelector("#posts").innerHTML;
+  const next = document.getElementById("button-next");
+  const prev = document.getElementById("button-prev");
+
+  document.querySelector("#search")?.addEventListener("input", async (e) => {
+    if (e.target.dataset.loaded !== "true") {
+      e.target.dataset.loaded = "true";
+      window.pagefind = await import("/pagefind/pagefind.js");
+    }
+
+    if (document.querySelector("#search").value == "") {
+      document.querySelector("#posts").innerHTML = original;
+      if (next != null) {
+        next.style.display = "block";
+      }
+      if (prev != null) {
+        prev.style.display = "block ";
+      }
+    } else {
+      document.querySelector("#posts").innerHTML = "";
+      if (next != null) {
+        next.style.display = "none";
+      }
+      if (prev != null) {
+        prev.style.display = "none ";
+      }
+    }
+
+    const search = await window.pagefind.search(e.target.value);
+    for (const result of search.results) {
+      const post = await result.data();
+      if (post.url.startsWith("/post/")) {
+        document.querySelector("#posts").innerHTML += `
+        <div>
+          <a class="post" href="${post.url}">
+            <h2>${post.meta.title}</h2>
+          </a>
+          <p>${post.meta.description}</p>
+        </div>`;
+      }
+    }
+  });
+</script>

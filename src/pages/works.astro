@@ -6,10 +6,6 @@ import Layout from "../layouts/Layout.astro";
 const works = await getCollection("works", ({ data }) => {
   return data.draft !== true;
 });
-
-console.log("total size:", works.length);
-console.log("title:", works[0].data.title, "order:", works[0].data.order);
-
 const sortedWorks = works.sort((first, second) =>
   first.data.order > second.data.order ? 1 : -1
 );

@@ -5,11 +5,13 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro build",
+		"build": "astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
+		"build-win": "astro build && npx pagefind --site dist && copy /dist/pagefind /public",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/check": "^0.5.5",
 		"@astrojs/mdx": "^2.1.1",
 		"@astrojs/partytown": "^2.0.4",
 		"@astrojs/prism": "^3.0.0",
@@ -31,9 +33,11 @@
 		"astro-seo": "^0.8.0",
 		"include-media": "^2.0.0",
 		"remark-toc": "^9.0.0",
-		"sharp": "^0.33.2"
+		"sharp": "^0.33.2",
+		"typescript": "^5.3.3"
 	},
 	"devDependencies": {
+		"pagefind": "^1.0.4",
 		"sass": "^1.58.3",
 		"svgo": "^2.8.0"
 	}
