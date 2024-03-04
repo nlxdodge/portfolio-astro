@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Button from "../../../components/Button.astro";
+import FlexCenter from "../../../components/FlexCenter.astro";
 import Layout from "../../../layouts/Layout.astro";
 
 export async function getStaticPaths({ paginate }) {
@@ -8,11 +9,15 @@ export async function getStaticPaths({ paginate }) {
     return data.draft !== true;
   });
 
-  const allTags = new Set(posts.flatMap((x) => x.data.tags).map(x => x.toLowerCase()));
+  const allTags = new Set(
+    posts.flatMap((x) => x.data.tags).map((x) => x.toLowerCase())
+  );
   return Array.from(allTags).flatMap((tag) => {
-    const filteredPosts = posts.filter((post) => post.data.tags.map(x => x.toLowerCase()).includes(tag));
+    const filteredPosts = posts.filter((post) =>
+      post.data.tags.map((x) => x.toLowerCase()).includes(tag)
+    );
     const sortedPosts = filteredPosts.sort(
-      (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
+      (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate()
     );
     return paginate(sortedPosts, {
       params: { tag: tag },
@@ -22,9 +27,14 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props;
+const some = page.url.current.slice(7);
+const currentTag = some.slice(0, some.length - 2);
+const currentTagUpperCase =
+  currentTag.charAt(0).toUpperCase() + currentTag.slice(1);
 ---
 
 <Layout title="Posts | Gerben Veenhof">
+  <h1 class="center-text">{currentTagUpperCase} Posts 📝</h1>
   <div class="posts">
     {
       page.data.map((post) => (
@@ -60,5 +70,8 @@ const { page } = Astro.props;
         </Button>
       ) : null
     }
+    <FlexCenter>
+      <Button href="/posts" icon="mdi:arrow-back-circle">All Posts</Button>
+    </FlexCenter>
   </div>
 </Layout>

@@ -6,23 +6,23 @@
 
 
     .green {
-        --template-color-accent: #53DD6C;
+        --template-color-accent: #F6F7C4;
     }
 
     .cyan {
-        --template-color-accent: #00CCCA;
+        --template-color-accent: #A1EEBD;
     }
 
     .orange {
-        --template-color-accent: #FFC53A;
+        --template-color-accent: #FF90BC;
     }
 
     .purple {
-        --template-color-accent: #BCA3F7;
+        --template-color-accent: #AC87C5;
     }
 
     .blue {
-        --template-color-accent: #63D2FF;
+        --template-color-accent: #7BD3EA;
     }
 
     .light {
@@ -31,23 +31,23 @@
         --template-color-code-block: #eeeeee;
 
         &.green {
-            --template-color-accent: #496F5D;
+            --template-color-accent: #036806;
         }
     
         &.cyan {
-            --template-color-accent: #7C616C;
+            --template-color-accent: #03616F;
         }
     
         &.orange {
-            --template-color-accent: #8B1E3F;
+            --template-color-accent: #894700;
         }
     
         &.purple {
-            --template-color-accent: #5941A9;
+            --template-color-accent: #9916A0;
         }
     
         &.blue {
-            --template-color-accent: #3B67CE;
+            --template-color-accent: #0D4654;
         }
     }
 }
