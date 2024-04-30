@@ -1,17 +1,18 @@
 import { defineConfig, sharpImageService } from 'astro/config';
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import compress from "astro-compress";
 import robotsTxt from "astro-robots-txt";
 import partytown from "@astrojs/partytown";
 import remarkToc from 'remark-toc';
 import purgecss from "astro-purgecss";
 import icon from "astro-icon";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gerbenveenhof.nl/',
-  integrations: [icon(), sitemap(), robotsTxt(), compress(), mdx(), partytown(), purgecss()],
+  integrations: [icon(), sitemap(), robotsTxt(), mdx(), partytown(), purgecss(), playformCompress()],
   vite: {
     ssr: {
       noExternal: ['include-media']
@@ -29,7 +30,7 @@ export default defineConfig({
     service: sharpImageService()
   },
   markdown: {
-    remarkPlugins: [remarkToc],
+    remarkPlugins: [remarkToc]
   },
   redirects: {
     '/posts': '/posts/1',
