@@ -33,7 +33,7 @@ const currentTagUpperCase =
   currentTag.charAt(0).toUpperCase() + currentTag.slice(1);
 ---
 
-<Layout title="Posts | Gerben Veenhof">
+<Layout title={currentTagUpperCase + " | Gerben Veenhof"} description={"Read all my posts about " + currentTag}>
   <h1 class="center-text">{currentTagUpperCase} Posts 📝</h1>
   <div class="posts">
     {
