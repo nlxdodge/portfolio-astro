@@ -38,7 +38,7 @@ const { Content } = await entry.render();
         <p>
           This post is older than 2 years
           <span class="banner">({entry.data.date.toLocaleDateString()})</span>,
-          things might have changed! Please check for yourself if something has
+          things might have changed! <br/> Please check for yourself if something has
           been updated/depricated!
         </p>
       </Banner>
@@ -55,10 +55,5 @@ const { Content } = await entry.render();
   .date {
     font-style: italic;
     margin-top: 0;
-  }
-
-  .banner {
-    font-style: italic;
-    white-space: nowrap;
   }
 </style>

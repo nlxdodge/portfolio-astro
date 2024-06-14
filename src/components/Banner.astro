@@ -14,7 +14,12 @@ const { icon = null, second = false } = Astro.props;
   <slot />
   {
     icon && second && (
-      <Icon name={icon} aria-hidden="true" aria-label="copyright" />
+      <Icon
+        class="hide-mobile"
+        name={icon}
+        aria-hidden="true"
+        aria-label="copyright"
+      />
     )
   }
 </div>
@@ -35,6 +40,12 @@ const { icon = null, second = false } = Astro.props;
       gap: 25px;
       flex-direction: row;
       justify-content: space-between;
+    }
+
+    @include media("<tablet") {
+      .hide-mobile {
+        display: none;
+      }
     }
 
     p {
