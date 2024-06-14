@@ -6,13 +6,28 @@ import partytown from "@astrojs/partytown";
 import remarkToc from 'remark-toc';
 import purgecss from "astro-purgecss";
 import icon from "astro-icon";
-
 import compress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gerbenveenhof.nl/',
-  integrations: [icon(), sitemap(), robotsTxt(), mdx(), partytown(), purgecss(), compress()],
+  integrations: [
+    icon(),
+    sitemap(),
+    robotsTxt(),
+    mdx({
+      shikiConfig: {
+        theme: 'one-dark-pro',
+        themes: {
+          light: "one-light",
+          dark: "one-dark-pro"
+        }
+      },
+    }),
+    partytown(),
+    purgecss(),
+    compress()
+  ],
   vite: {
     ssr: {
       noExternal: ['include-media']

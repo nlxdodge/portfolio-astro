@@ -14,7 +14,6 @@
 		"@astrojs/check": "^0.7.0",
 		"@astrojs/mdx": "^3.1.0",
 		"@astrojs/partytown": "^2.1.1",
-		"@astrojs/prism": "^3.1.0",
 		"@astrojs/rss": "^4.0.6",
 		"@astrojs/sitemap": "^3.1.5",
 		"@glidejs/glide": "^3.6.1",
