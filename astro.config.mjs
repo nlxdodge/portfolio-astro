@@ -1,4 +1,5 @@
 import { defineConfig, sharpImageService } from 'astro/config';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
@@ -45,7 +46,8 @@ export default defineConfig({
     service: sharpImageService()
   },
   markdown: {
-    remarkPlugins: [remarkToc]
+    remarkPlugins: [remarkToc],
+    rehypePlugins: [rehypeAccessibleEmojis],
   },
   redirects: {
     '/posts': '/posts/1',
