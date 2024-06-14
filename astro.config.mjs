@@ -7,12 +7,12 @@ import remarkToc from 'remark-toc';
 import purgecss from "astro-purgecss";
 import icon from "astro-icon";
 
-import playformCompress from "@playform/compress";
+import compress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gerbenveenhof.nl/',
-  integrations: [icon(), sitemap(), robotsTxt(), mdx(), partytown(), purgecss(), playformCompress()],
+  integrations: [icon(), sitemap(), robotsTxt(), mdx(), partytown(), purgecss(), compress()],
   vite: {
     ssr: {
       noExternal: ['include-media']

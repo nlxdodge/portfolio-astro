@@ -11,13 +11,13 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.5",
-		"@astrojs/mdx": "^2.1.1",
-		"@astrojs/partytown": "^2.0.4",
-		"@astrojs/prism": "^3.0.0",
-		"@astrojs/rss": "^4.0.4",
-		"@astrojs/sitemap": "^3.0.5",
-		"@glidejs/glide": "^3.6.0",
+		"@astrojs/check": "^0.7.0",
+		"@astrojs/mdx": "^3.1.0",
+		"@astrojs/partytown": "^2.1.1",
+		"@astrojs/prism": "^3.1.0",
+		"@astrojs/rss": "^4.0.6",
+		"@astrojs/sitemap": "^3.1.5",
+		"@glidejs/glide": "^3.6.1",
 		"@iconify-json/ant-design": "^1.1.14",
 		"@iconify-json/eva": "^1.1.10",
 		"@iconify-json/fontisto": "^1.1.8",
@@ -25,20 +25,20 @@
 		"@iconify-json/ph": "^1.1.10",
 		"@iconify-json/ri": "^1.1.19",
 		"@iconify-json/simple-icons": "^1.1.90",
-		"@playform/compress": "^0.0.3",
-		"astro": "^4.3.1",
-		"astro-icon": "^1.0.4",
-		"astro-purgecss": "^4.1.0",
+		"@playform/compress": "^0.0.13",
+		"astro": "^4.10.2",
+		"astro-icon": "^1.1.0",
+		"astro-purgecss": "^4.1.1",
 		"astro-robots-txt": "^1.0.0",
-		"astro-seo": "^0.8.0",
+		"astro-seo": "^0.8.4",
 		"include-media": "^2.0.0",
 		"remark-toc": "^9.0.0",
 		"sharp": "^0.33.2",
-		"typescript": "^5.3.3"
+		"typescript": "^5.4.5"
 	},
 	"devDependencies": {
-		"pagefind": "^1.0.4",
-		"sass": "^1.58.3",
-		"svgo": "^2.8.0"
+		"pagefind": "^1.1.0",
+		"sass": "^1.77.5",
+		"svgo": "^3.3.2"
 	}
 }
