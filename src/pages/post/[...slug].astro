@@ -19,7 +19,10 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title + " | Gerben Veenhof"} description={entry.data.description}>
+<Layout
+  title={entry.data.title + " | Gerben Veenhof"}
+  description={entry.data.description}
+>
   <h1>{entry.data.title}</h1>
   <div hidden data-pagefind-meta="description">{entry.data.description}</div>
   <p class="date">
@@ -38,8 +41,8 @@ const { Content } = await entry.render();
         <p>
           This post is older than 2 years
           <span class="banner">({entry.data.date.toLocaleDateString()})</span>,
-          things might have changed! <br/> Please check for yourself if something has
-          been updated/depricated!
+          things might have changed! <br /> Please check for yourself if
+          something has been updated/depricated!
         </p>
       </Banner>
     ) : null

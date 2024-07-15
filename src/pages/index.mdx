@@ -7,8 +7,8 @@ tags: Gerben Veenhof, portfolio, works, posts, backend
 import Layout from "../layouts/Layout.astro";
 import Glide from "../components/Glide.astro";
 import LabelCollection from "../components/LabelCollection.astro";
-import Button from "../components/Button.astro"
-import FlexCenter from "../components/FlexCenter.astro"
+import Button from "../components/Button.astro";
+import FlexCenter from "../components/FlexCenter.astro";
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
 
@@ -28,25 +28,32 @@ After graduation and having done 4 internships at different work environments an
 ## Experience with 👨🏻‍💻
 
 While I am learning lots of new things every day, here is a short list of things I am currenly working with and have experiences with.
-The best thing is to check my to see where I have worked before with more details. 
+The best thing is to check my to see where I have worked before with more details.
 
 <FlexCenter>
-  <Button href="https://www.linkedin.com/in/gerbenveenhof/">My LinkedIn page</Button>
+  <Button href="https://www.linkedin.com/in/gerbenveenhof/">
+    My LinkedIn page
+  </Button>
 </FlexCenter>
 ### Some things
 
 - <LabelCollection
     name="Backend: "
-    labels={["Java 🔥", "Rust", "Kotlin", "Ruby", "Python", "PHP", "C# (with Unity)"]}
+    labels={[
+      "Java 🔥",
+      "Rust",
+      "Kotlin",
+      "Ruby",
+      "Python",
+      "PHP",
+      "C# (with Unity)",
+    ]}
   />
 - <LabelCollection
     name="Databases: "
     labels={["Cassandra 🔥", "PostgreSQL", "MySQL"]}
   />
-- <LabelCollection
-    name="Cloud: "
-    labels={["OpenShift 🔥", "Azure", "AWS"]}
-  />  
+- <LabelCollection name="Cloud: " labels={["OpenShift 🔥", "Azure", "AWS"]} />{" "}
 - <LabelCollection
     name="Frontend: "
     labels={["Astro 🔥", "Vue", "NPM", "Angular"]}

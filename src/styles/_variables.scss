@@ -1,55 +1,54 @@
 :root {
-    --template-color: #252627;
-    --template-color-opposing: #FFF9FB;
-    --template-color-accent: #FFC53A;
-    --template-color-code-block: #555555;
+  --template-color: #252627;
+  --template-color-opposing: #fff9fb;
+  --template-color-accent: #ffc53a;
+  --template-color-code-block: #555555;
 
+  .green {
+    --template-color-accent: #f6f7c4;
+  }
 
-    .green {
-        --template-color-accent: #F6F7C4;
+  .cyan {
+    --template-color-accent: #a1eebd;
+  }
+
+  .orange {
+    --template-color-accent: #ff90bc;
+  }
+
+  .purple {
+    --template-color-accent: #ac87c5;
+  }
+
+  .blue {
+    --template-color-accent: #7bd3ea;
+  }
+
+  .light {
+    --template-color: #ffffff;
+    --template-color-opposing: #000000;
+    --template-color-code-block: #eeeeee;
+
+    &.green {
+      --template-color-accent: #036806;
     }
 
-    .cyan {
-        --template-color-accent: #A1EEBD;
+    &.cyan {
+      --template-color-accent: #03616f;
     }
 
-    .orange {
-        --template-color-accent: #FF90BC;
+    &.orange {
+      --template-color-accent: #894700;
     }
 
-    .purple {
-        --template-color-accent: #AC87C5;
+    &.purple {
+      --template-color-accent: #9916a0;
     }
 
-    .blue {
-        --template-color-accent: #7BD3EA;
+    &.blue {
+      --template-color-accent: #0d4654;
     }
-
-    .light {
-        --template-color: #ffffff;
-        --template-color-opposing: #000000;
-        --template-color-code-block: #eeeeee;
-
-        &.green {
-            --template-color-accent: #036806;
-        }
-    
-        &.cyan {
-            --template-color-accent: #03616F;
-        }
-    
-        &.orange {
-            --template-color-accent: #894700;
-        }
-    
-        &.purple {
-            --template-color-accent: #9916A0;
-        }
-    
-        &.blue {
-            --template-color-accent: #0D4654;
-        }
-    }
+  }
 }
 
 $template-color: var(--template-color);
@@ -58,5 +57,5 @@ $template-color-accent: var(--template-color-accent);
 $template-color-accent-opposing: var(--template-color-accent-opposing);
 $template-color-code-block: var(--template-color-code-block);
 
-$template-default-font: 'GeneralSans-Regular', Verdana, Arial, sans-serif;
-$template-header-font: 'GeneralSans-Bold', Arial, Helvetica, sans-serif;
+$template-default-font: "GeneralSans-Regular", Verdana, Arial, sans-serif;
+$template-header-font: "GeneralSans-Bold", Arial, Helvetica, sans-serif;

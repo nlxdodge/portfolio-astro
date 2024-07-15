@@ -2,18 +2,19 @@
 title: The Wonderful World of Winget 📦
 author: Gerben Veenhof
 description: For everyone using Windows, the time in finally now to use Winget 📦!
-tags: 
-    - Packages
-    - Winget
-    - Windows
+tags:
+  - Packages
+  - Winget
+  - Windows
 date: 2023-08-29
 ---
-import Button from "../../components/Button.astro"
-import FlexCenter from "../../components/FlexCenter.astro"
+
+import Button from "../../components/Button.astro";
+import FlexCenter from "../../components/FlexCenter.astro";
 import { Image } from "astro:assets";
 
-import WingetDotRun from "../../assets/images/posts/winget-desktop.png"
-import WingetUI from "../../assets/images/posts/winget-ui.png"
+import WingetDotRun from "../../assets/images/posts/winget-desktop.png";
+import WingetUI from "../../assets/images/posts/winget-ui.png";
 
 ## Contents
 
@@ -30,7 +31,7 @@ You might have already seen this page before if you are a winget user (hopefully
 This website is basically a UI search for Winget. But that is not all there are a plethora of tools available to use for Winget.
 Not everyone is a CLI only fan, including me, that's why I like Winget.run. But after learning about Chocolatey at work (that's the only tool we can use there). I started to wonder, what else is available for Windows?
 
-__Is there not something else that can combine everything?__
+**Is there not something else that can combine everything?**
 
 ## Winget UI
 
@@ -52,7 +53,7 @@ And you can already start using it right away. And even comes with dark mode �
 ## Why write this article about some software management tool?
 
 For automation of course.
-I created a small Gist on my personal Github account to automatically install things like: 
+I created a small Gist on my personal Github account to automatically install things like:
 
 - 🎮 Game Launchers.
 - 👨🏻‍💻 Development tools, like IDE's and UI's for containers.
@@ -62,11 +63,20 @@ I created a small Gist on my personal Github account to automatically install th
 ## What about Linux? They stole our idea!
 
 You are absolutely correct, but I would like to still use Windows for my machine as I play a lot of games in my spare time.
-I did buy a Steam Deck and I have been using it for a while now, seeing how well that works I am fairly certain we are moving in the right direction. 
+I did buy a Steam Deck and I have been using it for a while now, seeing how well that works I am fairly certain we are moving in the right direction.
 But for most MMO's and big FPS games like Apex or Call of Duty, that still have Anti-Cheat I would rather not have a chance to get banned.
 
 <FlexCenter>
-    <Button href="https://atsro.build/" icon="ph:link-bold">Winget.run</Button>
-    <Button href="https://github.com/marticliment/WingetUI" icon="ph:link-bold">Winget UI</Button>
-    <Button href="https://gist.github.com/nlxdodge/ff8c3cbfab2c02c338f8c98e3a0cfdfe" icon="mdi:github">Install Script</Button>
+  <Button href="https://atsro.build/" icon="ph:link-bold">
+    Winget.run
+  </Button>
+  <Button href="https://github.com/marticliment/WingetUI" icon="ph:link-bold">
+    Winget UI
+  </Button>
+  <Button
+    href="https://gist.github.com/nlxdodge/ff8c3cbfab2c02c338f8c98e3a0cfdfe"
+    icon="mdi:github"
+  >
+    Install Script
+  </Button>
 </FlexCenter>

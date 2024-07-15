@@ -6,7 +6,7 @@ date: 2020-11-26
 image: ../../assets/images/works/aq3d_bot.png
 image_alt: AQ3D Bot in Discord
 description: A Discord bot once made to get the server status and other information. Superseeded by a new bot of the Discord owner.
-tags: 
+tags:
   - Discord
   - Java
 category: Java
@@ -16,7 +16,7 @@ import Button from "../../components/Button.astro";
 import FlexCenter from "../../components/FlexCenter.astro";
 import { Image } from "astro:assets";
 
-import AQ3D from "../../assets/images/works/aq3d_bot.png"
+import AQ3D from "../../assets/images/works/aq3d_bot.png";
 
 <Image src={AQ3D} alt="AQ3D Bot" format="avif" />
 
@@ -43,5 +43,7 @@ client.getEventDispatcher().on(MessageCreateEvent.class).map(MessageCreateEvent:
 For the current state of the project, check out Github with the Link button.
 
 <FlexCenter>
-  <Button href="https://github.com/nlxdodge/C.A.T.E" icon="mdi:github">C.A.T.E Repository</Button>
+  <Button href="https://github.com/nlxdodge/C.A.T.E" icon="mdi:github">
+    C.A.T.E Repository
+  </Button>
 </FlexCenter>

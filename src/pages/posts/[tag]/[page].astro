@@ -10,14 +10,14 @@ export async function getStaticPaths({ paginate }) {
   });
 
   const allTags = new Set(
-    posts.flatMap((x) => x.data.tags).map((x) => x.toLowerCase())
+    posts.flatMap((x) => x.data.tags).map((x) => x.toLowerCase()),
   );
   return Array.from(allTags).flatMap((tag) => {
     const filteredPosts = posts.filter((post) =>
-      post.data.tags.map((x) => x.toLowerCase()).includes(tag)
+      post.data.tags.map((x) => x.toLowerCase()).includes(tag),
     );
     const sortedPosts = filteredPosts.sort(
-      (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate()
+      (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
     );
     return paginate(sortedPosts, {
       params: { tag: tag },
@@ -33,7 +33,10 @@ const currentTagUpperCase =
   currentTag.charAt(0).toUpperCase() + currentTag.slice(1);
 ---
 
-<Layout title={currentTagUpperCase + " | Gerben Veenhof"} description={"Read all my posts about " + currentTag}>
+<Layout
+  title={currentTagUpperCase + " | Gerben Veenhof"}
+  description={"Read all my posts about " + currentTag}
+>
   <h1 class="center-text">{currentTagUpperCase} Posts 📝</h1>
   <div class="posts">
     {

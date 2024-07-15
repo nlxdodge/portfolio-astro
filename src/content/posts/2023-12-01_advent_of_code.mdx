@@ -2,24 +2,25 @@
 title: Advent of Code 2023 (Rust) 🎄
 author: Gerben Veenhof
 description: Rust, a more complex typed and memory managed language. But still alike Java in some sort cases.
-tags: 
-    - AOC
-    - Rust
+tags:
+  - AOC
+  - Rust
 date: 2023-12-01
 ---
-import Button from "../../components/Button.astro"
-import FlexCenter from "../../components/FlexCenter.astro"
+
+import Button from "../../components/Button.astro";
+import FlexCenter from "../../components/FlexCenter.astro";
 
 ## Contents
 
-The year 2023, I started of with the Rust programming language. Why did I pick Rust? 
-I wanted to challenge myself again this year but with a somewhat more lower level programming language, but still with some handholding where you can just jump into. 
-Rust was the perfect example for this if I can speak for myself. 
+The year 2023, I started of with the Rust programming language. Why did I pick Rust?
+I wanted to challenge myself again this year but with a somewhat more lower level programming language, but still with some handholding where you can just jump into.
+Rust was the perfect example for this if I can speak for myself.
 
 There are a couple of main things you when switching from Java to Rust, for example farbadge collection if a whole different ideolegy now.
-For example, in Java garbadge collection is being done for you, no thinking about it. 
+For example, in Java garbadge collection is being done for you, no thinking about it.
 But in Rust there is a nifty system for allocating memory for you in some sense.
-See bellow example, this is a simple hello world program in Rust. 
+See bellow example, this is a simple hello world program in Rust.
 
 ```rust
 fn main() {
@@ -28,7 +29,7 @@ fn main() {
 }
 ```
 
-If you have [Clippy](https://doc.rust-lang.org/stable/clippy/usage.html) installed and run it with `cargo clippy` you will already get a warning saying that variable is never changed and that the `mut` (mutable tag) is not required. 
+If you have [Clippy](https://doc.rust-lang.org/stable/clippy/usage.html) installed and run it with `cargo clippy` you will already get a warning saying that variable is never changed and that the `mut` (mutable tag) is not required.
 But there are more awesome tools to make the development experience a really good one. Want to format your code? The [Rust Code formatter](https://github.com/rust-lang/rustfmt) or in the terminal better known as `cargo fmt` is very usefull for this.
 No need to setup configuration for every project, you get it for free out of the box. This is a breath of fresh air when comming from Java or JavaScript for that matter.
 
@@ -38,11 +39,11 @@ I alreayd got some experience in Advent of Code 2015 by practicing some of the d
 
 The borrow and owner system is still kind of aliën to me, but I am starting to get the hang of it. You can better read what the compiler says, because most of the time that fixes the issue that I have.
 
-I also followed a video to setup VSCode *Error Lens* which shows what lines gives the error in VSCode for easy debugging. I am also using the Devcontainers extension together with Podman Desktop to run Rust, so you can easily launch the code yourself if you open the `2023 - rust` folder.
+I also followed a video to setup VSCode _Error Lens_ which shows what lines gives the error in VSCode for easy debugging. I am also using the Devcontainers extension together with Podman Desktop to run Rust, so you can easily launch the code yourself if you open the `2023 - rust` folder.
 
 Also HashMaps exist! I thought that it didn't but you need to import it with `use std::collections::HashMap;` same as getting a substring with `use substring::Substring;` but for this you need to install a new crate with Cargo called `substring` with `cargo add substring`. It's as easy as that.
 
-And I really 😍 the `println!` macro (*yes it's called a macro*), an example that I use almost every day:
+And I really 😍 the `println!` macro (_yes it's called a macro_), an example that I use almost every day:
 
 ```rust
 println!("Day 1 ⭐1️⃣  result: {}", star1);
@@ -61,7 +62,7 @@ First time using a Regex in Rust, by default there is no implementation so going
 
 ## Day 3
 
-Traits, traits and more traits. Comming from Java I wanted an equals (*eq in rust*) function. Seems like the `#[derive(PartialEq)]` does the job for me. So I then can use the contains function in an iterator.
+Traits, traits and more traits. Comming from Java I wanted an equals (_eq in rust_) function. Seems like the `#[derive(PartialEq)]` does the job for me. So I then can use the contains function in an iterator.
 But also the Debug trait is really handy to have, now I can just `println!("{:?}", struct)` and it will print the struct like magic. No custom `to_string()` method required!
 
 And casting is also super easy just do `iter_y as i32` and most of the time it just works 🪄 like magic.
@@ -139,5 +140,7 @@ I am finally taking a deeper dive in the world of modules, right now I have been
 I found out that using mod works when running from the main.rs file. So using `use aoc11;` make my life easy so I can just call the run method on each day instead.
 
 <FlexCenter>
-    <Button href="https://github.com/nlxdodge/Advent-Of-Code" icon="mdi:github">Advent of Code Repository</Button>
+  <Button href="https://github.com/nlxdodge/Advent-Of-Code" icon="mdi:github">
+    Advent of Code Repository
+  </Button>
 </FlexCenter>
