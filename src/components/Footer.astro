@@ -118,14 +118,14 @@ import { Icon } from "astro-icon/components";
       padding: 20px 0;
 
       a {
+        margin: 0 20px;
+        transition: all 0.2s ease-in-out;
+
         [data-icon] {
           width: 55px;
           color: $template-color-accent;
           fill: $template-color-accent;
         }
-
-        margin: 0 20px;
-        transition: all 0.2s ease-in-out;
 
         @include media(">tablet") {
           padding: 20px;

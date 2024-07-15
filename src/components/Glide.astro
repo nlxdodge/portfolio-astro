@@ -93,13 +93,13 @@ import Scrapyard from "../assets/images/works/scrapyard.png";
           height: 32px;
           border-radius: 100%;
           background-color: $template-color-accent;
-          @include transition(all 0.2s ease-in-out);
           filter: opacity(0);
+          @include transition(all 0.2s ease-in-out);
         }
 
         &.glide__bullet--active div {
-          @include transition(all 0.2s ease-in-out);
           filter: opacity(0.5);
+          @include transition(all 0.2s ease-in-out);
         }
       }
     }
@@ -133,11 +133,6 @@ import Scrapyard from "../assets/images/works/scrapyard.png";
         }
 
         p {
-          @include media(">tablet") {
-            font-size: 1.75em;
-            width: auto;
-          }
-
           border-radius: 7px;
           width: 240px;
           position: absolute;
@@ -151,6 +146,11 @@ import Scrapyard from "../assets/images/works/scrapyard.png";
 
           background-color: rgba(0, 0, 0, 0.6);
           padding: 10px 35px;
+
+          @include media(">tablet") {
+            font-size: 1.75em;
+            width: auto;
+          }
 
           span {
             font-family: $template-default-font;
