@@ -25,9 +25,7 @@ const {
         <Icon name={icon} aria-hidden="true" aria-label={icon} />
       )
     }
-    <p>
-      <slot />
-    </p>
+    <slot />
     {
       icon && flipIcon && (
         <Icon name={icon} aria-hidden="true" aria-label={icon} />
@@ -54,13 +52,9 @@ const {
     .flex {
       margin: 0 10px;
       display: flex;
+      gap: 15px;
       justify-content: center;
       align-items: center;
-
-      p {
-        margin: 3px 10px 0 10px;
-        text-align: center;
-      }
 
       svg {
         height: 35px;

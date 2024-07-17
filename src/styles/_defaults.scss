@@ -28,6 +28,13 @@ body.dark .astro-code span {
   border-radius: 5px;
 }
 
+.button {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 a {
   color: $template-color-accent;
 

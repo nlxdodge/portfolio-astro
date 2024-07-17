@@ -40,46 +40,47 @@ import MinimalAnalytics from "../components/MinimalAnalytics.astro";
       <slot />
       <Footer />
     </main>
-  </body><script is:inline>
-    function randomFromArray(inputArray) {
-      return inputArray[Math.floor(Math.random() * inputArray.length)];
-    }
+    <script is:inline>
+      function randomFromArray(inputArray) {
+        return inputArray[Math.floor(Math.random() * inputArray.length)];
+      }
 
-    function getRandomColor() {
-      return randomFromArray(["orange", "purple", "cyan", "green", "blue"]);
-    }
+      function getRandomColor() {
+        return randomFromArray(["orange", "purple", "cyan", "green", "blue"]);
+      }
 
-    function setColor(color) {
-      const body = document.querySelector("body");
-      body.classList.remove(localStorage.getItem("color"));
-      body.classList.add(color);
-      localStorage.setItem("color", color);
-    }
+      function setColor(color) {
+        const body = document.querySelector("body");
+        body.classList.remove(localStorage.getItem("color"));
+        body.classList.add(color);
+        localStorage.setItem("color", color);
+      }
 
-    const pageAccessedByReload = window.performance
-      .getEntriesByType("navigation")
-      .map((navigation) => navigation.type)
-      .includes("reload");
-    if (pageAccessedByReload) {
-      localStorage.removeItem("color");
-    }
+      const pageAccessedByReload = window.performance
+        .getEntriesByType("navigation")
+        .map((navigation) => navigation.type)
+        .includes("reload");
+      if (pageAccessedByReload) {
+        localStorage.removeItem("color");
+      }
 
-    setColor(
-      localStorage.getItem("color") != undefined
-        ? localStorage.getItem("color")
-        : getRandomColor(),
-    );
-  </script>
-  <script
-    type="text/partytown"
-    src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
-    defer></script>
+      setColor(
+        localStorage.getItem("color") != undefined
+          ? localStorage.getItem("color")
+          : getRandomColor(),
+      );
+    </script>
+    <script
+      type="text/partytown"
+      src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
+      defer></script>
 
-  <MinimalAnalytics id="G-01E73RLVK8" />
+    <MinimalAnalytics id="G-01E73RLVK8" />
 
-  <style is:global lang="scss">
-    main {
-      // this is a hack so that the globals.scss file is getting loaded in all components
-    }
-  </style>
+    <style is:global lang="scss">
+      main {
+        // this is a hack so that the globals.scss file is getting loaded in all components
+      }
+    </style>
+  </body>
 </html>
