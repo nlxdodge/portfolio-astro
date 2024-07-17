@@ -25,15 +25,9 @@ importers:
       "@glidejs/glide":
         specifier: ^3.6.2
         version: 3.6.2
-      "@iconify-json/ant-design":
-        specifier: ^1.1.16
-        version: 1.1.16
       "@iconify-json/eva":
         specifier: ^1.1.10
         version: 1.1.10
-      "@iconify-json/fontisto":
-        specifier: ^1.1.8
-        version: 1.1.8
       "@iconify-json/mdi":
         specifier: ^1.1.67
         version: 1.1.67
@@ -665,22 +659,10 @@ packages:
         integrity: sha512-oXw7In0IZV69PC0PChQakY+yh+UnqIb5+zfVuEIzub6Kkfl1foo7TAhr2PZXPzihOG9YS57t8wvdzBFEZ0aPVA==,
       }
 
-  "@iconify-json/ant-design@1.1.16":
-    resolution:
-      {
-        integrity: sha512-DJ2BDf/XNuYu0p0zDQh3RM8FkPsp9GwZ7WytkVwU7cn73AgpNfOGc2P5zvZzgejx5YK0otG9MYi/cHI4qvfnVQ==,
-      }
-
   "@iconify-json/eva@1.1.10":
     resolution:
       {
         integrity: sha512-2mLBnkAXJJAOwZK7vJ62d+ZMMEeG6ch8sJkJu1/gweYLxxXD9npGutF/LtSpoVYhIf0WGl6c85G0ez8TvMyawQ==,
-      }
-
-  "@iconify-json/fontisto@1.1.8":
-    resolution:
-      {
-        integrity: sha512-g5J2kISh/fErQLXrk3ZV5pD9gKr1lZPRQ+sWh3HygO7G2eIxxXP8UlnjxvvGjCCaK9ZD0uLmPFB2Bdd1a2QVng==,
       }
 
   "@iconify-json/mdi@1.1.67":
@@ -5128,15 +5110,7 @@ snapshots:
 
   "@glidejs/glide@3.6.2": {}
 
-  "@iconify-json/ant-design@1.1.16":
-    dependencies:
-      "@iconify/types": 2.0.0
-
   "@iconify-json/eva@1.1.10":
-    dependencies:
-      "@iconify/types": 2.0.0
-
-  "@iconify-json/fontisto@1.1.8":
     dependencies:
       "@iconify/types": 2.0.0
 

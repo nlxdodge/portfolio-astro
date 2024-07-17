@@ -9,24 +9,25 @@ tags:
   - Ubuntu
 date: 2024-07-17
 ---
+
 import Button from "../../components/Button.astro";
 import FlexCenter from "../../components/FlexCenter.astro";
 
-When I started out with my first Ubuntu server I manually installed everything that I needed. 
+When I started out with my first Ubuntu server I manually installed everything that I needed.
 Postgres, Plex, some game servers like Minecraft and Factorio and many more.
 
-But eventually I found out that I have a hard time making small improvements to existing applications. 
+But eventually I found out that I have a hard time making small improvements to existing applications.
 For Plex I wanted to auto update it, so I got a random update script from GitHub. Of course this was going to break, and it did after a while.
 It was also hard to find the update file because I put it all over the place. And not in my user space.
 
 Eventually I wanted to move everything to some sort of CI/CD setup. So I started to migrate away everything to containers.
 
--	Portainer (to see and debug containers)
--	Traefik (to manage external endpoints and add SSL certificates for those endpoints)
--	Jellyfin (instead of Plex to display media)
--	Rtorrent (to download the torrents)
--	Flood (torrent UI to manage them online)
--	Gluetun (VPN networking container)
+- Portainer (to see and debug containers)
+- Traefik (to manage external endpoints and add SSL certificates for those endpoints)
+- Jellyfin (instead of Plex to display media)
+- Rtorrent (to download the torrents)
+- Flood (torrent UI to manage them online)
+- Gluetun (VPN networking container)
 - Prowlerr (indexer for Radarr and Sonarr)
 - Radarr (searches for movies)
 - Sonarr (searches for series)
