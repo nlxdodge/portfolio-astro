@@ -120,3 +120,15 @@ pre {
   height: auto;
   width: auto;
 }
+
+#wcb #wcb_g {
+  color: $template-color-accent !important;
+  background-color: $template-color !important;
+  border-color: $template-color-accent !important;
+}
+
+#wcb #wcb_a {
+  background-color: $template-color-accent !important;
+  border-color: $template-color-accent !important;
+  color: $template-color !important;
+}
