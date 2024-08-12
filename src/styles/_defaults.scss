@@ -81,6 +81,13 @@ h6 {
   }
 }
 
+blockquote {
+  font-family: $template-header-font;
+  font-style: italic;
+  text-align: center;
+  margin: 60px 0;
+}
+
 .center-text {
   text-align: center;
 }
