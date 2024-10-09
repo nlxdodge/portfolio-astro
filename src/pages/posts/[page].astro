@@ -5,8 +5,9 @@ import Label from "../../components/Label.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths({ paginate }) {
+  const isDev = import.meta.env.DEV;
   const posts = await getCollection("posts", ({ data }) => {
-    return data.draft !== true;
+    return data.draft !== true || isDev;
   });
   const sortedPosts = posts.sort(
     (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
