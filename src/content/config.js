@@ -21,6 +21,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     author: z.string(),
     date: z.date(),
+    updated: z.date().optional(),
     description: z.string(),
     tags: z.array(z.string()),
   }),

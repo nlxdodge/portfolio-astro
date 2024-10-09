@@ -26,7 +26,12 @@ const { Content } = await entry.render();
   <h1>{entry.data.title}</h1>
   <div hidden data-pagefind-meta="description">{entry.data.description}</div>
   <p class="date">
-    {entry.data.date.toLocaleDateString()}
+    Published on {entry.data.date.toLocaleDateString()}
+    {
+      entry.data.updated != null ? (
+        ", last updated on " + entry.data.updated.toLocaleDateString()
+      ) : null
+    }
   </p>
   <p>
     {
