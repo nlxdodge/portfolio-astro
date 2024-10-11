@@ -143,13 +143,18 @@ import Scrapyard from "../assets/images/works/scrapyard.png";
           font-size: 1.2em;
           text-align: center;
           font-family: $template-header-font;
-
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          gap: 10px;
+          
           background-color: rgba(0, 0, 0, 0.6);
           padding: 10px 35px;
-
+          
           @include media(">tablet") {
             font-size: 1.75em;
             width: auto;
+            flex-direction: row;
           }
 
           span {
