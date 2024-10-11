@@ -52,7 +52,7 @@ let uniqueTags = sortedTags.filter(
       page.data.map((post: any) => (
         <div>
           <a class="post" href={`/post/${post.slug}`}>
-            <h2>{post.data.title}</h2>
+            <h2>{post.data.draft ? "🚧 DRAFT: " + post.data.title + " :DRAFT 🚧": post.data.title}</h2>
           </a>
           <p>{post.data.description}</p>
         </div>

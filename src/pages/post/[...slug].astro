@@ -23,7 +23,7 @@ const { Content } = await entry.render();
   title={entry.data.title + " | Gerben Veenhof"}
   description={entry.data.description}
 >
-  <h1>{entry.data.title}</h1>
+  <h1>{entry.data.draft ? "🚧 DRAFT: " + entry.data.title + " :DRAFT 🚧" : entry.data.title}</h1>
   <div hidden data-pagefind-meta="description">{entry.data.description}</div>
   <p class="date">
     Published on {entry.data.date.toLocaleDateString()}
