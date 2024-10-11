@@ -26,6 +26,9 @@ importers:
       '@glidejs/glide':
         specifier: ^3.6.2
         version: 3.6.2
+      '@iconify-json/arcticons':
+        specifier: ^1.2.4
+        version: 1.2.4
       '@iconify-json/eva':
         specifier: ^1.2.0
         version: 1.2.0
@@ -41,9 +44,6 @@ importers:
       '@iconify-json/simple-icons':
         specifier: ^1.2.7
         version: 1.2.7
-      '@iconify/icons-arcticons':
-        specifier: ^1.2.77
-        version: 1.2.77
       '@playform/compress':
         specifier: ^0.1.4
         version: 0.1.4(@types/node@22.5.0)(rollup@4.24.0)(sass@1.79.5)(typescript@5.6.3)
@@ -441,6 +441,9 @@ packages:
   '@glidejs/glide@3.6.2':
     resolution: {integrity: sha512-oXw7In0IZV69PC0PChQakY+yh+UnqIb5+zfVuEIzub6Kkfl1foo7TAhr2PZXPzihOG9YS57t8wvdzBFEZ0aPVA==}
 
+  '@iconify-json/arcticons@1.2.4':
+    resolution: {integrity: sha512-T8gMdVIy6OfF8Qbq3qR5t5NljZIIeC9swQcfqv/zbNQYQ8JOwRcGBPRFlHumvobj7uzGZXIaV9TMXg5h+xDqDQ==}
+
   '@iconify-json/eva@1.2.0':
     resolution: {integrity: sha512-vWPyU+x54aJ4NifWm86xM3PvXdcYOyZ8W5PnD5QlD8XRZ1NnhG/kAXPTl80QJooqwv4PKI0mtqD6KITA00ZnEQ==}
 
@@ -455,9 +458,6 @@ packages:
 
   '@iconify-json/simple-icons@1.2.7':
     resolution: {integrity: sha512-0Qx3jf2AjocJx/6VQOFU5KDINAWH/i+hxPBIePSVJhQVS/W3G1/MZYkOD5yFw/i9+lhBMAEdbfM3bmF6qjnSmg==}
-
-  '@iconify/icons-arcticons@1.2.77':
-    resolution: {integrity: sha512-N7RoFR/YmOgKj96kkU+DFxghkrxvaJo5huKW/CsBk1Di94CLRQSwVy8AXa6hKh04q3ThfpO89zgeeWhp1VlC9g==}
 
   '@iconify/tools@4.0.7':
     resolution: {integrity: sha512-zOJxKIfZn96ZRGGvIWzDRLD9vb2CsxjcLuM+QIdvwWbv6SWhm49gECzUnd4d2P0sq9sfodT7yCNobWK8nvavxQ==}
@@ -3353,6 +3353,10 @@ snapshots:
 
   '@glidejs/glide@3.6.2': {}
 
+  '@iconify-json/arcticons@1.2.4':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/eva@1.2.0':
     dependencies:
       '@iconify/types': 2.0.0
@@ -3370,10 +3374,6 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/simple-icons@1.2.7':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify/icons-arcticons@1.2.77':
     dependencies:
       '@iconify/types': 2.0.0
 
