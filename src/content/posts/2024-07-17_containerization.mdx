@@ -1,13 +1,12 @@
 ---
-title: Containerization of my server 🫙
+title: Containerization of my server 🐋
 author: Gerben Veenhof
-draft: true
-description: I wanted to have my manually installed applications neatly organized so I can use CI/CD.
+description: I wanted to have my manually installed applications neatly organized so I can easily replicate my container setup (sort of CI/CD in some sense).
 tags:
   - Containers
   - Docker
   - Ubuntu
-date: 2024-07-17
+date: 2024-10-11
 ---
 
 import Button from "../../components/Button.astro";
@@ -18,29 +17,66 @@ Postgres, Plex, some game servers like Minecraft and Factorio and many more.
 
 But eventually I found out that I have a hard time making small improvements to existing applications.
 For Plex I wanted to auto update it, so I got a random update script from GitHub. Of course this was going to break, and it did after a while.
-It was also hard to find the update file because I put it all over the place. And not in my user space.
+It was also hard to find the update file because I put it all over the place. And not in my user space. Then I was getting issues with files being saved as root.
+Which makes cleanup difficult as I need to also be read to fix everything.
 
-Eventually I wanted to move everything to some sort of CI/CD setup. So I started to migrate away everything to containers.
+Eventually I wanted to move everything to some sort of easier setup. So I started to migrate away everything to containers.
+Specifically Docker Compose hence the Composes Github repository name. I could have choosen to run something like a K3s or K9s cluster.
+But for a small server without replication, I think using Docker Compose is just fine.
 
-- Portainer (to see and debug containers)
-- Traefik (to manage external endpoints and add SSL certificates for those endpoints)
-- Jellyfin (instead of Plex to display media)
-- Rtorrent (to download the torrents)
-- Flood (torrent UI to manage them online)
-- Gluetun (VPN networking container)
-- Prowlerr (indexer for Radarr and Sonarr)
-- Radarr (searches for movies)
-- Sonarr (searches for series)
-- Jellyseer (people can request for movies or series through Radarr and Sonarr)
-- Obsidian (for taking notes instead of Google Keep as it becomes unmanageable)
-- KeepassXC (passwordmanger)?
-- Samba (cloud storage TODO)?
-- Game servers
-  - Minecraft
-  - Factorio
+Here is a small (not really up-to-date) list of things I have running currently on my server:
+
+## Containers
+
+- Portainer: to see and debug containers without using the CLI.
+- Traefik: to proxy all connections and make them support HTTPS (SSL) only connections.
+- Jellyfin: to display my media.
+- Rtorrent: to download torrents.
+- Flood: torrent UI to manage them online.
+- Gluetun: VPN networking container
+- Prowlerr: indexer for Radarr and Sonarr.
+- Radarr: searches for movies.
+- Sonarr: searches for series and anime.
+- Bazarr: searches subtitles for all movies, series and anime.
+- Jellyseer: people can request for movies, series or anime.
+- Scrutiny: to see the SMART status of all drives in the system.
+
+### Installed natively, but which I want to migrate soon
+- Samba: To serve files on my local network.
+- Minecraft Server(s): to play on of course
+  - Bedrock
+  - Better MC Java
+
+## Scripts
+
+I also created some scripts to more easily update all containers.
+Check out the repository's `scripts` directory.
+
+As example I have this simple update script, where you can give the compose folder name and it will bring all containers down,
+pull new versions and bring them up again.
+
+```bash
+#!/bin/bash
+git pull
+
+services=("$@")
+if [ ${#services[@]} -eq 0 ]; then
+  services=("traefik" "portainer" "scrutiny" "jellyfin")
+fi
+
+for service in "${services[@]}"; do
+  cd "../$service/"
+  pushd .
+  docker-compose down
+  docker-compose pull
+  docker-compose up -d
+  popd
+done
+```
+
 
 <FlexCenter>
   <Button href="https://github.com/nlxdodge/composes" icon="mdi:github">
-    (Docker) Composes Repository
+    Composes Repository
   </Button>
 </FlexCenter>
