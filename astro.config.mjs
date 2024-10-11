@@ -12,38 +12,46 @@ import playformCompress from "@playform/compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://gerbenveenhof.nl/",
-  integrations: [icon(), sitemap(), robotsTxt(), mdx({
-    shikiConfig: {
-      theme: "one-dark-pro",
-      themes: {
-        light: "one-light",
-        dark: "one-dark-pro"
-      }
-    }
-  }), partytown(), purgecss(), playformCompress()],
+  integrations: [
+    icon(),
+    sitemap(),
+    robotsTxt(),
+    mdx({
+      shikiConfig: {
+        theme: "one-dark-pro",
+        themes: {
+          light: "one-light",
+          dark: "one-dark-pro",
+        },
+      },
+    }),
+    partytown(),
+    purgecss(),
+    playformCompress(),
+  ],
   vite: {
     ssr: {
-      noExternal: ["include-media"]
+      noExternal: ["include-media"],
     },
     css: {
       preprocessorOptions: {
         scss: {
           // this is required so that we don't need to import the globals every time
-          additionalData: '@use "/src/styles/globals.scss" as *;'
-        }
-      }
-    }
+          additionalData: '@use "/src/styles/globals.scss" as *;',
+        },
+      },
+    },
   },
   image: {
-    service: sharpImageService()
+    service: sharpImageService(),
   },
   markdown: {
     remarkPlugins: [remarkToc],
-    rehypePlugins: [rehypeAccessibleEmojis]
+    rehypePlugins: [rehypeAccessibleEmojis],
   },
   redirects: {
     "/posts": "/posts/1",
     "/post": "/posts/1",
-    "/work": "/works"
-  }
+    "/work": "/works",
+  },
 });
