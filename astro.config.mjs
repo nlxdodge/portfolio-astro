@@ -26,7 +26,6 @@ export default defineConfig({
       },
     }),
     partytown(),
-    purgecss(),
     playformCompress(),
   ],
   vite: {
