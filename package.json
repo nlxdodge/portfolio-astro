@@ -11,6 +11,9 @@
     "preview": "pnpm i && pnpm run build && astro preview",
     "astro": "astro"
   },
+  "comments": {
+    "comment": "astro-purgecss is stuck on version 4.5.0 for now as higher version break the css hashes during the build time"
+  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
@@ -27,7 +30,7 @@
     "@playform/compress": "^0.1.6",
     "astro": "^4.16.10",
     "astro-icon": "^1.1.2",
-    "astro-purgecss": "^4.6.1",
+    "astro-purgecss": "4.5.0",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
     "include-media": "^2.0.0",

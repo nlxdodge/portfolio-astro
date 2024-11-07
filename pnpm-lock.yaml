@@ -54,8 +54,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       astro-purgecss:
-        specifier: ^4.6.1
-        version: 4.6.1(astro@4.16.10(@types/node@22.5.0)(lightningcss@1.27.0)(rollup@4.24.0)(sass@1.80.6)(terser@5.36.0)(typescript@5.6.3))(purgecss@6.0.0)
+        specifier: 4.5.0
+        version: 4.5.0(astro@4.16.10(@types/node@22.5.0)(lightningcss@1.27.0)(rollup@4.24.0)(sass@1.80.6)(terser@5.36.0)(typescript@5.6.3))(purgecss@6.0.0)
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -1035,8 +1035,8 @@ packages:
   astro-icon@1.1.2:
     resolution: {integrity: sha512-2qAHBtZLYuFEIMP0Ck0edyLi5fQmJjwP2Qbv41f8L4KAJ2sra/dH7q5lCOn4q0DHVtS0w3tPG8UKQRits3UPcg==}
 
-  astro-purgecss@4.6.1:
-    resolution: {integrity: sha512-SVxd2RY7FIVPcMYA6hD919dQySEVRND2wd2aKMx8uw8YSomix5EWtBwPMsXOrBlVQREPYn0WvuwzvXDrxpOmHQ==}
+  astro-purgecss@4.5.0:
+    resolution: {integrity: sha512-TjQfLb57b45pSXJkHJ8odWlzImrzq6stSWk1KCfufE4U4qQ85rv9DfaFuacwyIjJa05Crb6intCAqBHR5QiykQ==}
     peerDependencies:
       astro: ^4.0.0
       purgecss: ^6.0.0
@@ -3990,7 +3990,7 @@ snapshots:
       - debug
       - supports-color
 
-  astro-purgecss@4.6.1(astro@4.16.10(@types/node@22.5.0)(lightningcss@1.27.0)(rollup@4.24.0)(sass@1.80.6)(terser@5.36.0)(typescript@5.6.3))(purgecss@6.0.0):
+  astro-purgecss@4.5.0(astro@4.16.10(@types/node@22.5.0)(lightningcss@1.27.0)(rollup@4.24.0)(sass@1.80.6)(terser@5.36.0)(typescript@5.6.3))(purgecss@6.0.0):
     dependencies:
       astro: 4.16.10(@types/node@22.5.0)(lightningcss@1.27.0)(rollup@4.24.0)(sass@1.80.6)(terser@5.36.0)(typescript@5.6.3)
       purgecss: 6.0.0
