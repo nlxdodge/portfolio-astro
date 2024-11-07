@@ -30,7 +30,7 @@
     "@playform/compress": "^0.1.6",
     "astro": "^4.16.10",
     "astro-icon": "^1.1.2",
-    "astro-purgecss": "4.5.0",
+    "astro-purgecss": "^4.6.2",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.4",
     "include-media": "^2.0.0",
