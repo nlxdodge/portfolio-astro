@@ -1,5 +1,5 @@
-@import "include-media/dist/_include-media.scss";
-@import "_mixins";
-@import "_variables";
-@import "_defaults";
-@import "_fonts";
+@forward 'include-media';
+@forward "_mixins";
+@forward "_variables";
+@forward "_defaults";
+@forward "_fonts";

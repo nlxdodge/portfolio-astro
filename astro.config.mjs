@@ -27,16 +27,13 @@ export default defineConfig({
     }),
     partytown(),
     playformCompress(),
+    purgecss()
   ],
   vite: {
-    ssr: {
-      noExternal: ["include-media"],
-    },
     css: {
       preprocessorOptions: {
         scss: {
-          // this is required so that we don't need to import the globals every time
-          additionalData: '@use "/src/styles/globals.scss" as *;',
+          additionalData: '@use "/src/styles/globals" as *;',
         },
       },
     },
