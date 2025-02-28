@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Button from "../../components/Button.astro";
 import Label from "../../components/Label.astro";
 import Layout from "../../layouts/Layout.astro";
+import type { Page } from "astro";
 
 export async function getStaticPaths({ paginate }) {
   const isDev = import.meta.env.DEV;
@@ -15,6 +16,10 @@ export async function getStaticPaths({ paginate }) {
   return paginate(sortedPosts, {
     pageSize: 5,
   });
+}
+
+interface Props {
+  page: Page
 }
 
 const { page } = Astro.props;
