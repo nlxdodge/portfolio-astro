@@ -14,7 +14,7 @@ jobs:
       - name: Install latest pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: "9.15.4"
+          version: "10.5.2"
       - name: Install latest LTS Node
         uses: actions/setup-node@v4
         with:
