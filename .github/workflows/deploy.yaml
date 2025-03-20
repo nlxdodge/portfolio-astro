@@ -10,18 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Install latest pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: "10.6.5"
       - name: Install latest LTS Node
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
           cache: "pnpm"
+      - name: Cache pnpm dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Verify dependencies
+        run: pnpm audit
       - name: Generate production build
         run: pnpm run build
       - name: Deploy files to production environment
