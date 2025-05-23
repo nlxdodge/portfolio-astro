@@ -11,7 +11,7 @@ export async function getStaticPaths({ paginate }) {
     return data.draft !== true || isDev;
   });
   const sortedPosts = posts.sort(
-    (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
   );
   return paginate(sortedPosts, {
     pageSize: 5,
