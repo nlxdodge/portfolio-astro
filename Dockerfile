@@ -1,6 +1,6 @@
 FROM node:alpine AS builder
 WORKDIR /app
-ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV NODE_OPTIONS="--max-old-space-size=8192"
 RUN npm install --global corepack@latest ; corepack enable pnpm
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
