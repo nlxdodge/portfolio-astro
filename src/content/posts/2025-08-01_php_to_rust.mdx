@@ -1,0 +1,55 @@
+---
+title: KeyDungeon gone Rusty ⚙
+author: Gerben Veenhof
+draft: true
+description: "My first actual work project in Rust, migrating my old PHP project mostly self writen and not so easily maintainable to Rust!"
+tags:
+  - Rust
+  - KeyDungeon
+  - Migration
+  - Vue
+  - Testing
+  - Infra
+  - Docker
+date: 2025-08-01
+---
+
+import Button from "../../components/Button.astro";
+import FlexCenter from "../../components/FlexCenter.astro";
+
+I want to get more experience into making things in Rust, and the best thing is to just start building something. 
+My KeyDungeon project is already pretty old, and long due for some upgrades. So lets start shall we?
+
+## Tech stack
+The plan is to run Rust in a small container and possibly even on my own Raspberry Pi that's already in the closet as a test to see how good or bad it would run.
+But for longer periods it's better to just get a VM somewhere in a cloud to have some redundancy.
+
+So I need: 
+- A Docker/Kubernetes environment to run the Rust Application (or just a native VM).
+- An HTTP server to serve the Vue front-end Application.
+- An e-mail server to send e-mails for sign-up.
+
+## What frameworks to pick?
+
+For Rust there are already a lot of frameworks to pick from, think about Axum, Actix Web, Rocket and many more. 
+I will just stick with the default recommendation as the original KeyDungeon API is not to complicated and I want to have a somewhat different learning curve.
+So I will pick Axum specifically for this reason. Also because Actix Web and Rocket both use the same annotation system as Spring to define endpoints.
+
+For the front-end I am already acustomed to Vue, and that's still my go to for small applications.
+
+## Workflow
+
+## Testing
+
+## Setup
+
+## Infrastructure
+
+## Result
+
+<FlexCenter>
+  <Button href="https://key.gerbenveenhof.nl" icon="mdi:link-variant">
+    KeyDungeon
+  </Button>
+</FlexCenter>
+
