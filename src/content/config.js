@@ -1,3 +1,4 @@
+import { imageMetadata } from "astro/assets/utils";
 import { defineCollection, z } from "astro:content";
 
 const worksCollection = defineCollection({
@@ -8,7 +9,7 @@ const worksCollection = defineCollection({
       order: z.number(),
       author: z.string(),
       date: z.date(),
-      image: image(),
+      image: image() | imageMetadata(),
       image_alt: z.string(),
       description: z.string(),
       tags: z.array(z.string()).optional(),

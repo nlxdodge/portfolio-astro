@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: Composes
 author: Gerben Veenhof
 date: 2024-08-09
@@ -10,8 +10,9 @@ tags:
   - Containers
   - Docker
   - Ubuntu
-category: Docker/Yaml
-draft: true
+  - CI
+  - CD
+category: Docker/CI/CD
 ---
 
 import Button from "../../components/Button.astro";
@@ -21,16 +22,25 @@ I was scared that my server was going to give way, and it kind of happend. The B
 But my motherboard didn't have a flash via USB option because it was to old.
 
 I eventually bought another motherboard and fixed the issue, now it's running fine again.
-But it got me thinking, what if the harddrive was broken instead this time.
-I would have to re configure my whole machine again, everything would be gone which is not the primairy storage (as that is not being backed-up).
+But it got me thinking, what if the boot drive was broken instead this time.
+I would have to re-configure my whole machine again, everything would be gone which is not the primairy storage (as that is not being backed-up).
 
 So with this in mind I wanted to do it simple, just a couple docker-compose files to get everything back up and running again.
 
-So I started with the VPN. What about it? I wanted to download things over this in the first place, but never got to it. So now was the time.
-I got my WindScribe and a Gluetun container and got to work. And it was pretty easy as well.
-Same for Portainer, Flood, Rtorrent, Jellyfin etc.
+So I started with the VPN. What about it? I wanted to download things over this in the first place, but never got to it. And always payed for it. So now was the time.
+I got my WindScribe configuration and a Gluetun container and got to work. And it was pretty easy to setup as well.
+Same for Portainer, Flood, Transmission, Radarr, Sonarr, Jellyfin, Jellyseerr, etc.
 
 But now for the special part, I wanted to have SSL and custom sub domains leading to my server.
+So I started with Traefik and got letsencrypt setup on my own domain, so now you can access is securely from the web.
+
+I got scrutiny setup for checking the SMART status of my solid state and hard drives.
+
+Made my minecraft Bedrock server fully automated.
+
+Then as a final touch I got Watchtower to automatically upgrade my containers every week, so I would have to do it less often by hand.
+
+So check it out, the code for it is all on GitHub. But I still need to get the manually configured applications to a settings file when I am done.
 
 <FlexCenter>
   <Button href="https://github.com/nlxdodge/composes" icon="mdi:github">

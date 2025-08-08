@@ -1,46 +1,37 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
-import KorfbalTrainer from "../assets/images/works/korfbal_trainer.png";
-import Keydungeon from "../assets/images/works/keydungeon.png";
-import AQ3D from "../assets/images/works/aq3d_bot.png";
-import Scrapyard from "../assets/images/works/scrapyard.png";
+const works = await getCollection("works", ({ data }) => {
+  const isDev = import.meta.env.DEV;
+  return data.draft !== true || isDev;
+});
+const sortedWorks = works.sort((first, second) =>
+  first.data.order > second.data.order ? 1 : -1,
+);
 ---
 
 <div class="glide">
   <div data-glide-el="track" class="glide__track">
     <ul class="glide__slides">
-      <li class="glide__slide">
-        <a href="/works/korfbal_trainer/">
-          <Image src={KorfbalTrainer} alt="Korfbal Trainer" format="avif" />
-          <p>Korfbal Trainer <span>(Javascript)</span></p>
-        </a>
-      </li>
-      <li class="glide__slide">
-        <a href="/works/keydungeon/">
-          <Image src={Keydungeon} alt="Keydungeon" format="avif" />
-          <p>Keydungeon <span>(PHP)</span></p>
-        </a>
-      </li>
-      <li class="glide__slide">
-        <a href="/works/aq3d_bot/">
-          <Image src={AQ3D} alt="AQ3D Bot" format="avif" />
-          <p>AQ3D Bot <span>(Java)</span></p>
-        </a>
-      </li>
-      <li class="glide__slide">
-        <a href="/works/scrapyard/">
-          <Image src={Scrapyard} alt="Scrapyard Mod" format="avif" />
-          <p>Scrapyard Mod <span>(Java)</span></p>
-        </a>
-      </li>
+    {
+      sortedWorks.map((work) => (
+        <li class="glide__slide">
+          <a href={`/works/${work.slug}`}>
+            <Image src={work.data.image} alt={work.data.image_alt} format="avif" />
+            <p>{work.data.title} <span>({work.data.category})</span></p>
+          </a>
+        </li>
+      ))
+    }
     </ul>
   </div>
   <div class="glide__bullets" data-glide-el="controls[nav]">
-    <div class="glide__bullet" data-glide-dir="=0"><div></div></div>
-    <div class="glide__bullet" data-glide-dir="=1"><div></div></div>
-    <div class="glide__bullet" data-glide-dir="=2"><div></div></div>
-    <div class="glide__bullet" data-glide-dir="=3"><div></div></div>
+    {
+      sortedWorks.map((work) => (
+        <div class="glide__bullet" data-glide-dir={"=" + (work.data.order - 1)}></div>
+      ))
+    }
   </div>
 </div>
 
