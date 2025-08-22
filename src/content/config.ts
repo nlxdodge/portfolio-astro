@@ -1,4 +1,3 @@
-import { imageMetadata } from "astro/assets/utils";
 import { defineCollection, z } from "astro:content";
 
 const worksCollection = defineCollection({

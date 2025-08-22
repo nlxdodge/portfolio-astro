@@ -43,7 +43,7 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkToc],
-    rehypePlugins: [rehypeAccessibleEmojis],
+    rehypePlugins: [rehypeAccessibleEmojis as any],
   },
   redirects: {
     "/posts": "/posts/1",
