@@ -18,7 +18,7 @@ const { id } = Astro.props;
         return Math.random().toString(36);
       },
       l = function () {
-        return g.cid || (g.cid = k()), g.cid;
+        return (g.cid || (g.cid = k()), g.cid);
       },
       m = function (r) {
         var s = [];
@@ -65,10 +65,10 @@ const { id } = Astro.props;
         if (f.sendBeacon) f.sendBeacon(z, A);
         else {
           var y = new XMLHttpRequest();
-          y.open("POST", z, !0), y.send(A);
+          (y.open("POST", z, !0), y.send(A));
         }
       };
-    (d.pushState = function (r) {
+    ((d.pushState = function (r) {
       return (
         "function" == typeof d.onpushstate && d.onpushstate({ state: r }),
         setTimeout(n, c.delay || 10),
@@ -83,7 +83,7 @@ const { id } = Astro.props;
         trackException: function q(r, s) {
           return n("exception", null, null, null, null, r, s);
         },
-      });
+      }));
   })(window, id, {
     anonymizeIp: true,
     colorDepth: true,

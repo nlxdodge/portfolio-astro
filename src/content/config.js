@@ -9,7 +9,7 @@ const worksCollection = defineCollection({
       order: z.number(),
       author: z.string(),
       date: z.date(),
-      image: image() | imageMetadata(),
+      image: image(),
       image_alt: z.string(),
       description: z.string(),
       tags: z.array(z.string()).optional(),

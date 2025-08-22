@@ -7,29 +7,38 @@ const works = await getCollection("works", ({ data }) => {
   return data.draft !== true || isDev;
 });
 const sortedWorks = works.sort((first, second) =>
-  first.data.order > second.data.order ? 1 : -1,
+  first.data.order > second.data.order ? 1 : -1
 );
 ---
 
 <div class="glide">
   <div data-glide-el="track" class="glide__track">
     <ul class="glide__slides">
-    {
-      sortedWorks.map((work) => (
-        <li class="glide__slide">
-          <a href={`/works/${work.slug}`}>
-            <Image src={work.data.image} alt={work.data.image_alt} format="avif" />
-            <p>{work.data.title} <span>({work.data.category})</span></p>
-          </a>
-        </li>
-      ))
-    }
+      {
+        sortedWorks.map((work) => (
+          <li class="glide__slide">
+            <a href={`/works/${work.slug}`}>
+              <Image
+                src={work.data.image as ImageMetadata}
+                alt={work.data.image_alt}
+                format="avif"
+              />
+              <p>
+                {work.data.title} <span>({work.data.category})</span>
+              </p>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
   <div class="glide__bullets" data-glide-el="controls[nav]">
     {
       sortedWorks.map((work) => (
-        <div class="glide__bullet" data-glide-dir={"=" + (work.data.order - 1)}></div>
+        <div
+          class="glide__bullet"
+          data-glide-dir={"=" + (work.data.order - 1)}
+        />
       ))
     }
   </div>
@@ -137,10 +146,10 @@ const sortedWorks = works.sort((first, second) =>
           align-items: center;
           flex-direction: column;
           gap: 10px;
-          
+
           background-color: rgba(0, 0, 0, 0.6);
           padding: 10px 35px;
-          
+
           @include media(">tablet") {
             font-size: 1.75em;
             width: auto;

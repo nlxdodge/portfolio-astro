@@ -7,7 +7,7 @@ import partytown from "@astrojs/partytown";
 import remarkToc from "remark-toc";
 import purgecss from "astro-purgecss";
 import icon from "astro-icon";
-import playformCompress from "@playform/compress";
+import compress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,7 +26,7 @@ export default defineConfig({
       },
     }),
     partytown(),
-    playformCompress(),
+    compress(),
     purgecss()
   ],
   vite: {
