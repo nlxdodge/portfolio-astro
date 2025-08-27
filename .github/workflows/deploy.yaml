@@ -37,5 +37,6 @@ jobs:
           host: ${{ secrets.FTP_DOMAIN }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: ./dist
-          remoteDir: ./public_html
+          localDir: "./dist"
+          remoteDir: "./public_html"
+          options: "--parallel=8 --only-newer"
