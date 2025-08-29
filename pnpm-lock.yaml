@@ -13,7 +13,7 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
       '@astrojs/mdx':
         specifier: ^4.3.4
-        version: 4.3.4(astro@5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))
+        version: 4.3.4(astro@5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))
       '@astrojs/partytown':
         specifier: ^2.1.4
         version: 2.1.4
@@ -27,8 +27,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       '@iconify-json/arcticons':
-        specifier: ^1.2.35
-        version: 1.2.35
+        specifier: ^1.2.36
+        version: 1.2.36
       '@iconify-json/eva':
         specifier: ^1.2.3
         version: 1.2.3
@@ -48,14 +48,14 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(@types/node@24.3.0)(jiti@2.4.2)(rollup@4.49.0)(sass@1.91.0)(typescript@5.9.2)(yaml@2.8.1)
       astro:
-        specifier: ^5.13.3
-        version: 5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
+        specifier: ^5.13.4
+        version: 5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
       astro-purgecss:
         specifier: ^5.3.0
-        version: 5.3.0(astro@5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))(purgecss@7.0.2)
+        version: 5.3.0(astro@5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))(purgecss@7.0.2)
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -202,8 +202,8 @@ packages:
   '@emmetio/stream-reader@2.2.0':
     resolution: {integrity: sha512-fXVXEyFA5Yv3M3n8sUGT7+fvecGrZP4k6FnWWMSZVQf69kAq0LLpaBQLGcPR30m3zMmKYhECP4k/ZkzvhEW5kw==}
 
-  '@emnapi/runtime@1.4.5':
-    resolution: {integrity: sha512-++LApOtY0pEEz1zrd9vy1/zXVaVJJ/EbAF3u0fXIzPJEDtnITsBGbbK0EkM72amhl/R5b+5xx0Y/QhcVOpuulg==}
+  '@emnapi/runtime@1.5.0':
+    resolution: {integrity: sha512-97/BJ3iXHww3djw6hYIfErCZFee7qCtrneuLa20UXFCOTCfBM2cvQHjWJ2EG0s0MtdNwInarqCTz35i4wWXHsQ==}
 
   '@esbuild/aix-ppc64@0.25.9':
     resolution: {integrity: sha512-OaGtL73Jck6pBKjNIe24BnFE6agGl+6KxDtTfHhy1HmhthfKouEcOhqpSL64K4/0WCtbKFLOdzD/44cJ4k9opA==}
@@ -364,8 +364,8 @@ packages:
   '@glidejs/glide@3.7.1':
     resolution: {integrity: sha512-8he0pZpLSqTesSFYiuWdhBmtdlYSPWxfPUCKtkkiX6ZmT8UdMdmoFPtJaOwLBXv4p2JiGxqbuPdiRGGo2e/htQ==}
 
-  '@iconify-json/arcticons@1.2.35':
-    resolution: {integrity: sha512-05DH7/i42mSOwBRM7W3Pj3LLVDTAIK2SEjyVsx47QdqJQArZ8R3mcZ1KLCQ3PcMYT39MSRaW+m67Ay2Wg5TslQ==}
+  '@iconify-json/arcticons@1.2.36':
+    resolution: {integrity: sha512-IQE9URC/1oSAhEhuVLMLXmCKRcs1BJe4qa1g9IWXJtxTjH00EZw2hKG9OjFFLEJ3NEboszwV9q1HWJIKHorMfQ==}
 
   '@iconify-json/eva@1.2.3':
     resolution: {integrity: sha512-67nZvxOHdoV2SaTLBw+seq+pbfB8OFRB7CVNI5gGJCGPXJKniPo/x9H/dYGovxq7q+GU0NwKrPxBcHyEFDwSUw==}
@@ -1195,8 +1195,8 @@ packages:
   astro-seo@0.8.4:
     resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
-  astro@5.13.3:
-    resolution: {integrity: sha512-V0mUOUK70UZ7xqXp5Noqse/SREU0P756KgFufBEluq5LkmBejzC2GENMUA2Na+PFwUjemElJtRlpKyrnKpFhSQ==}
+  astro@5.13.4:
+    resolution: {integrity: sha512-Mgq5GYy3EHtastGXqdnh1UPuN++8NmJSluAspA5hu33O7YRs/em/L03cUfRXtc60l5yx5BfYJsjF2MFMlcWlzw==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1513,8 +1513,8 @@ packages:
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
 
-  emoji-regex@10.4.0:
-    resolution: {integrity: sha512-EC+0oUMY1Rqm4O6LLrgjtYDvcVYTy7chDnM4Q7030tP4Kwj3u/pR6gP9ygnp2CJMK5Gq+9Q2oqmrFJAz01DXjw==}
+  emoji-regex@10.5.0:
+    resolution: {integrity: sha512-lb49vf1Xzfx080OKA0o6l8DQQpV+6Vg95zyCJX9VB/BqKYlhG7N4wgROUUHRA+ZPUefLnteQOad7z1kT2bV7bg==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3234,12 +3234,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.4(astro@5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))':
+  '@astrojs/mdx@4.3.4(astro@5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.6
       '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
       acorn: 8.15.0
-      astro: 5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
+      astro: 5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -3333,7 +3333,7 @@ snapshots:
 
   '@emmetio/stream-reader@2.2.0': {}
 
-  '@emnapi/runtime@1.4.5':
+  '@emnapi/runtime@1.5.0':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -3418,7 +3418,7 @@ snapshots:
 
   '@glidejs/glide@3.7.1': {}
 
-  '@iconify-json/arcticons@1.2.35':
+  '@iconify-json/arcticons@1.2.36':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -3679,17 +3679,17 @@ snapshots:
 
   '@img/sharp-wasm32@0.33.5':
     dependencies:
-      '@emnapi/runtime': 1.4.5
+      '@emnapi/runtime': 1.5.0
     optional: true
 
   '@img/sharp-wasm32@0.34.2':
     dependencies:
-      '@emnapi/runtime': 1.4.5
+      '@emnapi/runtime': 1.5.0
     optional: true
 
   '@img/sharp-wasm32@0.34.3':
     dependencies:
-      '@emnapi/runtime': 1.4.5
+      '@emnapi/runtime': 1.5.0
     optional: true
 
   '@img/sharp-win32-arm64@0.34.2':
@@ -3875,7 +3875,7 @@ snapshots:
       '@playform/pipe': 0.1.3
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
-      astro: 5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
+      astro: 5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
       commander: 14.0.0
       csso: 5.0.5
       deepmerge-ts: 7.1.5
@@ -4208,9 +4208,9 @@ snapshots:
       - debug
       - supports-color
 
-  astro-purgecss@5.3.0(astro@5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))(purgecss@7.0.2):
+  astro-purgecss@5.3.0(astro@5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1))(purgecss@7.0.2):
     dependencies:
-      astro: 5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
+      astro: 5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1)
       purgecss: 7.0.2
 
   astro-robots-txt@1.0.0:
@@ -4226,7 +4226,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@5.13.3(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1):
+  astro@5.13.4(@types/node@24.3.0)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.49.0)(sass@1.91.0)(terser@5.42.0)(typescript@5.9.2)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.2
@@ -4630,7 +4630,7 @@ snapshots:
       '@emmetio/abbreviation': 2.3.3
       '@emmetio/css-abbreviation': 2.1.8
 
-  emoji-regex@10.4.0: {}
+  emoji-regex@10.5.0: {}
 
   emoji-regex@8.0.0: {}
 
@@ -6298,7 +6298,7 @@ snapshots:
 
   string-width@7.2.0:
     dependencies:
-      emoji-regex: 10.4.0
+      emoji-regex: 10.5.0
       get-east-asian-width: 1.3.0
       strip-ansi: 7.1.0
 
