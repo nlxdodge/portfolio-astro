@@ -16,8 +16,8 @@ export async function getStaticPaths({ paginate }) {
     const filteredPosts = posts.filter((post) =>
       post.data.tags.map((x) => x.toLowerCase()).includes(tag),
     );
-    const sortedPosts = filteredPosts.sort(
-      (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
+    const sortedPosts = posts.sort((first, second) =>
+      first.data.date < second.data.date ? 1 : -1,
     );
     return paginate(sortedPosts, {
       params: { tag: tag },

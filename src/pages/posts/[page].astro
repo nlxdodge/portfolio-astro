@@ -10,8 +10,8 @@ export async function getStaticPaths({ paginate }) {
   const posts = await getCollection("posts", ({ data }) => {
     return data.draft !== true || isDev;
   });
-  const sortedPosts = posts.sort(
-    (post) => Number.MIN_SAFE_INTEGER + post.data.date.getDate(),
+  const sortedPosts = posts.sort((first, second) =>
+    first.data.date < second.data.date ? 1 : -1,
   );
   return paginate(sortedPosts, {
     pageSize: 5,
