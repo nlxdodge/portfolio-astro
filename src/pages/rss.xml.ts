@@ -1,14 +1,14 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import type { APIRoute } from 'astro';
+import type { APIRoute } from "astro";
 
 const posts = await getCollection("posts", ({ data }) => {
   return data.draft !== true;
-})
+});
 
 const sortedPosts = posts.sort((first, second) =>
-  first.data.date < second.data.date ? 1 : -1
-)
+  first.data.date < second.data.date ? 1 : -1,
+);
 
 export const GET: APIRoute = async ({ site }) => {
   return rss({
@@ -22,6 +22,5 @@ export const GET: APIRoute = async ({ site }) => {
       description: post.data.description,
     })),
     customData: `<language>en-us</language>`,
-    
   });
-}
+};

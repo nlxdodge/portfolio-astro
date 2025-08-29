@@ -27,7 +27,7 @@ export default defineConfig({
     }),
     partytown(),
     compress(),
-    purgecss()
+    purgecss(),
   ],
   vite: {
     css: {

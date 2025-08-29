@@ -7,7 +7,7 @@ const works = await getCollection("works", ({ data }) => {
   return data.draft !== true || isDev;
 });
 const sortedWorks = works.sort((first, second) =>
-  first.data.order > second.data.order ? 1 : -1
+  first.data.order > second.data.order ? 1 : -1,
 );
 ---
 

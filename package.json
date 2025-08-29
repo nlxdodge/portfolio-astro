@@ -4,11 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
     "build-win": "astro build && npx pagefind --site dist && copy /dist/pagefind /public",
     "format": "prettier --write .",
-    "preview": "pnpm i && pnpm run build && astro preview",
+    "preview": "pnpm run build && astro preview",
     "astro": "astro"
   },
   "dependencies": {
