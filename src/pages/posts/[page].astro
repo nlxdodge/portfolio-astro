@@ -6,14 +6,26 @@ import Layout from "../../layouts/Layout.astro";
 import type { Page } from "astro";
 
 export async function getStaticPaths({ paginate }) {
-  const isDev = import.meta.env.DEV;
   const posts = await getCollection("posts", ({ data }) => {
+    const isDev = import.meta.env.DEV;
     return data.draft !== true || isDev;
   });
   const sortedPosts = posts.sort((first, second) =>
     first.data.date < second.data.date ? 1 : -1,
   );
-  return paginate(sortedPosts, {
+
+  const encodedPosts = sortedPosts.map((post) => {
+    const encodedTags = post.data.tags.map((tag) => encodeURIComponent(tag));
+    return {
+      ...post,
+      data: {
+        ...post.data,
+        tags: encodedTags,
+      },
+    };
+  });
+
+  return paginate(encodedPosts, {
     pageSize: 5,
   });
 }
@@ -24,7 +36,8 @@ interface Props {
 
 const { page } = Astro.props;
 const posts = await getCollection("posts", ({ data }) => {
-  return data.draft != true;
+  const isDev = import.meta.env.DEV;
+  return data.draft !== true || isDev;
 });
 const allTags = posts.flatMap((p) => p.data.tags);
 let tagCounts = allTags.reduce((acc, tag) => {

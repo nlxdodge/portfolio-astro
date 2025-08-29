@@ -6,7 +6,8 @@ import Layout from "../../../layouts/Layout.astro";
 
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection("posts", ({ data }) => {
-    return data.draft != true;
+    const isDev = import.meta.env.DEV;
+    return data.draft !== true || isDev;
   });
 
   const allTags = new Set(
@@ -16,12 +17,22 @@ export async function getStaticPaths({ paginate }) {
     const filteredPosts = posts.filter((post) =>
       post.data.tags.map((x) => x.toLowerCase()).includes(tag),
     );
-    const sortedPosts = posts.sort((first, second) =>
+    const sortedPosts = filteredPosts.sort((first, second) =>
       first.data.date < second.data.date ? 1 : -1,
     );
-    return paginate(sortedPosts, {
-      params: { tag: tag },
-      pageSize: 10,
+    const encodedPosts = sortedPosts.map((post) => {
+      const encodedTags = post.data.tags.map((tag) => encodeURIComponent(tag));
+      return {
+        ...post,
+        data: {
+          ...post.data,
+          tags: encodedTags,
+        },
+      };
+    });
+    return paginate(encodedPosts, {
+      params: { tag: encodeURIComponent(tag) },
+      pageSize: 5,
     });
   });
 }

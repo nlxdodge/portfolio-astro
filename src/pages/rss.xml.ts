@@ -3,7 +3,8 @@ import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 
 const posts = await getCollection("posts", ({ data }) => {
-  return data.draft !== true;
+  const isDev = import.meta.env.DEV;
+  return data.draft !== true || isDev;
 });
 
 const sortedPosts = posts.sort((first, second) =>
