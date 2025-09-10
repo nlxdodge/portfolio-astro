@@ -10,9 +10,9 @@ RUN pnpm run build
 FROM nginx:alpine-slim
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-RUN apk add --no-cache wget
-RUN mkdir -p /var/cache/nginx/client_temp /var/run \
- && chown -R nginx:nginx /var/cache/nginx /var/run
+RUN apk add --no-cache wget \
+ && mkdir -p /var/cache/nginx/client_temp /run \
+ && chown -R nginx:nginx /var/cache/nginx /run
 USER nginx
 HEALTHCHECK --interval=60s --timeout=15s --start-period=15s --retries=3 \
   CMD wget -q --spider http://127.0.0.1:5000 || exit 1
