@@ -27,28 +27,31 @@ Eventually I wanted to move everything to some sort of easier setup. So I starte
 Specifically Docker Compose hence the Composes Github repository name. I could have choosen to run something like a K3s or K9s cluster.
 But for a small server without replication, I think using Docker Compose is just fine.
 
-Here is a small (not really up-to-date) list of things I have running currently on my server:
+Here is a list of things I have currently running on my server:
 
 ## Containers
 
-- Portainer: to see and debug containers without using the CLI.
-- Traefik: to proxy all connections and make them support HTTPS (SSL) only connections.
-- Jellyfin: to display my media.
-- Rtorrent: to download torrents.
-- Flood: torrent UI to manage them online.
-- Gluetun: VPN networking container
-- Prowlerr: indexer for Radarr and Sonarr.
-- Radarr: searches for movies.
-- Sonarr: searches for series and anime.
-- Bazarr: searches subtitles for all movies, series and anime.
-- Jellyseer: people can request for movies, series or anime.
-- Scrutiny: to see the SMART status of all drives in the system.
+- [Portainer](https://www.portainer.io/): to see and debug containers without using the CLI.
+- [Watchtower](https://containrrr.dev/watchtower/): to keep all containers up-to-date as much as possible.
+- [Traefik](https://traefik.io/): to proxy all connections and make them support HTTPS (SSL) only connections.
+- [Jellyfin](https://jellyfin.org/): to display my media.
+- [Transmission](https://transmissionbt.com/): to download torrents.
+- [Flood](https://flood.js.org/): torrent UI to manage them online.
+- [Gluetun](https://hub.docker.com/r/qmcgaw/gluetun): VPN networking container
+- [Prowlerr](https://prowlarr.com/): indexer for Radarr and Sonarr.
+- [Radarr](https://radarr.video/): searches for movies.
+- [Sonarr](https://sonarr.tv/): searches for series and anime.
+- [Bazarr](https://www.bazarr.media/): searches subtitles for all movies, series and anime.
+- [Jellyseer](https://docs.seerr.dev/): people can request for movies, series or anime.
+- [Scrutiny](https://github.com/AnalogJ/scrutiny): to see the SMART status of all drives in the system.
+- [Bedrock](https://github.com/itzg/docker-minecraft-bedrock-server): A bedrock minecraft server to play with friends.
+- [Satisfactory](https://github.com/wolveix/satisfactory-server): A Satisfactory server to play with friends (currently off though).
+- [Portfolio](https://gerbenveenhof.nl/): My own portfolio, because the hosting I was using is raising their price to 8x the original price. 
 
 ### Installed natively, but which I want to migrate soon
 
 - Samba: To serve files on my local network.
 - Minecraft Server(s): to play on of course
-  - Bedrock
   - Better MC Java
 
 ## Scripts
@@ -61,15 +64,12 @@ pull new versions and bring them up again.
 
 ```bash
 #!/bin/bash
-git pull
-
-services=("$@")
-if [ ${#services[@]} -eq 0 ]; then
-  services=("traefik" "portainer" "scrutiny" "jellyfin")
-fi
+source helpers/pull.sh
+source helpers/services.sh
+source helpers/remove_portfolio.sh
 
 for service in "${services[@]}"; do
-  cd "../$service/"
+  cd /home/nlxdodge/composes/$service/
   pushd .
   docker-compose down
   docker-compose pull
@@ -77,6 +77,22 @@ for service in "${services[@]}"; do
   popd
 done
 ```
+
+I also checked on how to insert pieces of other code so I can re-use and not duplicate the code all over the place.
+For example pulling repositories getting a list of all services. Those are always the same or should be only edited in one place. 
+And this all can be done using `source [PATH/FILE.sh]`.
+
+So the list of folders are now not duplicated anymore and I can change them in one file only:
+
+```bash
+#!/bin/bash
+services=("$@")
+if [ ${#services[@]} -eq 0 ]; then
+  services=("bedrock" "jellyfin" "portainer" "scrutiny" "traefik" "watchtower" "notifiarr")
+fi
+```
+
+Want to check everything? Check out or clone the GitHub, but be warned that I made a specific folder structure. So this will not work right away for everyone.
 
 <FlexCenter>
   <Button href="https://github.com/nlxdodge/composes" icon="mdi:github">
