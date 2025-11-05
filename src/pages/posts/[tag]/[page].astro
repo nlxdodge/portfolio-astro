@@ -20,18 +20,7 @@ export async function getStaticPaths({ paginate }) {
     const sortedPosts = filteredPosts.sort((first, second) =>
       first.data.date < second.data.date ? 1 : -1,
     );
-    const encodedPosts = sortedPosts.map((post) => {
-      const encodedTags = post.data.tags.map((tag) => encodeURIComponent(tag));
-      return {
-        ...post,
-        data: {
-          ...post.data,
-          tags: encodedTags,
-        },
-      };
-    });
-    return paginate(encodedPosts, {
-      params: { tag: encodeURIComponent(tag) },
+    return paginate(sortedPosts, {
       pageSize: 5,
     });
   });
