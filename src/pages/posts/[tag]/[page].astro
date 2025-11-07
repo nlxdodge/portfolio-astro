@@ -11,16 +11,17 @@ export async function getStaticPaths({ paginate }) {
   });
 
   const allTags = new Set(
-    posts.flatMap((x) => x.data.tags).map((x) => x.toLowerCase()),
+    posts.flatMap((x) => x.data.tags).map((x) => x.toLowerCase())
   );
   return Array.from(allTags).flatMap((tag) => {
     const filteredPosts = posts.filter((post) =>
-      post.data.tags.map((x) => x.toLowerCase()).includes(tag),
+      post.data.tags.map((x) => x.toLowerCase()).includes(tag)
     );
     const sortedPosts = filteredPosts.sort((first, second) =>
-      first.data.date < second.data.date ? 1 : -1,
+      first.data.date < second.data.date ? 1 : -1
     );
     return paginate(sortedPosts, {
+      params: { tag: tag },
       pageSize: 5,
     });
   });

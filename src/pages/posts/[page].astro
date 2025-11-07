@@ -11,7 +11,7 @@ export async function getStaticPaths({ paginate }) {
     return data.draft !== true || isDev;
   });
   const sortedPosts = posts.sort((first, second) =>
-    first.data.date < second.data.date ? 1 : -1,
+    first.data.date < second.data.date ? 1 : -1
   );
   return paginate(sortedPosts, {
     pageSize: 5,
@@ -34,7 +34,7 @@ let tagCounts = allTags.reduce((acc, tag) => {
 }, {});
 let sortedTags = allTags.sort((a, b) => tagCounts[b] - tagCounts[a]);
 let uniqueTags = sortedTags.filter(
-  (tag, index) => sortedTags.indexOf(tag) === index,
+  (tag, index) => sortedTags.indexOf(tag) === index
 );
 ---
 
