@@ -1,4 +1,4 @@
-FROM node:current-slim AS builder
+FROM dhi.io/node:25 AS builder
 WORKDIR /app
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 RUN npm install --global corepack@latest && corepack enable pnpm
@@ -9,7 +9,7 @@ COPY package.json ./package.json
 COPY pnpm-workspace.yaml ./pnpm-workspace.yaml
 RUN pnpm install && pnpm run build
 
-FROM nginx:alpine-slim
+FROM dhi.io/nginx:1.28
 WORKDIR /app
 COPY --from=builder --chown=nginx:nginx /app/dist /usr/share/nginx/html
 COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf
