@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
-    "build-win": "astro build && npx pagefind --site dist && copy /dist/pagefind /public",
+    "dev": "pnpm audit && astro dev",
+    "build": "pnpm audit && astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
+    "build-win": "pnpm audit && astro build && npx pagefind --site dist && copy /dist/pagefind /public",
     "format": "prettier --write .",
-    "preview": "pnpm run build && astro preview",
+    "preview": "pnpm audit && pnpm run build && astro preview",
     "astro": "astro"
   },
   "dependencies": {
