@@ -10,3 +10,15 @@
   -o-transition: $param;
   transition: $param;
 }
+
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
