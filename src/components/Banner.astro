@@ -15,7 +15,7 @@ const { icon = null, second = false } = Astro.props;
   {
     icon && second && (
       <Icon
-        class="hide-mobile"
+        class="show-desktop"
         name={icon}
         aria-hidden="true"
         aria-label="copyright"
@@ -35,19 +35,6 @@ const { icon = null, second = false } = Astro.props;
     border-radius: 10px;
     align-items: center;
 
-    @include desktop {
-      margin: 0 0 25px 0;
-      gap: 25px;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    @include phone {
-      .hide-mobile {
-        display: none;
-      }
-    }
-
     p {
       margin: 0;
       flex-grow: 1;
@@ -57,6 +44,21 @@ const { icon = null, second = false } = Astro.props;
 
     svg {
       width: 70px;
+    }
+
+    .show-desktop {
+      display: none;
+    }
+
+    @include desktop {
+      margin: 0 0 25px 0;
+      gap: 25px;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .show-desktop {
+        display: block;
+      }
     }
   }
 </style>
