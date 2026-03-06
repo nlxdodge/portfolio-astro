@@ -39,7 +39,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "rehype-accessible-emojis": "^0.3.2",
     "sass": "^1.97.3",
-    "svgo": "^4.0.0"
+    "svgo": "^4.0.1"
   },
   "pnpm": {
     "overrides": {
