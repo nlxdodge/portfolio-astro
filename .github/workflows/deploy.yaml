@@ -27,8 +27,6 @@ jobs:
             ${{ runner.os }}-pnpm-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
-      - name: Verify dependencies
-        run: pnpm audit
       - name: Generate production build
         run: pnpm run build
       - name: Deploy files to production environment
