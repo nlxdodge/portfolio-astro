@@ -75,7 +75,7 @@ import { Icon } from "astro-icon/components";
       display: flex;
       justify-content: space-evenly;
 
-      @include media(">tablet") {
+      @include desktop {
         margin-bottom: 75px;
       }
 
@@ -94,7 +94,7 @@ import { Icon } from "astro-icon/components";
         border-bottom: 5px solid transparent;
         transition: all 0.2s ease-in-out;
 
-        @include media(">=tablet") {
+        @include desktop {
           padding: 6px 12px;
           font-size: 2.5rem;
         }

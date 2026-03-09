@@ -8,7 +8,7 @@ const works = await getCollection("works", ({ data }) => {
   return data.draft !== true || isDev;
 });
 const sortedWorks = works.sort((first, second) =>
-  first.data.order > second.data.order ? 1 : -1,
+  first.data.order > second.data.order ? 1 : -1
 );
 ---
 
@@ -22,7 +22,7 @@ const sortedWorks = works.sort((first, second) =>
       sortedWorks.map((work) => (
         <a class="work" href={`/works/${work.slug}`}>
           <Image
-            src={work.data.image}
+            src={work.data.image as ImageMetadata}
             width="505"
             height="258"
             alt={work.data.image_alt}
@@ -52,7 +52,7 @@ const sortedWorks = works.sort((first, second) =>
       margin: 30px 15px;
       transition: all 0.2s ease-in-out;
 
-      @include media(">tablet") {
+      @include desktop {
         flex: 0 0 calc(50% - 30px);
       }
 

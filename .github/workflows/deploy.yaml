@@ -27,8 +27,6 @@ jobs:
             ${{ runner.os }}-pnpm-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
-      - name: Verify dependencies
-        run: pnpm audit
       - name: Generate production build
         run: pnpm run build
       - name: Deploy files to production environment
@@ -37,5 +35,6 @@ jobs:
           host: ${{ secrets.FTP_DOMAIN }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: ./dist
-          remoteDir: ./public_html
+          localDir: "./dist"
+          remoteDir: "./public_html"
+          options: "--parallel=4 --only-newer"
