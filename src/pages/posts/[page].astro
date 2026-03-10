@@ -10,8 +10,8 @@ export async function getStaticPaths({ paginate }) {
     const isDev = import.meta.env.DEV;
     return data.draft !== true || isDev;
   });
-  const sortedPosts = posts.sort((first, second) =>
-    first.data.date < second.data.date ? 1 : -1
+  const sortedPosts = posts.sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
   );
   return paginate(sortedPosts, {
     pageSize: 5,
