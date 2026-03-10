@@ -6,8 +6,8 @@ const works = await getCollection("works", ({ data }) => {
   const isDev = import.meta.env.DEV;
   return data.draft !== true || isDev;
 });
-const sortedWorks = works.sort((first, second) =>
-  first.data.order > second.data.order ? 1 : -1,
+const sortedWorks = works.sort(
+  (a, b) => a.data.order > b.data.order ? 1 : -1
 );
 ---
 
