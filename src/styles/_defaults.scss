@@ -1,4 +1,5 @@
 @use "_variables" as *;
+@use "sass:color";
 
 html {
   position: relative;
@@ -39,7 +40,6 @@ body.dark .astro-code span {
 
 a {
   color: $template-color-accent;
-
   &:hover {
     filter: brightness(0.85);
   }
@@ -65,7 +65,6 @@ h4,
 h5,
 h6 {
   font-family: $template-header-font;
-
   a {
     text-decoration: none;
     color: $template-color-opposing;
@@ -110,7 +109,7 @@ blockquote {
   a {
     margin: 5px;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
+    transition: scale 0.2s ease-in-out;
     display: inline-block;
 
     &:hover {
@@ -119,6 +118,7 @@ blockquote {
   }
 }
 
+/* Code block formatting */
 pre {
   background-color: $template-color-code-block;
   padding: 20px;
@@ -131,6 +131,7 @@ pre {
   width: auto;
 }
 
+/* Carbon HTML styling */
 #wcb #wcb_g {
   color: $template-color-accent !important;
   background-color: $template-color !important;
@@ -143,6 +144,7 @@ pre {
   color: $template-color !important;
 }
 
+/* Keyboard HTML object styling */
 kbd {
   display: inline-block;
   padding: 4px;
@@ -154,4 +156,13 @@ kbd {
   border-bottom-color: $template-color-accent !important;
   border-radius: 6px;
   box-shadow: inset 0 -1px 0 $template-color-accent !important;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 1px solid color-mix(in lch, var(--template-color-accent) 50%, black);
+  box-shadow: 0 0 0 3px color-mix(in lch, var(--template-color-accent) 50%, black);
 }

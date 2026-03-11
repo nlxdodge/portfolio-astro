@@ -68,7 +68,7 @@ const sortedWorks = works.sort(
       .glide__bullet {
         position: relative;
         background-color: $template-color-accent;
-        @include transition(all 0.2s ease-in-out);
+        transition: all 0.2s ease-in-out;
         margin: 0 10px;
         width: 24px;
         height: 24px;
@@ -78,7 +78,7 @@ const sortedWorks = works.sort(
         &:focus {
           cursor: pointer;
           filter: brightness(0.5);
-          @include transition(all 0.2s ease-in-out);
+          transition: all 0.2s ease-in-out;
           background-color: $template-color-accent;
         }
 
@@ -93,12 +93,12 @@ const sortedWorks = works.sort(
           border-radius: 100%;
           background-color: $template-color-accent;
           filter: opacity(0);
-          @include transition(all 0.2s ease-in-out);
+          transition: all 0.2s ease-in-out;
         }
 
         &.glide__bullet--active div {
           filter: opacity(0.5);
-          @include transition(all 0.2s ease-in-out);
+          transition: all 0.2s ease-in-out;
         }
       }
     }
