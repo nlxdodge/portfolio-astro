@@ -6,8 +6,8 @@ const works = await getCollection("works", ({ data }) => {
   const isDev = import.meta.env.DEV;
   return data.draft !== true || isDev;
 });
-const sortedWorks = works.sort(
-  (a, b) => a.data.order > b.data.order ? 1 : -1
+const sortedWorks = works.sort((a, b) =>
+  a.data.order > b.data.order ? 1 : -1,
 );
 ---
 
@@ -96,7 +96,7 @@ const sortedWorks = works.sort(
           transition: all 0.2s ease-in-out;
         }
 
-        &.glide__bullet--active div {
+        &.glide__bullet--active {
           filter: opacity(0.5);
           transition: all 0.2s ease-in-out;
         }

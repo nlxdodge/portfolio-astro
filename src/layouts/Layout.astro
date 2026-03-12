@@ -47,7 +47,13 @@ import MinimalAnalytics from "../components/MinimalAnalytics.astro";
 
       // list of all supported colors
       function getRandomColor() {
-        return pickRandomFromArray(["orange", "purple", "cyan", "green", "blue"]);
+        return pickRandomFromArray([
+          "orange",
+          "purple",
+          "cyan",
+          "green",
+          "blue",
+        ]);
       }
 
       // clear the current color, set the new color and update body class
@@ -76,5 +82,9 @@ import MinimalAnalytics from "../components/MinimalAnalytics.astro";
     </script>
     <!-- Google Analytics -->
     <MinimalAnalytics id="G-01E73RLVK8" />
+    <style is:global lang="scss">
+      // this is a hack so that the globals.scss file is getting loaded in all components
+      // then the pre-processor applies it to all sub-components that have individual styling
+    </style>
   </body>
 </html>
