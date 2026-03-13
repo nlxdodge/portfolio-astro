@@ -131,16 +131,9 @@ pre {
 }
 
 /* Carbon HTML styling */
-#wcb #wcb_g {
-  color: $template-color-accent !important;
-  background-color: $template-color !important;
-  border-color: $template-color-accent !important;
-}
-
-#wcb #wcb_a {
-  background-color: $template-color-accent !important;
-  border-color: $template-color-accent !important;
-  color: $template-color !important;
+#wcb.carbonbadge {
+ --b1: $template-color-accent !important;
+ --b2: $template-color-accent !important;
 }
 
 /* Keyboard HTML object styling */
