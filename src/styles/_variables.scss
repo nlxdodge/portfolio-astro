@@ -5,15 +5,15 @@
   --template-color-code-block: #555555;
 
   .green {
-    --template-color-accent: #f6f7c4;
-  }
-
-  .cyan {
     --template-color-accent: #a1eebd;
   }
 
-  .orange {
+  .pink {
     --template-color-accent: #ff90bc;
+  }
+
+  .orange {
+    --template-color-accent: #ffc53a;
   }
 
   .purple {
@@ -30,15 +30,15 @@
     --template-color-code-block: #eeeeee;
 
     &.green {
-      --template-color-accent: #036806;
+      --template-color-accent: #006400;
     }
 
-    &.cyan {
-      --template-color-accent: #03616f;
+    &.pink {
+      --template-color-accent: #e0218a;
     }
 
     &.orange {
-      --template-color-accent: #894700;
+      --template-color-accent: #964b00;
     }
 
     &.purple {
@@ -46,7 +46,7 @@
     }
 
     &.blue {
-      --template-color-accent: #0d4654;
+      --template-color-accent: #0047ab;
     }
   }
 }
