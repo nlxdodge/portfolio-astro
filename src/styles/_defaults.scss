@@ -93,13 +93,6 @@ blockquote {
   text-align: center;
 }
 
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
 .pagination {
   text-align: center;
   font-size: 1.5em;
@@ -130,13 +123,11 @@ pre {
   width: auto;
 }
 
-/* Carbon HTML styling */
 #wcb.carbonbadge {
   --b1: var(--template-color-accent) !important;
   --b2: var(--template-color-accent) !important;
 }
 
-/* Keyboard HTML object styling */
 kbd {
   display: inline-block;
   padding: 4px;
