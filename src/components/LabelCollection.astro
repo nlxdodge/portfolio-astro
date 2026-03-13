@@ -11,17 +11,27 @@ const { name, labels } = Astro.props;
 
 <div class="label-collection">
   {name && <p>{name}</p>}
-  {labels.map((label) => <Label>{label}</Label>)}
+  <div class="label-collection-labels">
+    {labels.map((label) => <Label>{label}</Label>)}
+  </div>
 </div>
 
 <style lang="scss">
   .label-collection {
     margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+
     p {
       display: inline-block;
       font-size: 1.2rem;
       font-weight: bold;
-      margin: 0 15px 0 0;
+      margin: 5px 15px 15px 0;
+      min-width: 100px;
     }
   }
 </style>
