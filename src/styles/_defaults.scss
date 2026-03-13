@@ -132,8 +132,8 @@ pre {
 
 /* Carbon HTML styling */
 #wcb.carbonbadge {
- --b1: $template-color-accent !important;
- --b2: $template-color-accent !important;
+  --b1: var(--template-color-accent) !important;
+  --b2: var(--template-color-accent) !important;
 }
 
 /* Keyboard HTML object styling */
@@ -156,5 +156,6 @@ kbd {
 
 :focus-visible {
   outline: 1px solid color-mix(in lch, var(--template-color-accent) 50%, black);
-  box-shadow: 0 0 0 3px color-mix(in lch, var(--template-color-accent) 50%, black);
+  box-shadow: 0 0 0 3px
+    color-mix(in lch, var(--template-color-accent) 50%, black);
 }
