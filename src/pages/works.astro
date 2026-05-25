@@ -20,7 +20,7 @@ const sortedWorks = works.sort((first, second) =>
   <div class="works">
     {
       sortedWorks.map((work) => (
-        <a class="work" href={`/works/${work.slug}`}>
+        <a class="work" href={`/works/${work.id}`}>
           <Image
             src={work.data.image as ImageMetadata}
             width="505"

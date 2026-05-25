@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Banner from "../../components/Banner.astro";
 import Label from "../../components/Label.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -7,7 +7,7 @@ import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   return posts.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { id: entry.id },
     props: { entry },
   }));
 }
@@ -16,7 +16,7 @@ var date = new Date();
 date.setFullYear(date.getFullYear() - 2);
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Layout

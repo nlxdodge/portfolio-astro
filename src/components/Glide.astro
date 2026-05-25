@@ -17,7 +17,7 @@ const sortedWorks = works.sort((a, b) =>
       {
         sortedWorks.map((work) => (
           <li class="glide__slide">
-            <a href={`/works/${work.slug}`}>
+            <a href={`/works/${work.id}`}>
               <Image
                 src={work.data.image as ImageMetadata}
                 alt={work.data.image_alt}
