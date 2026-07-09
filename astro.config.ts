@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import partytown from "@astrojs/partytown";
 import remarkToc from "remark-toc";
-import purgecss from "astro-purgecss";
 import icon from "astro-icon";
 import compress from "@playform/compress";
 
@@ -27,7 +26,6 @@ export default defineConfig({
     }),
     partytown(),
     compress(),
-    purgecss(),
   ],
   vite: {
     css: {
