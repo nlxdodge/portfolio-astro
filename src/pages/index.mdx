@@ -4,11 +4,11 @@ description: Welcome to my humble site, you can find all sorts of informational 
 tags: Gerben Veenhof, portfolio, works, posts, backend
 ---
 
-import Layout from "../layouts/Layout.astro";
-import Glide from "../components/Glide.astro";
-import LabelCollection from "../components/LabelCollection.astro";
 import Button from "../components/Button.astro";
 import FlexCenter from "../components/FlexCenter.astro";
+import Glide from "../components/Glide.astro";
+import LabelCollection from "../components/LabelCollection.astro";
+import Layout from "../layouts/Layout.astro";
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
 
@@ -39,14 +39,13 @@ The best thing is to check my to see where I have worked before with more detail
 - <LabelCollection
     name="Backend:"
     labels={[
-      "Java ",
+      "Java",
       "JavaScript/TypeScript",
-      "Kafka",
       "Spring",
+      "OAS",
+      "Kafka",
       "Service Discovery",
-      "Avro Schemas's",
-      "OAS/Swagger",
-      "Python",
+      "Avro",
       "Rust",
       "Kotlin",
       "Ruby",
@@ -55,21 +54,23 @@ The best thing is to check my to see where I have worked before with more detail
   />
 - <LabelCollection
     name="Databases:"
-    labels={["Cassandra", "Postgres", "SQL (MariaDB)"]}
+    labels={["Cassandra", "Postgres", "MariaDB"]}
   />
-- <LabelCollection name="Cloud:" labels={["OpenShift", "Azure", "AWS"]} />
+- <LabelCollection name="Cloud:" labels={["OpenShift", "AWS"]} />
 - <LabelCollection
     name="Frontend:"
-    labels={["Astro", "Vue", "PNPM/NPM/Yarn", "Angular"]}
+    labels={["Astro", "Vue", "PNPM", "Angular"]}
   />
 - <LabelCollection
     name="Tooling:"
     labels={[
-      "Intellij IDEA",
-      "Docker & Compose",
-      "Bruno & Postman",
-      "Package management (maven/cargo/npm/brew etc.)",
-      "VSCode & Zed",
+      "Intellij",
+      "Docker",
+      "Bruno",
+      "Maven",
+      "Gradle",
+      "Pnpm",
+      "VSCode",
       "Traefik",
       "DBeaver",
       "Bash",
@@ -81,6 +82,7 @@ The best thing is to check my to see where I have worked before with more detail
     labels={[
         "A helping hand no matter the question",
         "PR reviews with actual good feedback",
+        "Using Co-pilot, but also helping others",
         "CVE management",
         "Scrummaster on rotation",
         "Incident management",
