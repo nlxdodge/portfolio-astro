@@ -19,6 +19,6 @@ const { Content } = await render(entry);
   description={entry.data.description}
 >
   <h1>{entry.data.title}</h1>
-  {entry.data.tags.map((tag) => <Label>{tag}</Label>)}
+  {entry.data.tags?.map((tag) => <Label>{tag}</Label>)}
   <Content />
 </Layout>
