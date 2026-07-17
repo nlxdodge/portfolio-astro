@@ -6,7 +6,7 @@ export interface Props {
 const { id } = Astro.props;
 ---
 
-<script type="text/partytown" define:vars={{ id }} defer>
+<script is:inline type="text/partytown" define:vars={{ id }} defer>
   (function (a, b, c) {
     var d = a.history,
       e = document,
