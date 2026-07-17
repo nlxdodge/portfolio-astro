@@ -1,2 +1,9 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  inotify: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - astro@7.1.0
 onlyBuiltDependencies:
   - sharp
