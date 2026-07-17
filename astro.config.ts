@@ -1,12 +1,13 @@
+import { unified } from "@astrojs/markdown-remark";
+import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
+import sitemap from "@astrojs/sitemap";
+import compress from "@playform/compress";
+import icon from "astro-icon";
+import robotsTxt from "astro-robots-txt";
 import { defineConfig, sharpImageService } from "astro/config";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import robotsTxt from "astro-robots-txt";
-import partytown from "@astrojs/partytown";
 import remarkToc from "remark-toc";
-import icon from "astro-icon";
-import compress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,8 +41,10 @@ export default defineConfig({
     service: sharpImageService(),
   },
   markdown: {
-    remarkPlugins: [remarkToc],
-    rehypePlugins: [rehypeAccessibleEmojis as any],
+    processor: unified({
+      remarkPlugins: [remarkToc],
+      rehypePlugins: [rehypeAccessibleEmojis as any],
+    }),
   },
   redirects: {
     "/posts": "/posts/1",
