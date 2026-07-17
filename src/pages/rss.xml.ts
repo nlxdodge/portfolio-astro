@@ -12,13 +12,16 @@ const sortedPosts = posts.sort((first, second) =>
 );
 
 export const GET: APIRoute = async ({ site }) => {
+  if (!site) {
+    throw new Error("Missing site configuration");
+  }
   return rss({
     title: "Gerben Veenhof",
     description: "My programming and coding odyssey",
     site: site,
     items: sortedPosts.map((post) => ({
       title: post.data.title,
-      link: `/post/${post.slug}/`,
+      link: `/post/${post.id}/`,
       pubDate: post.data.date,
       description: post.data.description,
     })),
