@@ -5,7 +5,7 @@ import Label from "../../components/Label.astro";
 import Layout from "../../layouts/Layout.astro";
 import type { Page, GetStaticPaths } from "astro";
 
-export const getStaticPaths: GetStaticPaths = async({ paginate }) => {
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const posts = await getCollection("posts", ({ data }) => {
     const isDev = import.meta.env.DEV;
     return data.draft !== true || isDev;
@@ -16,17 +16,17 @@ export const getStaticPaths: GetStaticPaths = async({ paginate }) => {
   return paginate(sortedPosts, {
     pageSize: 5,
   });
-}
+};
 
 const { page } = Astro.props as {
-   page: Page<CollectionEntry<"posts">>
-}
+  page: Page<CollectionEntry<"posts">>;
+};
 const posts = await getCollection("posts", ({ data }) => {
   const isDev = import.meta.env.DEV;
   return data.draft !== true || isDev;
 });
 const allTags = posts.flatMap((p) => p.data.tags);
-let tagCounts = allTags.reduce((acc:Record<string, number>, tag:string) => {
+let tagCounts = allTags.reduce((acc: Record<string, number>, tag: string) => {
   acc[tag] = (acc[tag] || 0) + 1;
   return acc;
 }, {});

@@ -7,7 +7,7 @@ const posts = await getCollection("posts", ({ data }) => {
   return data.draft !== true || isDev;
 });
 
-const sortedPosts = posts.sort((first, second) =>
+const sortedPosts = posts.toSorted((first, second) =>
   first.data.date < second.data.date ? 1 : -1,
 );
 

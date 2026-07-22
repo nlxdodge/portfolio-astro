@@ -6,7 +6,7 @@ import Layout from "../../../layouts/Layout.astro";
 import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 
-export const getStaticPaths: GetStaticPaths = async({ paginate }) => {
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const posts = await getCollection("posts", ({ data }) => {
     const isDev = import.meta.env.DEV;
     return data.draft !== true || isDev;
@@ -27,11 +27,11 @@ export const getStaticPaths: GetStaticPaths = async({ paginate }) => {
       pageSize: 5,
     });
   });
-}
+};
 
 const { page } = Astro.props as {
-   page: Page<CollectionEntry<"posts">>
-}
+  page: Page<CollectionEntry<"posts">>;
+};
 const some = page.url.current.slice(7);
 const currentTag = some.slice(0, some.length - 2);
 const currentTagUpperCase =
