@@ -8,13 +8,13 @@ import robotsTxt from "astro-robots-txt";
 import { defineConfig, sharpImageService } from "astro/config";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import remarkToc from "remark-toc";
+import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://gerbenveenhof.nl/",
   integrations: [
     icon(),
-    sitemap(),
     robotsTxt(),
     mdx({
       shikiConfig: {
@@ -25,6 +25,11 @@ export default defineConfig({
         },
       },
     }),
+    mermaid({
+      theme: 'forest',
+      autoTheme: true
+    }),
+    sitemap(),
     partytown(),
     compress(),
   ],

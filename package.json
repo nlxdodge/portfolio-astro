@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "check": "npx astro check",
+    "images:convert": "node scripts/convert-images.ts",
     "build": "astro check && astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
     "build-win": "astro check && astro build && npx pagefind --site dist && copy /dist/pagefind /public",
     "format": "prettier --write .",
@@ -14,15 +15,17 @@
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.1",
     "@glidejs/glide": "^3.7.1",
-    "dev": "^0.1.5"
+    "astro-mermaid": "^2.1.0",
+    "dev": "^0.1.5",
+    "mermaid": "^11.16.0"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.10",
     "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "^7.0.3",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/ts-plugin": "^1.10.10",
     "@iconify-json/arcticons": "^1.2.56",
     "@iconify-json/eva": "^1.2.3",
     "@iconify-json/mdi": "^1.2.3",
@@ -35,6 +38,7 @@
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^1.1.0",
+    "glob": "^13.0.6",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
@@ -45,5 +49,5 @@
     "svgo": "^4.0.2",
     "typescript": "^5.9.2"
   },
-  "packageManager": "pnpm@11.13.1+sha512.b2fc7683b8a6525414e7d13e1ba28caaddde96bf66ec540bfaeb7e702b81f3e0be4d1f295edf7f9fe0396740a8dce4509c582ddf79891f4543fea32d37645f25"
+  "packageManager": "pnpm@11.15.1+sha512.81350b07e53c9538a02f1f2303b4290fa2d7be04e56e2a970c4cc4b417dc761de196edabd49d55c7dc9580db81007c44143e4e3d7e462b3000d23c255122d065"
 }
