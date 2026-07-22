@@ -1,0 +1,177 @@
+---
+title: Deploying with Kubernetes ☸️
+author: Gerben Veenhof
+description: I have used OpenShift for a while now, and know the concepts, but I have never set up a cluster or did anything from scratch, time to change that!
+tags:
+  - Kubernetes
+  - Kind
+  - Minikube
+  - Podman
+  - OpenShift
+  - MKCert
+  - Bruno
+  - K9s
+date: 2026-07-17
+---
+
+import Button from "../../components/Button.astro";
+import FlexCenter from "../../components/FlexCenter.astro";
+
+## Contents
+
+When I was released from my current customer and started looking for a new one, I had set two goals.
+One of those two was to learn Kubernetes, or at least, more than just clicking though a user interface and not knowing anything about the configuration or what happens under the hood.
+
+I have checked the configuration once to see how the HorizontalAutoPodScaler setup works, because we where changing to using that instead of a set amount of pods.
+But to go a bit deeper I wanted to find out and learn a bit more. So I grabbed an older project I made for work, made a Dockerfile and docker-compose.yml and got that fully working again.
+Then I started working on getting everything in Kubernetes. Starting with how I want to run Kubernetes...
+
+There are lots of options:
+
+- Kubernetes
+- Kind
+- Minikube
+- K3s
+- OpenShift
+
+And way more, which I all had to do a little bit of research on, because I have never even heard of most of these options. But I wanted to learn, so I first chose for Kind since it was recommended for easily working locally with containers.
+But after starting with Kind and getting everything working one of my colleagues gave the recommendation for Minikube instead, and honestly that was easier to setup in the end.
+For Kind I had to make a lot of specific changes in order to get everything working. Minikube work straight out of the box and I could delete most of my custom configuration which was required to get Kind working.
+
+One of the problems I faced with Kind was that it normally doesn't come with a loadbalancer, you have to then or use portforwarding manually
+or install something like MetalLB (Metal Load Balancer), which is more things to install, figure out and maintain.
+Not that Minikube did that better, you still need to run a command to port forward all services, but it now takes the ports from the services themselves and exposes the same ports.
+So just a single command for everything (as developing should be easy not hard).
+
+Some caveats I found for Minikube specifically, where that if you are using Podman instead of Docker, then you need to initialize the cluster with:
+
+```bash
+minikube start --driver=podman
+```
+
+## Building the API
+
+Another difference between Kind and Minikube was the image building/loading. I had a hard time trying to import an already build image into Kind.
+Eventually I fixed it by making it a tar and importing that tar file again.
+For Kind you can build the image locally in Podman first, then do:
+
+```bash
+docker save fact-check-api:latest -o fact-check-api.tar
+kind load image-archive fact-check-api.tar --name fact-check
+```
+
+For Minikube you can build the image straight into Minikube with:
+
+```bash
+minikube image build -t fact-check-api:latest .
+```
+
+## Routing with Traefik
+
+Also getting Traefik installed on both Kind and Minikube was just a couple commands away. I wanted to isolate this from my main application and make this available cluster wide.
+So it's beset to put this in a custom namespace for that reason.
+I am also using the new way of setting up routing with Gateways and HTTPRoutes, which also need to be installed seperatly.
+
+```bash
+kubectl create namespace traefik
+helm repo add traefik https://traefik.github.io/charts
+helm repo update
+# This version might get updated, please check!
+kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.5.1/standard-install.yaml
+helm install traefik traefik/traefik --namespace traefik --set providers.kubernetesGateway.enabled=true
+```
+
+Then in a new terminal aside from the one that you are using run:
+
+```bash
+minikube tunnel
+```
+To open the ports which applications use for requests (This is, because we are running Kubernetes though other containers which are not on the same network stack).
+
+## Setting up certificates/SSL
+
+Is also a lot easier with MKCert, I was blown away with how easy this was. After installing mkcert as dependency itself we do:
+
+```bash
+cd kubernetes/certificates
+mkcert -install
+mkcert fact-check-api.local
+kubectl create secret tls fact-check-api-tls --cert=fact-check-api.local.pem --key=fact-check-api.local-key.pem -n traefik
+```
+
+Normally you generate certificates only on you own machine, so you should put these files in your `.gitignore` file in some way, I put them in the certificates folder under kubernetes with a `.gitignore` in the same directory with `*.pem`.
+Then to install the Certificate Authority so Windows trusts it (except Firefox, because Firefox doesn't use the system store. Which is a good thing normally, but not in this case).
+
+Also on Windows, don't forget to add the domain to your own local routing file.
+Open a terminal with administrator rights and use `notepad C:\Windows\System32\drivers\etc\hosts` to make changes more easily.
+
+```hosts
+127.0.0.1 fact-check-api.local
+```
+
+## Setting up all Kubernetes resources
+
+Last thing remaining is to deploy all resources and check if everything is good to go.
+
+```bash
+kubectl apply -R -f .\kubernetes\
+```
+
+I have a folder structure like this, but there is not really a default way as far as I understood. You can pretty print this with `tree /f`
+
+```
+/kubernetes
+│ README.md
+│
+├─certificates
+│   .gitignore
+│   fact-check-api.local-key.pem
+│   fact-check-api.local.pem
+│
+├─fact-check
+│   │ fact-check-namespace.yml
+│   │
+│   ├─api
+│   │   fact-check-api-deployment.yml
+│   │   fact-check-api-http-route.yml
+│   │   fact-check-api-service.yml
+│   │
+│   └─db
+│       fuseki-data-configmap.yml
+│       fuseki-deployment.yml
+│       fuseki-init-configmap.yml
+│       fuseki-secret.yml
+│       fuseki-service.yml
+│
+└─traefik
+      gateway.yml
+```
+
+## Testing with Bruno
+
+Which is an application like Postman, but then for you local machine, not cloud only.
+
+## Other interesting topics related to Kubernetes
+
+## Dockerfile/docker-compose.yml
+
+You already know the debate of which one to use. That's fine.
+But still files I have seen are always saved as a `Dockerfile`. 
+I also found out that `Containerfile` is now a more generic option, which should work with both Docker & Podman and other container tools.
+
+Another things is the `docker-compose.yml`, also for this you can just call your file `compose.yml` (or `.yaml`) and it will be picked up by all tools as well. 
+So you can forget about the Docker naming schemes.
+
+### Keda
+
+I am continuing with learning more and more, for example I have already used the HorizontalAutoPodScaler, but I didn't know that we can also scale using events.
+In particular for Kafka, but there is a lot of event busses supported for [KEDA](https://keda.sh/) (Kubernetes Event-Driven Autoscaling). I never even heard of this.
+But to be fair we also never have had any use for this, as we scale with CPU usage for pods. Not events for now, but we don't have lots of input Kafka topics. Mostly only outgoing.
+In payments, they can come at any time, but if most of them are set to execute tomorrow, then it will be easier to run all of them at night just afer 12, because then the traffic is at
+its lowest it could be.
+
+### K9s
+
+[K9s](https://k9scli.io/) is a fast way to easily search and query your kubernetes cluster specific node in the CLI, rather than heving to click though some interface which was haphazerdly build.
+Although things like [Headlamp](https://headlamp.dev/) exist, which also looks very nice, for a developer on your local machine, just a quick peek with the CLI is enough.
+And with Minikube every time a new token needs to be made, which is cumbersome, and with k9s you don't need to do that.
