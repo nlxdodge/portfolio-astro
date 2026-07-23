@@ -7,7 +7,7 @@
     "check": "npx astro check",
     "images:convert": "node scripts/convert-images.ts",
     "build": "astro check && astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
-    "build-win": "astro check && astro build && npx pagefind --site dist && copy /dist/pagefind /public",
+    "build-win": "astro check && astro build && npx pagefind --site dist && copy dist/pagefind /public",
     "format": "prettier --write .",
     "preview": "pnpm run build && astro preview",
     "astro": "astro"
