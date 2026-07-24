@@ -4,12 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "check": "npx astro check",
+    "check": "astro check",
     "images:convert": "node scripts/convert-images.ts",
-    "build": "astro check && astro build && npx pagefind --site dist && cp -r dist/pagefind public/",
-    "build-win": "astro check && astro build && npx pagefind --site dist && copy dist/pagefind /public",
+    "build": "astro check && astro build && npx pagefind --site dist && cpy 'dist/pagefind/**' public/pagefind/",
     "format": "prettier --write .",
-    "preview": "pnpm run build && astro preview",
+    "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
@@ -38,16 +37,17 @@
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^1.1.0",
+    "cpy-cli": "^7.0.0",
     "glob": "^13.0.6",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "rehype-accessible-emojis": "^0.3.2",
     "remark-toc": "^9.0.0",
-    "sass": "^1.101.3",
+    "sass": "^1.101.6",
     "sharp": "^0.35.3",
     "svgo": "^4.0.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@11.15.1+sha512.81350b07e53c9538a02f1f2303b4290fa2d7be04e56e2a970c4cc4b417dc761de196edabd49d55c7dc9580db81007c44143e4e3d7e462b3000d23c255122d065"
+  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72"
 }
