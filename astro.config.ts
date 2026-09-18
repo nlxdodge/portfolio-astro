@@ -60,7 +60,4 @@ export default defineConfig({
       rehypePlugins: [rehypeAccessibleEmojis as any],
     }),
   },
-  redirects: {
-    "/posts": "/posts/1",
-  },
 });
