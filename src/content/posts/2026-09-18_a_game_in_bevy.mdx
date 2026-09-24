@@ -1,0 +1,40 @@
+---
+title: A game in Bevy ☸️
+author: Gerben Veenhof
+description: I had the chance to join a Game Jam in the current company that I work for so I decided it was time to try something new. But this time with Rust & Bevy!
+tags:
+  - Rust
+  - Bevy
+  - Avian2d
+  - Cargo
+  - Zed
+date: 2026-07-17
+draft: true
+---
+
+import Button from "../../components/Button.astro";
+import FlexCenter from "../../components/FlexCenter.astro";
+
+I have signed up for the Fragments of Infinity Game Jam from my company that I work for and wanted to partake with Rust & Bevy. To see how far I can go with the new engine on the block. The Game Jam had different themes on how to score points.
+
+I made an initial draft of what I wanted to build in two to three days. And had a solid gameplay loop for re-playability. You basically have to escape from the ever growing abyss which is growlingly flooding into the drilling space, you are a dwarf working on a drill platform in the middle of the ocean. But something happend and angered the Abyss.
+
+I have some intrest in Rust and found out that there was already a game engine made, called [Bevy](https://bevy.org/). So, I choose to pick this engine and deep dive into this in the two weeks that I got.
+
+I checked the initial documentation and made a schaffolding to quickly start out with the project. I first invisioned to make this completly in 3D. I downloaded [Blender](https://www.blender.org/) and watch a video to get started on moddeling. But after the midway check-in for the Game Jam I found out it was going to take to much time.
+
+I then switched to 2D and found some nice tools to work with to generate art and help my workflow.
+
+- Free* [OpenCode.ai](https://opencode.ai/download) (AI via the terminal) which I used in conjunction to learn and on the final days to complete they games. I was very impressed of how hands of the models that they have can be. Which can be found at [Models.dev](https://models.dev/models) and use this model only on the Medium setting [Muse Spark 1.3](https://models.dev/models/meta/muse-spark-1.3/).
+- Free* [AI text to image generator](https://perchance.org/ai-text-to-image-generator) to generate proof of concept art, which I used as final art because of time constraints.
+- Free* [Background remover (local)](https://resizeimage.io/background-remover) which runs with JavaScript/WebAssembly right on your own machine, so this takes away some manual work trying to make the generated images background free.
+
+* (It could be that in time the tools are not existing anymore, or they are now paid only).
+
+When making the game I needed to use some things like physics, particles, logging, making the level, debugging, packaging and more.
+
+I first checked out the Physics engines and landed on [Avian2D](https://github.com/avianphysics/avian). Where I used the 3D version at first, but the 2D one also works great. I had to get up to speed with how to do the Physics but from the examples from TODO and TODO it was not to hard to figure out.
+
+But before doing that I had to get the Bevy Basics under my belt. I had to found out what an (the Bevy also uses this) [ECS system](https://en.wikipedia.org/wiki/Entity_component_system) was, as I never heard of this concept before. And Bevy exclusively used this, I used [this](https://bevy.org/learn/quick-start/getting-started/ecs/) to learn as well how it's being implemented in Rust. Although the Query and Single useage was still a bit alienating, it's fine now.  
+
+After learning the basics from the Bevy website I found some others with helpful documentation and examples. 
