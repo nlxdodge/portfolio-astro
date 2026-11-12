@@ -1,0 +1,2 @@
+# Use the Astro-generated 404 page for missing routes
+ErrorDocument 404 /404.html
