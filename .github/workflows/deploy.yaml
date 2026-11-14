@@ -10,31 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy
     steps:
-      - uses: actions/checkout@v3
-      - name: Install latest pnpm
-        uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v7
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
       - name: Install latest LTS Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "lts/*"
           cache: "pnpm"
-      - name: Cache pnpm dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
       - name: Generate production build
         run: pnpm run build
       - name: Deploy files to production environment
-        uses: sebastianpopp/ftp-action@releases/v2
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          host: ${{ secrets.FTP_DOMAIN }}
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_DOMAIN }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "./dist"
-          remoteDir: "./public_html"
-          options: "--parallel=4 --only-newer"
+          local-dir: "./dist/"
+          server-dir: "/"
